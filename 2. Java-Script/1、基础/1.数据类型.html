@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据类型</title>
+    <style>
+        td {
+            height: 35px;
+            line-height: 35px;
+        }
+        tr td:nth-child(1) {
+            width: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>常见的数据类型</h2>
+    <table border="1" cellspacing="0" cellpadding="0">
+        <tr>
+            <th>数字型</th><th></th>
+        </tr>
+        <tr>
+            <td>八进制</td><td>程序里面数字前面加0表示八进制,012 = 十进制10</td>
+        </tr>
+        <tr>
+            <td>十六进制</td><td>数字的前面加0x表示十六进制,0x12 = 十进制18</td>
+        </tr>
+        <tr>
+            <td>Number.MAX_VALUE</td><td>最大值：1.7976931348 623157e+308</td>
+        </tr>
+        <tr>
+            <td>Number_MIN_VALUE</td><td>最小值：5e-324</td>
+        </tr>
+        <tr>
+            <td>isNaN（）</td><td>判断非数字，并且返回一个值，如果是数字返回 false，如果不是数字则返回 true</td>
+        </tr>
+        <tr>
+            <th>字符型</th><th></th>
+        </tr>
+        <tr>
+            <td>length</td><td>检测字符串长度（变量名 . length）</td>
+        </tr>
+        <tr>
+            <td>+</td><td>字符串的拼接</td>
+        </tr>
+        <tr>
+            <th>布尔型</th><th></th>
+        </tr>
+        <tr>
+            <td>false</td><td>参与加法运算当0来看</td>
+        </tr>
+        <tr>
+            <td>true</td><td>参与加法运算当1来看</td>
+        </tr>
+        <tr>
+        <tr>
+            <th>typeof()</th><th>检测数据类型</th>
+        </tr>
+        <tr>
+            <td></td><td></td>
+        </tr>
+        <tr>
+            <th>数据类型转换</th><th></th>
+        </tr>
+        <tr>
+            <td>数字转字符串</td><th>1. 变量名 . toString( )<br>2. String(变量名)</th>
+        </tr>
+        <tr>
+            <td>转换成数值型</td><th>1. parseInt(变量名) （整数）<br>2. parseFloat(变量名) （小数/浮点数）<br>Number(变量名) （强制转换）</th>
+        </tr>
+        <tr>
+            <td>转换成数值型</td><td> - * 利用算数运算（隐式转换）</td>
+        </tr>
+        <tr>
+            <td>转换布尔型</td><th>Boolean( )</th>
+        </tr>
+            <th>结果</th><th></th>
+        </tr>
+        <tr>
+            <td>undefined</td><td>为赋值，未定义</td>
+        </tr>
+        <tr>
+            <td>null</td><td>空值（算法当中加上任何数都等于它本身）</td>
+        </tr>
+        <tr>
+            <td>Infinity</td><td>无穷大</td>
+        </tr>
+        <tr>
+            <td>-Infinity</td><td>无穷小</td>
+        </tr>
+        <tr>
+            <td>NaN</td><td>代表一个非数值值(Not a number)</td>
+        </tr>
+    </table>
+</body>
+</html>

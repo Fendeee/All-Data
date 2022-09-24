@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>删除事件</title>
+    <style>
+        div {
+            margin: 10px 0;
+            width: 100px; height: 100px;
+            background-color: pink;
+            text-align: center;
+            line-height: 100px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div>传统注册方式</div>
+    <div>高级注册方式</div>
+    <h1>删除事件 下次点击解绑</h1>
+    <p>1.传统注册方式  删除事件 ———— 变量 . onclick = null;</p>
+    <p>2.高级注册方式  删除事件 ———— 变量 . removeEventListener（'事件', 函数名）</p>
+    <p></p>
+    <script>
+        var divs = document.querySelectorAll('div');
+        divs[0].onclick = function() {
+            alert('传统方式解绑');
+            divs[0].onclick = null;                       /* 传统方式解绑 */
+        }
+        divs[1].addEventListener('click', Del);           /* 函数外置 */
+        function Del() {
+            alert('高级方式解绑');
+            divs[1].removeEventListener('click', Del);    /* 高级方式解绑 */
+        };
+    </script>
+</body>
+</html>

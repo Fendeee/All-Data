@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绑定css样式</title>
+    <script src="./js/vue.js"></script>
+    <style>
+        .box {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .btn1 {
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .btn2 {
+            background-color: tomato;
+            border: tomato;
+            color: #FFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <!-- FenDi: 绑定 class -->
+        <button class="btn1" :class="a" @click="btn">绑定class样式</button>
+        <!-- FenDi: 绑定 style -->
+        <h3 class="H" :style="styleObj">芬迪</h3>
+        <input type="text" @keyup="key" placeholder="请输入字体大小..."><br>
+        <button @click="n++">加 {{n}}</button>
+        <button @click="n--">减 {{n}}</button><br>
+        <span v-show="n>=1">v-show隐藏</span><br>
+        <span v-show="n>=2">v-show隐藏</span><br>
+        <span v-if="n>=3">v-if隐藏</span>
+    </div>
+
+    <script>
+        // @@@  绑定class
+        const vm = new Vue({
+            el: '.box',
+            data: {
+                a: '',
+                n: 0,
+                styleObj: {
+                    fontSize: "20px",
+                },
+            },
+            methods: {
+                btn(){
+                    this.a = 'btn2'
+                    console.log('ok');
+                },
+                key(e){
+                    this.styleObj.fontSize = e.target.value + 'px'
+                }
+            },
+        })
+    </script>
+</body>
+</html>

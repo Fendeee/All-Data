@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义指令_函数式</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div class="root">
+        <h1>自定义指令_函数式</h1>
+        <h3>n当前的值： {{n}}</h3><!--FenDi: v-big 自定义指令 -->
+        <h3>n放大10倍后的值： <span v-big="n"></span></h3>
+        <button @click="n++">点击n+1</button>
+    </div>
+
+    <script>
+        new Vue({
+            el: '.root',
+            data: {
+                n: 1,
+            },
+            directives: {
+                // FenDi: big处理函数
+                big(element, binding){                          
+                    // *!* element所在的元素   binding绑定的信息
+                    element.innerHTML = binding.value * 10
+                }
+            }
+        })
+    </script>
+</body>
+</html>

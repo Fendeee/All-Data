@@ -1,0 +1,375 @@
+/* 2.快捷导航栏 */
+    div.shortcut {
+        position: relative;
+        margin: 0 auto;
+        width: 85%; height: 90px;
+    }
+    /* 中心导航 */
+    div.shortcut ul {
+        position: absolute;
+        width: 55%; height: 100%;
+        margin-left: 250px;
+    }
+    div.shortcut li {
+        float: left;
+        margin-right: 19px;
+        font-size: 17px;
+        line-height: 100px;
+    }
+    div.shortcut ul li i {
+        color: #333;
+        transition: all 0.3s ease 0s;
+    }
+    div.shortcut ul li i:hover {
+        color: #ff6700;
+        text-shadow: 3px 3px 10px rgba(0,0,0,0.4);
+        margin-top: 10px;
+        cursor: pointer;
+    }
+        /* \\\\中心导航\\\\ */
+    /* logo */
+    div.logo  {
+        position: absolute;
+        overflow: hidden;
+        width: 60px; height: 60px;
+        margin-top: 20px;
+        border-radius: 25px;
+        transition: all 0.3s ease 0s;
+    }
+    div.logo img{
+        width: 100%; height: 100%;
+        transition: all 0.3s ease 0s;
+    }
+    div.logo:hover {
+        transform: translateY(-7px);
+        box-shadow: 0px 1px 15px 1px rgba(0,0,0,0.4);
+    }
+    div.logo:hover img {
+        transform: scale(1.15);
+    }
+        /* \\logo\\ */
+    /* 搜索框 */
+    div.search {
+        float: right;
+        margin-top: 25px;
+        width: 300px; height: 50px;
+        z-index: -999;
+    }
+        /* span-left */
+    div.search span.left {
+        float: left;
+        padding-left: 10px;
+        width: 250px; height: 50px;
+    }
+        /* span_right */
+    div.search span.right {
+        float: right;
+        width: 50px; height: 50px;
+    }
+                /* search */
+    div.search span.left input {
+        width: 100%; height: 100%;
+        border: 1px solid #ccc;
+        border-right: 0px;
+    }
+                /* submit */
+    div.search span.right input {
+        width: 100%; height: 100%;
+        border: 1px solid #ccc;
+        transition: all .5s ease 0s;
+    }
+        /* 转换hover */
+    div.search span.right input:hover {
+        background-color: #ff6700;
+    }
+          /* \\\搜索框\\\ */
+       /* 隐藏模块 */
+          /* 共同属性 */
+            div.hide_box {
+                position: absolute;
+                top: 100px;
+                z-index: 9;
+                width: 277.35%; height: 0px;
+                left: -100%;
+                transition: all 0.5s ease 0s;
+                color: pink;
+            }
+            div.hide_box ul.hide_ul {
+                position: absolute;
+                top: -1px;
+                left: 122px;
+                width: 72.1%; height: 100.5%;
+            }
+          /* \\ 共同属性 \\ */
+                /* Xiaomi手机 */
+            div.shortcut ul li i.hide_1:hover .hide_box {
+                height: 220px;
+                border-top: 1px solid #ccc;
+                background-color: olive;
+            }
+                /* Redmi红米 */
+            div.shortcut ul li i.hide_2:hover .hide_box {
+                height: 220px;
+                border-top: 1px solid #ccc;
+                background-color: tomato;
+            }
+                /* 电视 */
+            div.shortcut ul li i.hide_3:hover .hide_box {
+                height: 220px;
+                border-top: 1px solid #ccc;
+                background-color: yellowgreen;
+            }
+                /* 笔记本 */
+            div.shortcut ul li i.hide_4:hover .hide_box {
+                height: 220px;
+                border-top: 1px solid #ccc;
+                background-color: brown;
+            }
+                /* 平板 */
+            div.shortcut ul li i.hide_5:hover .hide_box {
+                height: 220px;
+                border-top: 1px solid #ccc;
+                background-color: teal;
+            }
+                /* 家电 */
+            div.shortcut ul li i.hide_6:hover .hide_box {
+                height: 220px;
+                border-top: 1px solid #ccc;
+                background-color: burlywood;
+            }
+                /* 路由器 */
+            div.shortcut ul li i.hide_7:hover .hide_box {
+                height: 220px;
+                border-top: 1px solid #ccc;
+                background-color:seagreen;
+            }
+                /* 服务 */
+            div.shortcut ul li i.hide_8:hover .hide_box {
+                height: 220px;
+                border-top: 1px solid #ccc;
+                background-color: purple;
+            }
+                /* 社区 */
+            div.shortcut ul li i.hide_9:hover .hide_box {
+                height: 220px;
+                border-top: 1px solid #ccc;
+                background-color: slategray;
+            }
+                /* \\\隐藏模块\\\ */
+    /* \\\\快捷导航栏\\\\ */
+/* 版心1 */
+    div.banner_one {
+        z-index: 1;
+        position: relative;
+        width: 85%; height: 100%;
+        margin: 10px auto;
+    }
+     /* 大背景块goods */
+    div.goods {
+        width: 100%; height: 460px;
+    }
+    /* 左侧导航栏 */
+    div.goods ul.dropdown {
+        position: absolute;
+        left: 0px;
+        width: 20%; height: 69.2%;
+        background: rgba(105,101,101,0.6);
+        padding: 20px 0px 20px 0px;
+    }
+    div.goods ul.dropdown a.text {
+        display: inline-block;
+        padding-left: 30px;
+        width: 100%; height: 42px;
+        font-size: 15px;
+        color: #FFFFFF;
+        line-height: 42px;
+    }
+    div.goods ul li a.text:hover {
+        color: #FFFFFF;
+        background-color: #ff6700;
+    }
+    div.goods ul li a.text::after {
+        content: "";
+        float: right;
+        margin-right: 20px;
+        line-height: 38px;
+        font-size: 20px;
+        color: #FFF;
+    }
+       /* \\\左侧导航栏\\\ */
+    /* img小箭头box */
+    div.goods div.boult_box {
+        position: absolute;
+        top: 30%;
+        right: 0px;
+        width: 80%; height: 60px;
+    }
+    div.boult_box div[class^="boult"] {
+        width: 35px; height: 100%;
+        text-align: center;
+        font-size: 30px;
+        color: #b0b0b0;
+        line-height: 65px;
+    }
+    /* 左箭头 */
+    div.boult_left { float: left; }
+    div.boult_left::before { content: ""; }
+    div.boult_left:hover {
+        background-color: rgba(0,0,0,0.5);
+    }
+    div.boult_left:hover::before {
+        color: #fff;
+    }
+    /* 右箭头 */
+    div.boult_right { float: right; }
+    div.boult_right::before { content: ""; }
+    div.boult_right:hover {
+        background-color: rgba(0,0,0,0.5);
+    }
+    div.boult_right:hover::before {
+        color: #fff;
+    }
+        /* \\\img小箭头box\\\ */
+    /* 底部导航栏——footer_nav */
+    div.banner_one_footer_nav {
+        margin-top: 15px;
+        margin-bottom: 25px;
+        width: 100%; height: 190px;
+    }
+            /* course */
+    div.banner_one_footer_nav .course {
+        float : left;
+        width: 20%; height: 100%;
+    }
+            /* box */
+    div.banner_one_footer_nav .box {
+        width: 100%; height: 100%;
+    }
+    div.banner_one_footer_nav .box {
+        float: left;
+        width: 20%; height: 100%;
+        background-color: steelblue;
+    }
+    div.banner_one_footer_nav a {
+        float: right;
+        margin-left: 15px;
+        width: 312.9px; height: 100%;
+        transition: all 0.5s ease 0s;
+    }
+    div.banner_one_footer_nav a:hover {
+        transform: translateY(-7px);
+        box-shadow: 0px 1px 15px 1px rgba(0,0,0,0.4)
+    }
+        /* 底部导航栏——footer_nav */
+/* \\\\ 版心1 \\\\ */
+/* 版心2 */
+    div.banner_two {
+        padding-top: 25px;
+        width: 100%; height: 100%;
+        background-color: #F5F5F5;
+    }
+            /* 标题文字-公共样式 */
+    div.banner_two .text {
+        margin: 15px auto;
+        width: 85%; height: 60px;
+        line-height: 75px;
+    }
+    div.banner_two .text i {
+        float: left;
+        font-size: 25px;
+        font-weight: 200;
+    }
+    div.banner_two .text a {
+        float: right;
+        color: #333;
+        font-size: 15px;
+    }
+    div.banner_two .text a:hover {
+        color: #FF6700;
+    }
+    div.banner_two .text a:after {
+        content: "\f5c1";
+        font-size: 13px;
+        font-weight: 600;
+    }
+                /* \\标题文字-公共样式\\ */
+        /* header图片 */
+    div.banner_two .header_img {
+        margin: 0 auto;
+        width: 85%; height: 100px;
+    }
+            /* \\header图片\\ */
+    /* 楼层区 */
+    div.floor_1 {
+        margin: 0 auto;
+        width: 85%; height: 600px;
+    }
+        /* floor_1_left */
+    div.floor_1 .floor_left {
+        float: left;
+        width: 20%; height: 100%;
+        background-color: #FFFFFF;
+        transition: all 0.5s ease 0s;
+    }
+    div.floor_1 .floor_left:hover {
+        transform: translateY(-7px);
+        box-shadow: 0px 1px 15px 1px rgba(0,0,0,0.4)
+    }
+        /* floor_1_right */
+    div.floor_1 .floor_right {
+        float: right;
+        width: calc(80% - 15px); height: 100%;
+    }
+    div.floor_1 .floor_right li a {
+        float: left;
+        width: 230.9px; height: 292.6px;
+        background-color: #FFFFFF;
+        transition: all .5s ease 0s;
+    }
+    div.floor_1 .floor_right li a.void { margin-right: 15px; }
+    div.floor_1 .floor_right li a.bottom { margin-top: 15px; }
+    div.floor_1 .floor_right li a:hover {
+        transform: translateY(-7px);
+        box-shadow: 0px 1px 15px 1px rgba(0,0,0,0.4)
+    }
+        /* img_box */
+    div.floor_1 .floor_right li a .img_box {
+        overflow: hidden;
+        margin: 10px auto;
+        width: 160px; height: 160px;
+    }
+        /* img:hover */
+        div.floor_1 .floor_right .img_box img {
+            transition: all .5s ease 0s;
+        }
+        div.floor_1 .floor_right li:hover img {
+            transform: scale(1.1);
+        }
+            /* text */
+    div.floor_1 .floor_right li a h3 {
+        margin-top: 10px;
+        font-weight: 400;
+        font-size: 14px;
+        color: #333;
+        text-align: center;
+    }
+    div.floor_1 .floor_right li a h3 p {
+        padding: 0 20px;
+        margin-top: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 12px;
+        font-weight: 400;
+        color: #b0b0b0;
+    }
+    div.floor_1 .floor_right li a p {
+        margin-top: 15px;
+        text-align: center;
+        color: #FF6700;
+        font-size: 16px;
+    }
+    div.floor_1 .floor_right li a p del { color: #b0b0b0; }
+        /* \\楼层区\\ */
+
+    /* \\\版心2\\\ */

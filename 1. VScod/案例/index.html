@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a { text-decoration: none; }
+        i,em { font-style: normal; }
+    /* 总板块 */
+        div.box {
+            width: 280px; height: 360px;
+            border: 1px solid red;
+            margin: 100px auto;
+            transition: all .5s ease 0s;
+        }
+        div.box:hover {
+            margin-top: 80px;
+            box-shadow: 0px 6px 15px 5px rgba(0,0,0,0.4);
+        }
+        /* img-box */
+        div.img {
+            width: 200px; height: 200px;
+            margin: 5px auto;
+        }
+        /* img */
+        img { width: 100%; height: 100%; }
+    /* h3 */
+        h3:nth-of-type(1) {
+            font-size: 14px; color: #999999;
+            font-weight: 400;
+            text-align: center;
+        }
+        h3:nth-of-type(2) {
+            font-size: 20px; color: #BB2815;
+            margin: 10px 58.5px;
+            padding: 0px;
+        }
+        /* del */
+        del {
+            font-size: 10px; color: #b0b0b0;
+            font-weight: 400;
+        }
+        /* p */
+        p {
+            font-size: 12px; color: #333;
+            text-align: center;
+            margin-top: 5px;
+        }
+    /* 过渡 */
+        div.GD-box {
+            width: 210px; height: 15px;
+            margin: -2px auto;
+            position: relative;
+        }
+        div.GD-in {
+            width: 48%; height: 10px;
+            border: 1px solid #FF5346;
+            border-radius: 5px;
+            position: absolute;
+            top: 50%;
+            margin-top: -4.5px;
+            left: 50%;
+            margin-left: -52px;
+            box-sizing: border-box;
+        }
+        div.GD-out {
+            width: 60%; height: 95%;
+            background-color: #FF5445;
+            border-radius: 100px;
+            transition: all .5s ease 0s;
+        }
+        div.GD-in:hover .GD-out {
+            width: 100%;
+            background-color: yellowgreen;
+        }
+        /*  */
+        div.GD-box p {
+            font-size: 10px;
+            line-height: 6px;
+        }
+        .GD-box p:nth-of-type(1) { float: left; }
+        .GD-box p:nth-of-type(2) { float: right; }
+        i {color: #BB2815;}
+
+        a.ent h3 {
+            width: 210px; height: 35px;
+            background-color: #BA2815;
+            margin: 10px auto;
+            font-size: 18px;
+            color: #F5F5F5;
+            line-height: 33px;
+            position: relative;
+            transition: background-color .5s ease 0s;
+        }
+        a.ent h3:hover {
+            box-shadow: 0px 6px 15px 5px rgba(0,0,0,0.2);
+            background-color: yellowgreen;
+        }
+    /* 透明遮罩层 */
+        a.ent h3::before {
+            content: "";
+            width: 100%; height: 100%;
+            display: none;
+            position: absolute;
+            top: 0; left: 0;
+            background-color: rgba(0,0,0,0.2);
+        }
+        a.ent h3:active::before { display: block; }
+        /*  */
+    </style>
+</head>
+<body>
+    <div class="box">
+        <!-- img -->
+        <div class="img">
+            <img src="./list.png" alt="">
+        </div>
+        <!-- 字体 -->
+        <h3>小米电视6 65"OLED"</h3>
+        <p>OLED自发光屏 | 百万级对比度</p>
+        <h3>
+            $6088
+            <del>$6988</del>
+        </h3>
+        <!-- 过渡 -->
+        <div class="GD-box">
+            <p>已售<i>60%</i></p>
+            <div class="GD-in">
+                <div class="GD-out"></div>
+            </div>
+            <p>剩余<i>99</i>件</p>
+        </div>
+        <a href="#" class="ent" target="_bank">
+            <h3>立即抢购</h3>
+        </a>
+    </div>
+</body>
+</html>

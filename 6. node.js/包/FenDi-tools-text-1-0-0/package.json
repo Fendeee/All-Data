@@ -1,0 +1,8 @@
+{
+    "name": "tools-text-1-0-0",
+    "version": "1.0.0",
+    "main": "index.js",
+    "description": "提供了一个新的包",
+    "keywords": ["FenDi-tools-text-1-0-0"],
+    "license": "ISC"
+}

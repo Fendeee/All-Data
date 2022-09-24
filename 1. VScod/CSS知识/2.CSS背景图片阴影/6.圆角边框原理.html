@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圆角边框</title>
+    <style>
+        .div-px p {padding: 30px;}
+        .div-px {
+            width: 300px; height: 150px;
+            background-color: tomato; display: inline-block;
+            margin: 50px auto;
+            /* px圆角设置 */
+            border-radius: 100px;
+        }
+        .div-bf p {padding: 50px;}
+        .div-bf {
+            width: 300px; height: 150px; display: inline-block;
+            background-color: tomato;
+            margin: 50px auto;
+            /* %圆角设置 */
+            border-radius: 50%;
+        }
+        .div-jiao p {padding: 50px;}
+        .div-jiao {width: 300px; height: 150px; display: inline-block;
+            background-color: tomato;
+            margin: 50px auto;
+            /* 设置四个角 */
+            border-radius: 10px 20px 30px 40px ;
+        }
+        .div-yijiao {
+            width: 300px; height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="div-px">
+        <p>border-radius:属性用于设置元素的外边框圆角<br>
+            语法：border-radius: 数值 ;</p>
+    </div>
+    <div class="div-bf">
+        <p>50%就是宽度和高度的一半等价 于100px</p>
+    </div>
+    <div class="div-jiao">
+        <p>border-radius:0 0 0 0;也可设置不同样的四个角</p>
+    </div>
+    <div class="div-yijiao">
+        <p>通过left/right/top/bottom属性课单独设置一角</p>
+    </div>
+</body>
+</html>

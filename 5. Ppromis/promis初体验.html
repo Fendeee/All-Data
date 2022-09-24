@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise初体验</title>
+    <style>
+        h3 {
+            margin: 50px 150px 20px;
+            font-size: 30px;
+            border-bottom: 1px #999999 solid;
+        }
+        button {
+            padding: 5px 10px;
+            margin: 0 150px;
+            background-color: skyblue;
+            border: 0;
+            border-radius: 15px;
+            font-weight: bolder;
+        }
+        button:active {
+            transform: scale(0.9);;
+        }
+        ul {
+            margin: 50px 125px;
+        }
+    </style>
+</head>
+<body>
+    <h3>Promise初体验</h3>
+    <button>点击体验</button>
+    <ul>
+        <li>基本使用： const p = new Promise((resolve, reject)=>{ resolve(返回值); reject(返回值); });</li>
+        <li>调用then方法： p.then((value)=>{成功结果}，(reason)=>{失败结果});</li>
+    </ul>
+
+    <script>
+        let btn = document.querySelector('button');
+
+        function rand(min,max){
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        btn.addEventListener('click', function(){
+            const p = new Promise((resolve, reject)=>{
+                setTimeout(()=>{
+                    let num = rand(0, 100);
+                    if(num < 30){
+                        resolve(num);     /* 将 promise 对象的状态设置为 【成功】 返回 num值 */
+                    } else {
+                        reject(num);      /* 将 promise 对象的状态设置为 【失败】 返回 num值 */
+                    }
+                },500);
+            });
+
+            // 调用 then 方法
+            p.then((value)=>{
+                alert('恭喜抽到的数值小于 30！ 您的值 = '+value );      /* 成功返回 */
+            }, (reason)=>{
+                alert('再接再厉！ 您的值为 '+reason);            /* 失败返回 */
+            });
+        });
+    </script>
+</body>
+</html>

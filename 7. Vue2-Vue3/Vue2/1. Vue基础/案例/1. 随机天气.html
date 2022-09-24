@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天气点击案例</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        .box {
+            padding: 0 10px;
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px; height: 150px;
+            box-shadow: 5px 5px 15px 1px #999999;
+            border-radius: 10px;
+            letter-spacing: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>今天天气很 {{name}}</h2>
+        <button @click="chick">点击切换天气</button>
+        <button @click="numbers.a++">点击 ++</button>
+        <button @click="numbers.a--">点击 --</button>
+        <h3>{{numbers.a}}</h3>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '.box',
+            data: {
+                name: '???',
+                numbers: {
+                    a: 1
+                }
+            },
+            methods: {
+                chick(){
+                    const arr = [`凉爽！`, `炎热！`, `天晴！`, `阴雨!`, `大风！`]
+                    let random = Math.floor(Math.random() * (arr.length-1 - 0) + 0)
+                    this.name = arr[random]
+                }
+            },
+            watch: {
+                name: {
+                    immediate: true,                                      /* 立即执行，初始化让handler调用一次 */
+                    handler(newValue, oldValue){                          /*!* 属性发送变化时触发 *!*/
+                        console.log('name 被修改了！','new：'+newValue, 'old：'+oldValue);
+                    }
+                },
+                numbers: {
+                    deep: true,                                            /* 监视多级结构中所有的属性变化 */
+                    handler(){
+                        console.log('发生了变化');
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

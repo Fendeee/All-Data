@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D转换</title>
+    <style>
+        body {
+            /* 透视写在被观察元素的父盒子上面 */
+            perspective: 1000px;
+        }
+
+        div.img {
+            margin: 10px auto;
+            width: 170px; height: 100px;
+            transition: all 1s;
+        }
+        div.img:hover {
+            transform: rotateY(60deg);
+        }
+        img { width: 100%; height: 100%; }
+    </style>
+</head>
+<body>
+    <h3>3维坐标系(立体空间)</h3>
+    <p>
+        可分开选写<br>
+        x轴:水平向右注意: x右边是正值,左边是负值<br>
+        y轴:垂直向下注意: y下面是正值，上面是负值<br>
+        z轴:垂直屏幕注意:往外面是正值,往里面是负值
+    </p>
+    <h3>3D位移：transform:translate3d(x,y,z)</h3>
+    <p>单位px，xyz不能省略，可为0，加上透视才可看见z轴效果</p>
+    <h3>3D旋转：transform:rotate3d(x,y,z,deg)</h3>
+    <p>
+        单位deg<br>
+    </p>
+        <div class="img">
+            <img src="./list.png" alt="">
+        </div>
+        
+    <h3>透视:perspective</h3>
+    <h4>透视写在被观察元素的父盒子上面</h4>
+    <h3>3D呈现:transform-style</h3>
+    <p>控制子元素是否开启三维立体环境。<br>
+        transform-style: flat子元素不开启3d立体空间默认的<br>
+        transform-style: preserve-3d;子元素开启立体空间<br>
+        代码写给父级,但是影响的是子盒子<br>
+        这个属性很重要,后面必用
+    </p>
+
+</body>
+</html>

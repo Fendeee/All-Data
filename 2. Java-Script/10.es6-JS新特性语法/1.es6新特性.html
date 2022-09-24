@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新特性、新语法</title>
+    <style>
+        table {
+            border-collapse:collapse;
+        }
+        th,td {
+            padding: 5px 10px;
+        }
+        li {
+            width: 50px; height: 20px;
+            border: 1px #333 solid;
+        }
+        .be {
+            background-color: rgba(0, 128, 128, 0.114);
+            color: #333;
+        }
+        div {
+            position: absolute;
+            top: 30%; left: 10px;
+            width: 100px; height: 100px;
+            background-color: pink;
+        }
+        .two {
+            background-color: rgba(128, 19, 0, 0.754);
+            color: #FFF;
+        }
+    </style>
+</head>
+<body>
+    <h1>新特性、新语法</h1>
+    <p><strong>throw</strong> 语句用来抛出一个用户自定义的异常。当前函数的执行将被停止（throw之后的语句将不会执行）</p>
+    <table border="1" cellspacing="0" cellpadding="0" align="center">
+        <tr style="background-color: teal; color: #FFF;">
+            <th></th><th>新语法</th><th>说明</th><th>块级作用域：只在 <strong>{</strong> 里面有效 <strong>}</strong></th>
+        </tr>
+        <tr>
+            <td>1.</td><td class="two">let</td><td>声明变量</td><td>同一个变量不能重复声明，———— 块级作用域</td>
+        </tr>
+        <tr>
+            <td>2.</td><td class="two">const</td><td>声明常量</td><td>一定要赋值，<strong>不能修改</strong>，一般常量使用<strong>大写</strong>， —— 块级作用域</td>
+        </tr>
+        <tr>
+            <td></td><td class="be" colspan="4" style="font-size: 12px;">数组赋值结构：<strong>const F = ['red','pink','blue','green']；let [a,b,c,d] = F；（a,b,c,d 指向 F 的下标0,1,2,3）</strong><br>console.log(a) = console.log(F[0]) = console.log('red')</td>
+        </tr>
+        <tr>
+            <td>3.</td><td class="two"><strong>` `</strong></td><td>引入字符串</td><td>可以换行，变量的拼接，<strong>`${ 变量 }字符串`</strong></td>
+        </tr>
+        <tr>
+            <td></td><td class="be" colspan="4" style="font-size: 12px;">变量拼接：let name = 'FenDi'; let text = <strong>`${ name }是好样的`;</strong> = FenDi是好样的</td>
+        </tr>
+        <tr>
+            <td>4.</td><td class="two" colspan="2" style="text-align: center;">对象简化</td><td>对象里的函数可简化成：<strong>变量名( ) { }</strong> = 变量名: function( ) { }</td>
+        </tr>
+        <tr style="background-color: teal; color: #FFF;">
+            <th></th><th colspan="2">箭头函数</th><th>适合与 this 无关的回调函数&nbsp;&nbsp;&nbsp;<small style="font-weight: 200; font-size: 12px;">适合：定时器、数组的方法回调</small></th>
+        </tr>
+        <tr>
+            <td>5.</td><td class="two" colspan="2" style="font-size: 14px;">
+                <strong>let fn = ( 形参 ) => { };</strong>
+            </td>
+        </tr>
+        <tr>
+            <td></td><td class="be" colspan="4" style="font-size: 12px;">
+                （1）箭头函数：this 是静态的，this 始终指向函数声明时所在作用域下的 this ， 不包含其他局部作用域<br>
+                （2）不能作为构造实例化对象<br>
+                （3）不能使用 <strong>arguments</strong> 变量 —— （保存实参）<br>
+                （4）当形参只有一个的时候（）可以省略：<strong>let fn = 形参a => { }</strong><br>
+                （5）当代码体只有一条的时候 { } 可以省略：<strong>let fn = (n) => n+n;</strong>&nbsp;&nbsp;&nbsp;return必须省略 ！！<br>
+                （6）不适合：事件回调，对象的方法
+            </td>
+        </tr>
+        <tr>
+            <td>6.</td><td class="two" colspan="2" style="text-align: center;">函数参数默认值</td><td>当传过来的实参 小于 形参时，可设置形参默认值</td>
+        </tr>
+        <tr>
+            <td></td><td class="be" colspan="4" style="font-size: 12px;">
+                function fn(a, b, <strong style="color: red;">c=5</strong>) { return: a+b+c };&nbsp;&nbsp;&nbsp;————&nbsp;&nbsp;&nbsp;设置 c 默认值
+                <br>
+                let result = add(1, 2);&nbsp;&nbsp;&nbsp;———— &nbsp;&nbsp;&nbsp; 实参 &lt; 形参
+            </td>
+        </tr>
+        <tr>
+            <td>7.</td><td class="two">rest</td><td>获取函数实参</td><td>...args 返回数组，arguments 返回对象，必须放到形参最后一个</td>
+        </tr>
+        <tr>
+            <td></td><td class="be" colspan="4" style="font-size: 12px;">
+                function date(<strong style="color: red;">...args</strong>) { console.log(<strong style="color: red;">args</strong>) }; date = ('阿娇','柏芝','思慧');
+            </td>
+        </tr>
+        <tr>
+            <td>8.</td><td class="two">. . .</td><td>拓展运算符</td><td>将数组转换为逗号分隔的【参数】</td>
+        </tr>
+        <tr>
+            <td></td><td class="be" colspan="4" style="font-size: 12px;">
+                const arr = ['芬迪','爱','编程'];<br>
+                console.log(<strong style="color: red;">...arr</strong>);&nbsp;&nbsp;&nbsp; === &nbsp;&nbsp;&nbsp;芬迪 爱 编程
+            </td>
+        </tr>
+        <tr>
+            <td>9.</td><td class="two">Symbol</td><td>原始数据类型</td><td>表示<strong style="color: red;">独一无二</strong>的值，不能与其他数据进行计算，不能使用for in</td>
+        </tr>
+        <tr>
+            <td></td><td class="be" colspan="4" style="font-size: 12px;">
+                let s = <strong style="color: red;">Symbol('芬迪')</strong>;&nbsp;&nbsp;&nbsp;-----------------对象使用------ &nbsp;&nbsp;&nbsp;let obj = {<br>
+                console.log(s);&nbsp;&nbsp;&nbsp;===&nbsp;&nbsp;&nbsp;Symbol(芬迪)&nbsp;&nbsp;&nbsp;------对象使用------ &nbsp;&nbsp;&nbsp; name: '芬迪', <br>
+                ------------------------------------------------------------------<strong style="color: red;">[Symbol('FenDi')]</strong> : function() {}
+            </td>
+        </tr>
+        <tr>
+            <td>10.</td><td class="two">for .. of</td><td>迭代器</td><td>es6 新型<strong>自定义</strong>遍历方式</td>
+        </tr>
+        <tr>
+            <td>11.</td><td class="two">function*(){}</td><td>生成器</td><td>特殊的函数，纯回调函数 -- 多用于<strong>异步编程</strong><small>（文件操作、网络操作（ajax、request）、数据库操作）</small></td>
+        </tr>
+        <tr>
+            <td>12.</td><td class="two">Promise</td><td>构造函数</td><td>es6 解决<strong>异步编程</strong>的新方法，返回 成功（value） / 失败（）</td>
+        </tr>
+        <td></td><td class="be" colspan="4" style="font-size: 12px;">
+            const p = new <strong style="color: red;">Promise(</strong>function( resolve, reject ){ }<strong style="color: red;">)</strong>;
+        </td>
+        <tr>
+            <td>13.</td><td class="two">set ()</td><td>集合</td><td>es6 新型数据类型 【object】</td>
+        </tr>
+        <tr>
+            <td></td><td class="be" colspan="4" style="font-size: 12px;">
+                let set = <strong style="color: red;">new Set()</strong>;&nbsp;&nbsp;&nbsp;括号内可放置['数','组','元','素']<br>
+                console.log(set.<strong style="color: red;">size</strong>)：返回元素个数没有重复的;<br>
+                set.<strong style="color: red;">add</strong>('添加元素');<br>
+                set.<strong style="color: red;">delete</strong>('删除元素');<br>
+                set.<strong style="color: red;">has</strong>('检测有无此元素 true / false')<br>
+                set.<strong style="color: red;">clear</strong>('清空元素')<br>
+                <strong style="color: red;">可以用 for of 遍历</strong>
+            </td>
+        </tr>
+        <tr>
+            <td>14.</td><td class="two">Map ()</td><td>升级版的 对象</td><td>”键“的范围不限于字符串，可以使用<strong>扩展运算符</strong>和<strong>for of 遍历</strong></td>
+        </tr>
+        <tr>
+            <td>15.</td><td class="two">class 类</td><td>对象函数</td><td>让对象原型更加清晰</td>
+        </tr>
+        <tr>
+            <td></td><td class="be" colspan="4" style="font-size: 12px;">
+                class 类名{<br>
+                    <strong style="color:red;">constructor</strong>(){<br>
+                        属性
+                    }<br>
+                    方法名(){<br>
+                        代码体
+                    }<br>
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>16.</td><td class="two">Number</td><td>数值拓展</td><td>Number . EPSILON 是Javanese表示的最小精度，<small style="font-size: 12px;">2.2204460492503130808472633361816E-16</small></td>
+        </tr>
+        <tr>
+            <td></td><td class="be" colspan="4" style="font-size: 12px;">
+                1. <strong>Number . isFinite</strong>&nbsp;&nbsp;&nbsp;检测一个数值 是否 有限数<br>
+                2. <strong>Number . isNaN</strong>&nbsp;&nbsp;&nbsp;检测一个数是否为NaN<br>
+                3. <strong>Number . parseInt</strong>&nbsp;&nbsp;&nbsp;字符转换整数<br>
+                4. <strong>Number . parseFloat</strong>&nbsp;&nbsp;&nbsp;字符转换小数<br>
+                5. <strong>Number . isInteger</strong>&nbsp;&nbsp;&nbsp;判断是否为整数<br>
+                6. <strong>Math . trunc</strong>&nbsp;&nbsp;&nbsp;将小数部分抹除<br>
+                7. <strong>Math . sign</strong>&nbsp;&nbsp;&nbsp;判断一个数为正数，负数或者0
+            </td>
+        </tr>
+        <tr>
+            <td>17.</td><td class="two">Object.</td><td>对象方法扩展</td><td>1~3(es6)，4~5(es7)</td>
+        </tr>
+        <tr>
+            <td></td><td class="be" colspan="4" style="font-size: 12px;">
+                1. <strong>Object . is (a, b)</strong>&nbsp;&nbsp;&nbsp;判断两个值是否完全相等<br>
+                2. <strong>Object . assign (obj1, obj2)</strong>&nbsp;&nbsp;&nbsp;对象的合并<br>
+                3. <strong>Object . setPrototypeOf ()</strong>&nbsp;&nbsp;&nbsp;设置原型对象<br>
+                4. <strong>Object. values()</strong>&nbsp;&nbsp;&nbsp;返回一个给定对象的所有可枚举属性值的数组<br>
+                5. <strong>Object. entries</strong>&nbsp;&nbsp;&nbsp;返回一个给定对象自身可遍历属性 [ key, value ] 的数<br>
+            </td>
+        </tr>
+        <tr>
+            <td>18.</td><td class="two">模块化</td><td></td><td>模块化是将一个大的程序文件，拆分成许多小的文件，然后将小文件组合起来</td>
+        </tr>
+        <tr>
+            <td></td><td class="be" colspan="4" style="font-size: 12px;">
+                防止命名冲突 代码复用 高维护性<br>
+                <strong>1. 模块暴露 3个方法</strong><br>
+                (1) export 代码块;<br>
+                (2) export { 变量1, 变量2 };<br>
+                (3) export default { 代码块 }<br>
+                <strong>2. 引入模块数据 3个方法</strong><br>
+                (1) import * as 变量名 form "..文件路径.js";<br>
+                (2) import { 变量名1, 变量名2 } form "..文件路径";<br>
+                (2.2) import { 变量名1 as 别名, 变量名2 } form "..文件路径"; - - - - - 防止变量名冲突<br>
+                (3) import { default as 别名 } form "..文件路径"; - - - - 默认引用<br>
+                放入<strong>&lt;script type="module"&gt; &lt;/script&gt;</strong>或者 JS文件 里面
+            </td>
+        </tr>
+        <tr style="background-color: teal; color: #FFF;">
+            <td></td><td colspan="4">es7（19-20） ~ es8（21-22） ~ es9（23-26） ~ es10 ~ es11</td>
+        </tr>
+        <tr>
+            <td>19.</td><td class="two">includes</td><td>检测数组</td><td>检测数组当中是否存在某个元素，存在返回布尔值类型</td>
+        </tr>
+        <tr>
+            <td></td><td class="be" colspan="4" style="font-size: 12px;">
+                let arr = ['芬迪','检测','355','45'];<br>
+                console.log(arr.<strong>includes</strong>('芬迪'));<br>
+                返回：true
+            </td>
+        </tr>
+        <tr>
+            <td>20.</td><td class="two">* *</td><td>指数操作符</td><td>* * 进行幂运算，功能与<strong>Math . pow</strong>结果相同</td>
+        </tr>
+        <tr>
+            <td></td><td class="be" colspan="4" style="font-size: 12px;">
+                console.log( 2 ** 10);<br>
+                返回 2 的 10 次方：1024
+            </td>
+        </tr>
+        <tr style="background-color: rgba(0, 128, 128, 0.539); color: #FFF;">
+            <td></td><td colspan="3">es8 --- <strong style="color: #333;">async await</strong> 两种语法结合可以让<strong> 异步代码 </strong>像 同步代码 一样</td>
+        </tr>
+        <tr>
+            <td>21.</td><td class="two">async</td><td colspan="2">用来声明一种特殊的函数，返回结果是Promise对象，Promise对象结果由await函数执行返回值决定</td>
+        </tr>
+        <tr>
+            <td></td><td class="be" colspan="4" style="font-size: 12px;">
+                <strong style="color: red;">async</strong> function fn( ) { return '芬迪' }<br>
+                let result = fn();<br>
+                console.log( result );<br>
+                返回结果为：Promise对象
+            </td>
+        </tr>
+        <tr>
+            <td>22.</td><td class="two">await</td><td colspan="2">必须放在<strong>async</strong>函数中，<strong>await</strong>右侧的表达式一般为<strong>Promise对象</strong><br>返回的是<strong>Promise</strong>成功的值，失败了会抛出异常，需要通过 <strong>try...catch</strong> 捕获</td>
+        </tr>
+        <tr style="background-color: rgba(0, 128, 128, 0.539); color: #FFF;">
+            <td></td><td colspan="3">es9 --- <strong style="color: #333;">rest和spread</strong>扩展运算符</td>
+        </tr>
+        <tr>
+            <td>23.</td><td class="two">. . .</td><td>rest获取函数参数</td><td>以数组的形式获取函数的参数，不管传多少都会放到rest里面</td>
+        </tr>
+        <tr>
+            <td></td><td class="be" colspan="4" style="font-size: 12px;">
+                function fn({参数1, 参数2, <strong style="color: red;">...参数3</strong>}){}<br>
+                fn({参数1: '芬迪', 参数2: '检测', 参数3: '芬迪', 参数4: '655'});<br>
+                参数3以后的参数，都会放到<strong style="color: red;">...参数3</strong>里面
+            </td>
+        </tr>
+        <tr>
+            <td></td><td class="be" colspan="4" style="font-size: 12px;">
+                <strong style="color: red;">...</strong>扩展运算符还可以将<strong>对象</strong>参数合并<br>
+                const obj = {...对象1, ...对象2, ...对象3};
+            </td>
+        </tr>
+        <tr>
+            <td>24.</td><td class="two">正则扩展</td><td colspan="2">命名捕获分组</td>
+        </tr>
+        <tr>
+            <td>25.</td><td class="two">正则扩展</td><td colspan="2">反向断言</td>
+        </tr>
+        <tr>
+            <td>26.</td><td class="two">正则扩展</td><td>dotAll模式</td><td><strong style="color: red;">.</strong> （元字符） 除换行符以外的任意单个字符</td>
+        </tr>
+        <tr style="background-color: rgba(0, 128, 128, 0.539); color: #FFF;">
+            <td></td><td colspan="3">es10</td>
+        </tr>
+        <tr>
+            <td>27.</td><td class="two">Object</td><td>对象扩展方法</td><td>里面参数放<strong>二维数组</strong>，或者<strong>map()函数</strong> ---将二维数组转换成对象</td>
+        </tr>
+        <tr>
+            <td></td><td class="be" colspan="4" style="font-size: 12px;">
+                1. const result <strong style="color: red;">Object.fromEntries</strong>([ ['name','芬迪'],['age','18'] ]);
+            </td>
+        </tr>
+        <tr>
+            <td>28.</td><td class="two">trimStart / trimEnd</td><td>字符串方法扩展</td><td>清除字符串前 / 后的空白字符</td>
+        </tr>
+        <tr>
+            <td>29.</td><td class="two">flat / flatMap</td><td>数组方法</td><td>. flat( 1 / 2 ) 可以将多为数组的维度降低 1层 / 2层，flatMap转换成一维</td>
+        </tr>
+        <tr>
+            <td>30.</td><td class="two" colspan="2">Symbol.description</td><td>获取 Symbol 的字符串</td>
+        </tr>
+        <tr style="background-color: rgba(0, 128, 128, 0.539); color: #FFF;">
+            <td></td><td colspan="3">es11 对象私有属性</td>
+        </tr>
+        <tr>
+            <td>31.</td><td class="two">#属性;</td><td>对象私有属性</td><td>不能直接访问，不能出现再类外部</td>
+        </tr>
+        <tr>
+            <td></td><td class="be" colspan="4" style="font-size: 12px;">
+                class Person {<br>
+                    name: '共有属性',<br>
+                    <strong style="color: red;">#</strong> age: '私有属性'
+                <br>}
+            </td>
+        </tr>
+        <tr>
+            <td>31.</td><td class="two">Promise.allSettled</td>
+        </tr>
+        <tr>
+            <td>32.</td><td class="two">BigInt( )</td><td>大整形</td><td>大数值运算，里面不能放浮点型</td>
+        </tr>
+        <tr>
+            <td></td><td class="be" colspan="4" style="font-size: 12px;">
+                let Max = 23765475471;;<br>
+                let Max2 = 73423676862;<br>
+                console.log( BigInt( Max ) + BigInt( Max2 ) );<br>
+                返回结果：97189152333n
+            </td>
+        </tr>
+        <tr>
+            <td>33.</td><td class="two">globalThis</td><td>全局对象</td><td>无论执行环境是什么，This 始终指向全局对象</td>
+        </tr>
+        
+    </table>
+    <div></div>
+
+    <script>
+
+/* 5. 箭头函数使用
+===================== */
+    // (1)
+        let div = document.querySelector('div');
+        div.addEventListener('click', function() {
+            let _this = this;                           /* 本作用域 this 不能放到下面箭头函数当中，需要保存 this 的值 */
+            let timer = setTimeout(()=>{
+            _this.style.backgroundColor = 'teal';       /* 箭头函数下 this 只能指向声明时指向的作用域 */
+            }, 2000);
+        });
+    // (2)
+        const arr = [1,6,8,9,10,100,35];
+        const result = arr.filter(item => item % 2 == 0);
+        /*                          ||                                  */
+                /*      const result = arr.filter(item => {             filter 筛选
+                            if(item % 2 == 0) {
+                                return true;                            为 true 返回结果
+                            } else {
+                                return false;                           为 false 不返回
+                            }
+                        });      */
+
+
+// 8. ... 拓展运算符
+        const str = ['...','拓展运算符','使用'];
+        console.log(...str);
+        console.log(str);
+
+
+// 9. Symbol 数据类型
+        let s = Symbol('芬迪');
+        console.log(s, typeof s);                       /* typeof 获取数据类型 */
+        let obj = {
+            name: '芬迪',
+            [Symbol('say')]: function() {               /* 对象使用 Symbol */
+                console.log('对象使用 Symbol()');
+            }
+        }
+        console.log(obj);
+
+
+// 10. for of 遍历
+        let for_of = ['for','of','自定义遍历'];
+            for (let log of for_of) {                       /* 遍历 值 */
+                console.log(log);
+            }
+        // for (let key in for_of) {                    /* 遍历 索引 */
+        //     console.log(key);
+        // }
+
+        let ad = {
+            name: 'rgg',
+            stye: [
+                'rgd',
+                'gsf',
+                'sgs'
+            ],
+
+            [Symbol.iterator]() {                       /* 自定义遍历 接口 */
+                let index = 0;                          /* 设置 索引变量 */
+                let _this = this;
+                return {
+                    next: function() {
+                        if (index < _this.stye.length) {
+                            const result = {value: _this.stye[index], done: false}
+                            index ++;
+                            return result;
+                        } else {
+                            return {value: undefined, done: true};
+                        }
+                        }
+                    }
+                }                                /* 返回对象 */
+            }
+
+        for (let Log of ad) {
+            console.log(Log);
+        }
+
+
+// 11. 特殊的函数  纯回调函数
+        function * gen() {                      /* 特殊函数 */
+            yield 111;                          /* yield */
+            console.log('迭代器');
+        }
+        let genS = gen();                       /* 获取 迭代器对象 */
+        console.log(genS.next());               /* 返回 yield 后边的语句 */
+        genS.next();                            /* .next()方法 可以传入实参  ！！不能直接调用 */
+
+        // 异步任务 回调地狱
+            function one() {
+                setTimeout(() => {
+                    console.log('111');
+                    iterator.next();            /* 执行下一个函数 */
+                }, 1000)
+            }
+            function two() {
+                setTimeout(() => {
+                    console.log('222');
+                    iterator.next();            /* 执行下一个函数 */
+                }, 2000)
+            }
+            function three() {
+                setTimeout(() => {
+                    console.log('333');
+                    iterator.next();            /* 执行下一个函数 */
+                }, 3000)
+            }
+            function * ganT() {                 /* 生成器 函数 */
+                yield one();                    /* 1 */
+                yield two();                    /* 2 */
+                yield three();                  /* 3 */
+            }
+            let iterator = ganT();              /* 调用 生成器函数 */
+            iterator.next();                    /* 执行 生成器第 1 段代码 */
+
+// 13. set 数据类型
+        let set = new Set(['set','集合','数据','set','类型']);
+        console.log(set);
+        console.log(set.size);
+        set.add('添加');
+    // set.delete('删除');
+    // set.has('检测');
+    //  set.clear('清除');
+    // for(let v of set){      遍历
+    //     console.log(v);
+    // }
+//  arr 去重 再从组数组
+    // let arr = [1,2,3,4,5,4,3,2,1];
+    // let set = [...new Set(arr)];
+    // let arr2 = [5,3,1,5,2,4]
+    
+    // let result = [...new Set(arr)].filter(item=>new Set(arr2).has(item));        两个集合同时拥有的元素
+    // let arr3 = [...new Set([...arr, ...arr2])];                                  两个集合合并的元素
+    // let arr3 = [...new Set(arr)].filter(item=> !new Set(arr2).has(item));        1 有 2 没有的元素
+
+    
+// 15. class  类
+        class leiMing{
+            // 构造方法 constructor ()，当使用  new.类名 就会执行该函数
+            constructor(brand, price) {
+                this.brand = brand;            /* 初始化 */
+                this.price = price;            /* 初始化 */
+            }
+            // 方法                            不能用 es5的写法 ！!= fangFa: function() {}
+            fangFa() {
+                console.log('方法');
+            }
+        }
+        // 实例化
+        let huaWei = new leiMing('HW', '69999');
+        console.log(huaWei);
+
+
+// 18.   es11  动态 import
+        /*      const btn = document.querySelector('button');
+                btn.addEventListener('click', function() {
+                    import('文件路径').then(module => {
+                    });
+                });
+         */
+
+
+// 21 22. async 和 await
+        // 创建 Promise 对象
+        const p = new Promise((resolve, reject)=>{      /* resolve成功，reject失败 */
+            resolve('async 和 await');                  /* 调用 resolve 把对象状态改为成功，通过传参修改它的的值为 async 和 await */
+        });
+    // 如果 Promise 对象成功
+        async function CG() {
+            let result = await p;
+            //
+            console.log(result);
+        }
+        // 调用函数
+        CG();
+    // 如果 Promise 对象失败
+        async function SB() {
+            try {                                       /* try 捕获 */
+                let result = await p;
+                console.log(result);
+            } catch (e) {                               /* catch 得到失败的结果 */
+                console.log(e);
+            }
+        }
+        // 调用函数
+        SB();
+
+
+// 24. 命名捕获分组
+        // 声明一个字符串
+        let str24 = '<a href="http://www.atguigu.com">命名捕获分组</a>';
+        // 提取 url 与 文本标签
+        const reg24 = /<a href="(?<MZ>.*)">(?<text>.*)<\/a>/;
+            // 执行
+            const result24 = reg24.exec(str24);
+            console.log(result24);
+
+// 25. 反向断言         获取 888
+        // 声明字符串
+            let str25 = '255vzh我知道888啦啦啦';
+            const reg25Z = /\d+(?=啦)/                    /* 正向断言 */
+            const result25Z = reg25Z.exec(str25);         /* 执行匹配 */
+            console.log(result25Z);
+            const reg25F = /(?<=道)\d+/                   /* 反向断言 */
+            const result25F = reg25F.exec(str25);
+            console.log(result25F);
+
+// dot . 元字符     提取标签里的文字内容
+                let str26 = `
+                    <ul>
+                        <li>
+                            <a>肖申克的救赎</a>
+                            <p>上映日期：1994-09-10</p>
+                        </li>
+                        <li>
+                            <a>阿甘正传</a>
+                            <p>上映日期：1994-07-06</p>
+                        </li>
+                    </ul>
+                `;
+                // 声明正则         \s 换行符
+                const reg26 = /<li>\s+<a>(.*)<\/a>\s+<p>(.*?)<\/p>/;
+                    // 执行匹配
+                const result26 = reg26.exec(str26);
+                console.log(result26);
+
+
+//  27 二维数组转换成 对象
+                const result27 = Object.fromEntries([
+                    ['name', '芬迪'],
+                    ['age', 18],
+                    ['job', '前端工程师']
+                ]);
+                console.log(result27);
+//  28 字符串 扩展方法
+                let str28 = '   iLoveYou   ';
+                console.log(str28);
+                console.log(str28.trimStart());      /* 清除字符串前的 空白字符  */
+                console.log(str28.trimEnd());        /* 清除字符串后的 空白字符  */
+
+//  29  数组 改变维度
+            // flat 降低维度
+                    const arr29 = [1,2,3,[5,6,[7,8]]];  /* 三维 */
+                    console.log(arr29.flat(1));   /* 降低一个维度，2 降低两个维度 */
+            // flatMap 把 flat 的结果维度降低
+                    const arr29M = [1,2,3,4];
+                    // arr29M 参数全 * 10， flatMap转换成一维
+                    const result29 = arr.flatMap(item => [item * 10]);
+                    console.log(result29);
+
+// Symbol
+                    let s30 = Symbol('获取Symbol字符串');
+                    console.log(s30.description);
+
+    </script>
+    
+</body>
+</html>

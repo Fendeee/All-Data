@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS初始化</title>
+    <style>
+        /* 把所有标签内外边距清零 */
+        /* 或者 html,body,ul,li,ol,dl,dd,dtp,h1,h2,h3,h4.h5,h6,form,fieldset,legend,img{margin:O;padding:0} */
+        * {
+            margin: 0px;
+            padding: 0px;
+            /* CSS3盒子模型，padding值改变内边距不会再扩大盒子 */
+            box-sizing: border-box;
+            /* content-box(传统模型) */
+        }
+        /* em和i斜体文字不倾斜 */
+        em,
+        i {
+            font-style: normal;
+        }
+        /* 去掉li的小圆点 */
+        li {
+            list-style: none;
+        }
+        img {
+            /* border: 0px;照顾低版本浏览器如果图片外面包含了链接会有边框的问题 */
+            border: 0px;
+            /* 取消图片底测有缝隙的问题 */
+            vertical-align: middle;
+        }
+        /* 当鼠标经过时button按钮的时候，鼠标变小手 */
+        button {
+            cursor: pointer;
+        }
+        /* 设置链接初始颜色/取下下划线 */
+        a {
+            text-decoration: none;
+        }
+        body {
+            /* CSS3 抗锯齿让文字显示更清晰 */
+            -webkit-font-smoothing: antialiased;
+            /* 12px字体大小，1.5倍行高    字体 */
+            font: 12px/1.5 Microsoft Yahei;
+        }
+        /* 表单搜索框初始化 */
+        input {
+            /* 去掉鼠标点击搜索框后的边框颜色和大小 */
+            outline: none;
+        }
+        /* 清楚浮动（伪类链接＋:after） */
+        :after {
+            visibility: hidden;
+            clear: both;
+            display: block;
+            content: ".";
+            height: 0;
+        }
+    </style>
+</head>
+<body>
+    Unicode编码字体：
+    黑体：\9ED1\4F53
+    宋体：\5B8B\4F53
+    微软雅黑：\5FAE\8F6F\96C5\9ED1
+</body>
+</html>

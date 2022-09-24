@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高级事件/对象</title>
+    <style>
+        table.first {
+            position: absolute;
+            top: 1px;
+            left: 60%; transform: translateX(-50%);
+            background-color: pink;
+            border-collapse:collapse;
+            cursor: pointer;
+        }
+        th,td {
+            padding: 5px 15px;
+            text-align: center;
+        }
+        .chenga {
+            background-color: rgb(255, 96, 122);
+            color: #fff;
+            font-weight: 400;
+        }
+
+        table.secnd {
+            position: absolute;
+            left: 60%;
+            bottom: -10px;
+            background-color: pink;
+        }
+        .secnd th,td {
+            padding: 2px 5px;
+        }
+        div.box {
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 200px; height: 200px;
+            background-color: pink;
+        }
+        .son1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 150px; height: 150px;
+            background-color: teal;
+        }
+        .son2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px; height: 100px;
+            background-color: tomato;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="margin: 0 auto;">高级事件导读</h1>
+        <h2 style="font-weight: 400;">方法监听注册方式：&nbsp;&nbsp;&nbsp;一个变量可绑定多个事件</h2>
+        <ul>
+            <li>w3c 推荐方法</li>
+            <li>addEventListener( )他是一个方法</li>
+            <li>IE9 之前的 IE 不支持，可使用attachEvent( )代替</li>
+        </ul>
+    
+    <h4>传统注册方式</h4>
+    <ul>
+        <li>利用on开头的事件onclick</li>
+        <li>&lt;button onclick="alter('hi~')"&gt;&lt;/button&gt;</li>
+        <li>btn.onclick = function( ) { }</li>
+        <li>特点：注册事件的唯一性，</br> 同一个元素同一个时间只能设置一个处理函数，</br> 最后注册的处理函数将会覆盖前面的注册处理函数</li>
+    </ul>
+    <table align="center" border="1" cellspacing="0" cellpadding="0" class="first">
+        <tr>
+            <th>方法监听注册方式：</th><th>事件监听方式（不加on）</th>
+        </tr>
+        <tr>
+            <th class="chenga" colspan="2" style="font-size: 15px; padding: 0px; ">变量.addEventListener(' 参数 ', function(对象) { 函数 }, 可选参数)</th><th>function 内置</th>
+        </tr>
+        <tr>
+            <th class="chenga" colspan="2" style="font-size: 15x; padding: 0px;">变量.addEventListener(' 参数 ',函数名, 可选参数) <br> function 函数名(对象) { 函数 }</th><th>function 外置函数调用</th>
+        </tr>
+        <tr>
+            <td>参数：type事件类型字符串，比如：</td><td>click、mouseover、mouseout、focus、blur、mousemove、mouseup、mousedown</td>
+        </tr>
+        <tr>
+            <td>参数：listener</td><td>事件处理函数，事件发生时<br>会调用该监听函数</td>
+        </tr>
+        <tr>
+            <td>参数：useCapture</td><td>可选参数，是一个布尔值，默认false</td>
+        </tr>
+        <tr style="background-color: rgb(201, 97, 114); color: #fff;">
+            <td>对象 . target</td><td>返回的是触发时间的对象（元素）</td>
+        </tr>
+        <tr style="background-color: rgb(201, 97, 114); color: #fff;">
+            <td>this</td><td>返回的是绑定事件的对象（元素）</td>
+        </tr>
+    </table>
+    <h1>DOM事件流</h1>
+    <p>事件发生时会在元素节点之间按照特定的顺序传播</p>
+    <ul>
+        <li>1.捕获阶段 &nbsp;&nbsp;&nbsp;Document--->Element html--->Element body---><strong>Element div</strong></li>
+        <li>2.当前目标阶段 &nbsp;&nbsp;&nbsp;<strong>Element div</strong></li>
+        <li>3.冒泡阶段 &nbsp;&nbsp;&nbsp;<strong>Element div</strong>>--->Element body--->Element html--->Document</li>
+    </ul>
+    <h3>JS只能执行捕获或者冒泡一个阶段</h3>
+    <p>&nbsp;&nbsp;&nbsp;<ins>onclick</ins> / <ins>attachEvent</ins> 只能得到捕获阶段</p>
+    <p>&nbsp;&nbsp;&nbsp;<ins><strong>addEventListener{type, function(){}, true / false}</strong></ins> 第三个参数如果是true，表示在事件捕获阶段调用程序，<br>如果是（默认）false， 表示事件在冒泡阶段调用事件处理程序</p>
+    <h2>事件对象 <small style="font-weight: 200;">函数function( 对象 )</small></h2>
+    <ul>
+        <li>1. <strong>event / evt / e</strong> 事件对象，写到侦听函数的小括号里，当形参，可打印</li>
+        <li>2. 事件对象只有有了事件才会存在，他是系统自动给我们创建的，不需要我们传递形参</li>
+        <li>3. 事件对象是我们事件一系列相关数据的集合，跟事件相关，比如鼠标点击里面就包含了鼠标的相关信息</li>
+    </ul>
+    <table align="center" border="1" cellspacing="0" cellpadding="0" class="secnd">
+        <tr>
+            <th>事件对象属性方法</th><th>说明</th><th></th>
+        </tr>
+        <tr>
+            <td>e . target</td><td>返回触发事件的对象</td><td>标准</td>
+        </tr>
+        <tr>
+            <td>e . srcElement</td><td>返回触发的对象</td><td>不标准</td>
+        </tr>
+        <tr>
+            <td>e . type</td><td>返回事件的类型</td><td>比如click/mouseover</td>
+        </tr>
+        <tr>
+            <td>e . canceBubble</td><td>该属性阻止冒泡</td><td>非标准</td>
+        </tr>
+        <tr>
+            <td>e . returnValue</td><td>该属性阻止默认事件</td><td>非标准 链接不跳转，按钮不提交</td>
+        </tr>
+        <tr>
+            <td>e . preventDefault()</td><td>该方法阻止默认事件</td><td>标准 链接不跳转，按钮不提交</td>
+        </tr>
+        <tr class="chenga">
+            <td>e . stopPropagatoin ()</td><td>阻止冒泡</td><td>标准</td>
+        </tr>
+    </table>
+    <div class="box">box<br>冒泡
+        <div class="son1">son1<br>冒泡
+            <div class="son2">son2<br>冒泡</div>
+        </div>
+    </div>
+    <script>
+        var box = document.querySelector('.box');
+        var son1 = box.querySelector('.son1');
+        var son2 = box.querySelector('.son2');
+        son2.addEventListener('click', function(event) {
+            alert('son2');
+            // event.stopPropagation();                     /* 阻止冒泡 */
+        }, false);                                          /* true / false 默认false */
+        son1.addEventListener('click', function(event) {
+            alert('son1');
+        }, false);                                          /* true / false 默认false */
+        box.addEventListener('click', function(event) {
+            alert('box');
+        }, false);                                          /* true / false 默认false*/
+    </script>
+</body>
+</html>

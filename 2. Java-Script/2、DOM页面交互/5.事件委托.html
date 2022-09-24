@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件委托</title>
+    <style>
+        ul {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>事件委托&nbsp;&nbsp;&nbsp;<small style=" font-weight: 200;">只操作一次DOM，提高了程序的性能</small></h1>
+    <h3 style="font-weight: 200;"><ins>事件监听器设置在父节点上，然后利用冒泡原理音响设置每个子节点</ins></h3>
+    <p>例如：给ul绑定事件，然后利用事件对象的 target 来找到当前点击的li，因为点击li，事件会冒泡到ul上，ul上有事件监听器，就会触发事件</p>
+    <ul>
+        <li>冒泡原理</li>
+        <li>冒泡原理</li>
+        <li>冒泡原理</li>
+        <li>冒泡原理</li>
+        <li>冒泡原理</li>
+    </ul>
+    <script>
+        var ul = document.querySelector('ul');
+        ul.addEventListener('click', function(e) {
+            alert('只操作一次DOM，提高了程序的性能');
+            e.target.style.color = 'red';
+        });
+    </script>
+</body>
+</html>

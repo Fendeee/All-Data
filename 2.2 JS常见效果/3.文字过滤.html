@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文字过滤</title>
+    <style>
+        div.text {
+            margin: 100px auto;
+            width: 350px; height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="text">
+        <input type="text">
+        <button>提交</button>
+        <textarea cols="20" rows="5"></textarea>
+    </div>
+
+    <script>
+        let text = document.querySelector('input[type="text"]');
+        let btn = document.querySelector('button');
+        let textarea = document.querySelector('textarea');
+
+        text.addEventListener('keyup', function(){
+            textarea.innerHTML = text.value;
+        });
+
+    </script>
+</body>
+</html>

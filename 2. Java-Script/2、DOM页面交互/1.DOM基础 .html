@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM基础</title>
+    <style>
+        body {background-color: rgb(234, 234, 234);}
+        * { margin: 0; padding: 0; }
+        th {
+            padding: 0px 10px;
+            background-color: rgb(144, 144, 144);
+            color: #fff;
+        }
+        th:first-child {
+            width: 350px;
+            background-color: rgb(91, 91, 91);
+            color: rgb(243, 243, 243)
+        }
+        td {
+            padding: 0px 10px;
+            height: 35px;
+            line-height: 35px;
+        }
+        td.go {
+            background-color: teal;
+        }
+        tr td:nth-child(1){
+            width:  00px;
+            text-align: center;
+        }
+        th.op {
+            background-color: teal;
+        }
+    </style>
+</head>
+<body>
+    <table border="1" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+            <td>文档</td><td>一个网页就是个文档，DOM中用doucument表示</td>
+        </tr>
+        <tr>
+            <td>元素</td><td>页面中的所有标签，DOM中用element表示</td>
+        </tr>
+        <tr>
+            <td>节点</td><td>网页中的所有内容都是节点（标签、属性、注释、文本等），DOM中用node表示</td>
+        </tr>
+    </table>
+    <h1>DOM接口</h1>
+    <table border="1" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+            <th class="op">获取元素</th><th></th><th></th>
+        </tr>
+        <tr>
+            <td>document.body.style.属性 = '值';</td><td>改变body样式</td>
+        </tr>
+        <tr>
+            <td>getElementById ( 'id值' )</td><td>获取带有 ID 属性的元素对象</td><td>返回一个Element元素对象</td>
+        </tr>
+        <tr>
+            <td>console.dir( )</td><td>打印我们返回的元素对象</td><td>更好的查看里面的属性和方法</td>
+        </tr>
+        <tr>
+            <td>getElementsByTagName( '标签名' )</td><td>获取页面中所有的元素标签</td><td>返回指定标签名的对象集合，伪元素</td>
+        </tr>
+        <tr>
+            <th class="op">H5新增获取方法</th><th></th><th></th>
+        </tr>
+        <tr>
+            <td>document.getElementsByClassName('.类名')</td><td>根据类名返回元素对象集合</td><td></td>
+        </tr>
+        <tr>
+            <td>document.querySelector('.类名或标签')</td><td>返回指定选择器第一个元素对象</td>
+        </tr>
+        <tr>
+            <td>document.querySelectAll('.类名或标签')</td><td>返回指定选择器的所有元素对象集合</td>
+        </tr>
+        <tr>
+            <td>获取body标签</td><td>document.body</td>
+        </tr>
+        <tr>
+            <td>获取html标签</td><td>document.documentElement</td>
+        </tr>
+        <tr>
+            <th class="op">修改元素内容</th><th></th>
+        </tr>
+        <tr>
+            <td>变量 / this . innerHTML</td><td>修改元素文本</td>
+        </tr>
+        <tr>
+            <td>变量 / this . innerText</td><td>修改元素文本</td>
+        </tr>
+        <tr>
+            <td>变量 / this . src = '图片路径';</td><td>修改元素图片</td>
+        </tr>
+        <tr>
+            <th>修改表单内容</th><th></th>
+        </tr>
+        <tr>
+            <td>变量 / this . 对应的表单属性 = '修改的值';</td><td>修改表单元素内容</td>
+        </tr>
+        <tr>
+            <td>变量 / this . disabled = true</td><td>禁用表单，不能再点击</td>
+        </tr>
+        <tr>
+            <td>this . disabled = true</td><td>禁用表单，不能点击，this指向的是事件函数的调用者</td>
+        </tr>
+        <tr>
+            <th class="op">修改CSS样式属性</th><th></th>
+        </tr>
+        <tr>
+            <td>变量 / this . style.属性(驼峰命名法) = '值';</td><td></td>
+        </tr>
+        <tr>
+            <td>变量 / this . className = '类名' ;</td><td>类名样式操作,改变原先的类名，不会保留原类名</td>
+        </tr>
+        <tr>
+            <td>变量 / this . className = '原类名 新类名'</td><td>保留原先的类名 相当于双类名</td>
+        </tr>
+        <tr>
+            <th>变量 / this . classlist</th><th>返回元素的类名</th>
+        </tr>
+        <tr>
+            <td>元素 . classList . add('类名');</td><td>添加类名，不会覆盖以前类名</td>
+        </tr>
+        <tr>
+            <td>元素 . classList . remove('类名');</td><td>删除类名</td>
+        </tr>
+        <tr>
+            <td>元素 . classList . toggle('类名');</td><td>更换类名，没有就加上类名，有就删除类名</td>
+        </tr>
+        <tr>
+            <td colspan="2">建一个没使用的CSS类名，在里面写需要的样式，在触发事件的时候用 className 更换新类名，使用其里面的新属性</td><td></td>
+        </tr>
+        <tr>
+            <th class="op" style="background-color: rgb(164, 47, 47);">H5自定义属性</th><th>为了保存使用数据，有些数据可以保存在页面当中而不用保存到数据库中</th><th></th>
+        </tr>
+        <tr>
+            <th>data- 开头（data-属性：值）</th><th>所有自定义属性都以 data- 开头</th>
+        </tr>
+        <tr>
+            <td>标签/变量 . 属性</td><td>获取 内置 属性值 （元素本身自带的属性）</td>
+        </tr>
+        <tr>
+            <td>标签/变量 . getAttribute('data-属性');</td><td>获取自定义属性 （标准）</td><td>多个连接符不需要拆除</td>
+        </tr>
+        <tr>
+            <td>标签/变量 . setAttribute ('data-属性', 值)</td><td>修改自定义属性值</td><td>多个连接符不需要拆除</td>
+        </tr>
+        <tr>
+            <td>标签/变量 . removeAttribute ('data-属性')</td><td>删除属性</td><td>多个连接符不需要拆除</td>
+        </tr>
+        <tr>
+            <th>H5新增获取自定义属性</th><th></th>
+        </tr>
+        <tr>
+            <td>dateset . 属性</td><td>获取自定义属性</td><td>dateset是一个集合，存放了所有date开头的自定义属性</td>
+        </tr>
+        <tr>
+            <td>dateset['属性']</td><td>获取自定义属性</td>
+        </tr>
+        <tr>
+            <td>例如：dateset.listName</td><td>date-list-name 多个连接符用驼峰命名法</td>
+        </tr>
+        <tr>
+            <th class="op" style="background-color: rgb(164, 47, 47);">节点操作</th><th>更简单的获取元素</th>
+        </tr>
+        <tr>
+            <td>nodeType(节点类型)<br>nodeValue(节点值)<br>nodeName(节点属性)</td><td>nodeType: 1 / 2 / 3 (元素节点为 1 ,属性节点为 2 ，文本节点为 3 )<br>代码中的空格和换行也是文本节点</td>
+        </tr>
+        <tr>
+            <td>获取的子元素 . parentNode</td><td>获取父节点（离子元素最近的父元素）</td>
+        </tr>
+        <tr>
+            <td>获取的父元素 . childNodes</td><td>获取父元素的所有子节点（包括空格 换行也算）不推荐</td>
+        </tr>
+        <tr>
+            <td>获取的父元素 . children</td><td>获取父元素的所有子节点（不包括空格和换行）<strong>推荐</strong></td>
+        </tr>
+        <tr>
+            <td>获取的元素 . children[ 0 ]</td><td>获取父元素的第一个子元素<strong>推荐</strong></td>
+        </tr>
+        <tr>
+            <td>获取的元素.children[获取的元素.children.length-1]</td><td>获取父元素最后一个子元素<strong>推荐</strong></td>
+        </tr>
+        <tr>
+            <td>获取的元素 . firstElementChild</td><td>获取父元素当中的第一个子元素（不包括空格和换行）不兼容IE9以下</td>
+        </tr>
+        <tr>
+            <td>获取的元素 . lastElementChild</td><td>获取父元素当中的最后一个子元素（不包括空格和换行）不兼容IE9以下</td>
+        </tr>
+        <tr>
+            <td>获取的元素 . firstChild</td><td>获取父元素当中的第一个子元素（包括空格和换行）不推荐</td>
+        </tr>
+        <tr>
+            <td>获取的元素 . lastChild</td><td>获取父元素中的最后一个子元素（包括空格和换行）不推荐</td>
+        </tr>
+        <tr>
+            <td>变量 . nextElementSibling</td><td>获取当前元素的下一个元素节点 <strong>推荐</strong> （找不到则返回 null）</td><td>兼容问题 IE9以上才行</td>
+        </tr>
+        <tr>
+            <td>变量 . previousElementSibling</td><td>获取当前元素的上一个元素节点<strong>推荐</strong> （找不到则返回 null）</td><td>兼容问题 IE9以上才行</td>
+        </tr>
+        <tr>
+            <td>变量 . nextSibling</td><td>获取下一个的兄弟节点（包括空格和换行）不推荐</td>
+        </tr>
+        <tr>
+            <td>变量 . previousSibling</td><td>获取上一个的兄弟节点（包括空格和换行）不推荐</td>
+        </tr>
+        <tr>
+            <td>元素 . nodeType</td><td>查看节点类型</td>
+        </tr>
+        <tr>
+            <th class="op" style="background-color: rgb(164, 47, 47);">document . createElement('元素标签')</th><td>创建节点</td><td>var crLi = document.createElement('li');</td>
+        </tr>
+        <tr>
+            <th style="background-color: rgb(227, 120, 120);">父标签 . appendChild(子标签)</th><td>在后添加节点</td><td>获取的父元素.appendChild(crLi);</td>
+        </tr>
+        <tr>
+            <th style="background-color: rgb(227, 120, 120);">父标签 . insertBefore(子标签, 指定元素)</th><td>在前添加节点</td><td>获取的父元素.insertBefore(crLi, 获取的父元素.children[指定位置]);</td>
+        </tr>
+        <tr>
+            <td>我们想要在页面添加一个新的元素</td><td>1.创建元素 2.添加元素</td>
+        </tr>
+        <tr>
+            <th class="op" style="background-color: rgb(194, 74, 74);">删除节点</th><th></th>
+        </tr>
+        <tr>
+            <td>变量 . removeChild(需要删除的元素);</td><td>删除节点</td>
+        </tr>
+        <tr>
+            <th class="op" style="background-color: rgb(194, 74, 74);">克隆/复制节点</th><th></th>
+        </tr>
+        <tr>
+            <td>变量 . cloneNode( false );</td><td>克隆/复制节点，如果括号值为空或者false，则只复制标签不复制内容——浅拷贝</td>
+        </tr>
+        <tr>
+            <td>变量 . cloneNode( true );</td><td>克隆/复制节点，如果为true，则复制标签复制其内容</td>
+        </tr>
+    </table>
+</body>
+</html>

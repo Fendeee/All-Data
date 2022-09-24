@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜集表单数据</title>
+    <script src="./js/vue.js"></script>
+    <style>
+        .root {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+            width: 400px; height: 600px;
+            background-color: rgba(255, 192, 203, 0.33);
+        }
+        .table {
+            position: absolute;
+            bottom: 0;
+            width: 100%; height: 46%;
+            background-color: pink;
+        }
+        table {
+            width: 100%;
+            border-collapse:collapse;
+        }
+    </style>
+</head>
+<body>
+    <div class="root">
+        <form action="">
+            <label for="account">账号：</label>
+            <input type="text" id="account" v-model.trim="userInfo.account"><br>
+            <label for="password">密码：</label>
+            <input type="password" id="password" v-model.trim="userInfo.password"><br>
+            <label for="age">年龄：</label>
+            <input type="number" v-model.number.trim="userInfo.age"><br><br>
+            性别：
+            <label for="man">男</label>
+            <input type="radio" id="man" name="sex" v-model="userInfo.sex" value="man">
+            <label for="woman">女</label>
+            <input type="radio" id="woman" name="sex" v-model="userInfo.sex" value="woman"><br>
+            爱好：
+            <label for="JA">日漫</label>
+            <input type="checkbox" id="JA" v-model="userInfo.hobby" value="JA">
+            <label for="music">音乐</label>
+            <input type="checkbox" id="music" v-model="userInfo.hobby" value="music">
+            <label for="f">自由</label>
+            <input type="checkbox" id="f" v-model="userInfo.hobby" value="f"><br>
+            所属地区：
+            <select v-model="userInfo.city">
+                <option value="">请选择...</option>
+                <option value="北京">北京</option>
+                <option value="上海">上海</option>
+                <option value="深圳">深圳</option>
+                <option value="成都">成都</option>
+                <option value="杭州">杭州</option>
+            </select><br><br>
+            <textarea name="" id="" cols="30" rows="5" placeholder="用户反馈..." v-model.trim="userInfo.feedback"></textarea><br>
+            <input type="checkbox" id="ag" v-model="userInfo.agree">
+            <label for="ag">阅读并接受</label>
+            <a href="">《用户协议》</a><br>
+            <button @click.prevent="btn">提交</button>
+        </form>
+
+        <div class="table">
+            <table border="1" cellspacing="0" cellpadding="0">
+                <tr>
+                    <th>账号</th><th>密码</th><th>年龄</th><th>性别</th>
+                </tr>
+                <tr v-for="p in persons" :key="p.id">
+                    <td>{{p.account}}</td><td>{{p.password}}</td><td>{{p.age}}</td><td>{{p.sex}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '.root',
+            data: {
+                userInfo: {
+                    account: '',
+                    password: '',
+                    age: '',
+                    sex: '',
+                    hobby: [],
+                    city: '',
+                    feedback: '',
+                    agree: '',
+                },
+                persons: [
+                ],
+            },
+            methods: {
+                btn(){      //  JSON.stringify() 转换成 JSON 格式 FenDi:
+                    console.log(JSON.stringify(this.userInfo));
+
+                    let arr = {account: this.userInfo.account, password: this.userInfo.password, age: this.userInfo.age, sex: this.userInfo.sex}
+                    this.persons.push(arr)
+                },
+            },
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>axios使用</title>
+    <!-- 引入 服务器 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.27.2/axios.min.js"></script>
+    <style>
+        div.box,.O,.i,.b {
+            margin: 50px 150px;
+            letter-spacing: 5px;
+            text-shadow: 5px 4px 4px #999999;
+        }
+        h1 {
+            padding-bottom: 20px;
+            border-bottom: 1px #333 solid;
+        }
+        button {
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            box-shadow: 1px 1px 5px 1px #999999;
+            border: 0px;
+            border-radius: 5px;
+            color: #FFF;
+            transition: all .3s ease 0s;
+        }
+        button:active { transform: scale(0.9); }
+        button:hover { transform: translateY(-3px); }
+        .get { background-color: rgb(27, 104, 219); }
+        .post { background-color: orange; }
+        .put { background-color: green; }
+        .delete { background-color: rgb(235, 88, 88); }
+        .oGet { background-color: rgb(160, 36, 160); }
+        .oPost { background-color: teal; }
+        .instance { background-color: slateblue; }
+        .send { background-color: rgb(20, 20, 117); }
+        .cancel { background-color: sienna; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>axios 基本使用</h1>
+        <button class="get">发送GET请求</button>
+        <button class="post">发送POST请求</button>
+        <button class="put">发送PUT请求</button>
+        <button class="delete">发送DELETE请求</button>
+    </div>
+    <div class="O">
+        <button class="oGet">其他方式发送GET请求</button>
+        <button class="oPost">其他方式发送POST请求</button>
+    </div>
+    <div class="i">
+        <button class="instance">实例化对象</button>
+    </div>
+    <div class="b">
+        <button class="send">axios 发送请求</button>
+        <button class="cancel">axios 取消请求</button>
+        <div>npx json-server --watch db.json -d 2000（延迟请求服务器）</div>
+    </div>
+    
+    <script>
+        let btn = document.querySelectorAll('button');
+
+        axios.defaults.method = 'GET';                              /* 设置默认值为 GET */
+        axios.defaults.baseURL = 'http://localhost:3000';           /* 设置基础 URL */
+        axios.defaults.timeout = 3000;                              /* 3s 后没有结果，就取消请求 */
+// GET      获取 db.json posts 数据
+        btn[0].addEventListener('click', function(){
+            // 发送 AJAX 请求  axios 方法返回的是 Promise对象
+            axios({
+                // 默认 GET
+                url: '/posts/1',               /* URL */
+            }).then((response)=>{
+                console.log(response);
+            });
+        });
+// POST     添加新的 db.json posts 数据
+        btn[1].addEventListener('click', function(){
+            // 发送 AJAX 请求  axios 方法返回的是 Promise对象
+            axios({
+                method: 'POST',                                     /* 请求事件 */
+                url: '/posts',                 /* URL */
+                data: {                                             /* 设置请求体 */
+                    title: "今天天气不错！",
+                    author: "娜娜",
+                }
+            }).then((response)=>{
+                console.log(response);
+            });
+        });
+// PUT      更新 db.json posts 数据
+        btn[2].addEventListener('click', function(){
+            // 发送 AJAX 请求  axios 方法返回的是 Promise对象
+            axios({
+                method: 'PUT',                                      /* 请求事件 */
+                url: '/posts/2',               /* URL */
+                data: {                                             /* 设置请求体 */
+                    title: "今天天气不错！",
+                    author: "依依",
+                }
+            }).then((response)=>{
+                console.log(response);
+            });
+        });
+// DELETE    删除 db.json posts 数据
+        btn[3].addEventListener('click', function(){
+            // 发送 AJAX 请求  axios 方法返回的是 Promise对象
+            axios({
+                method: 'DELETE',                                   /* 请求事件 */
+                url: '/posts/2',               /* URL */
+            }).then((response)=>{
+                console.log(response);
+            });
+        });
+// axios.request()  获取 db.json comment 数据
+        btn[4].addEventListener('click', function(){
+            // 发送 AJAX 请求  axios 方法返回的是 Promise对象
+            axios.request({
+                // 默认 GET
+                url: '/comments/2'
+            }).then((response)=>{
+                console.log(response);
+            });
+        });
+// axios.post()     添加 db.json comment 数据
+        btn[5].addEventListener('click', function(){
+            // 发送 AJAX 请求  axios 方法返回的是 Promise对象
+            axios.post(
+                '/comments',
+                {
+                    "body": "添加 comments 数据",
+                    "postId": 2
+                }).then((response)=>{
+                    console.log(response);
+                });
+        });
+
+
+// axios 创建实例对象  /getJoke
+        btn[6].addEventListener('click', function(){
+            const instance = axios.create({
+                baseURL: 'https://api.apiopen.top',
+                timeout: 2000
+            })
+            console.log(instance);
+        })
+
+
+// axios 取消请求
+        // 2. 设置全局变量
+        let cancel = null
+        btn[7].addEventListener('click',function(){
+            // 一 检测上一次请求是否已经完成
+            if(cancel !== null){
+                // 三 取消上一次的请求
+                cancel()
+            }
+            axios({
+                method: 'GET',
+                url: '/posts',
+                // 1. 添加配置对象的属性
+                cancelToken: new axios.CancelToken(function(c){
+                    // 3. 将 c 的值，赋值给 cancel
+                    cancel = c
+                })
+            }).then(response=>{
+                console.log(response)
+                // 二 将 cancel 值初始化
+                cancel = null
+            })
+        })
+        btn[8].addEventListener('click', function(){
+            cancel()
+        })
+
+    </script>
+</body>
+</html>

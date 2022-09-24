@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元素显示模式</title>
+    <style>
+    /* 一、块元素 */
+        div {
+            width: 200px;
+            height: 100px;
+            background-color: pink;
+        }
+    /* 二、1.行内元素 */
+    span {background-color: pink;}
+    /* 元素总结表单 */
+    .biaodan {background-color: rgb(59, 207, 59);}
+    .shenti {background-color: pink;}
+    .y {background-color: tomato;}
+    </style>
+</head>
+<body>
+    <h4>什么是CSS的元素显示模式</h4>
+    <p>元素（标签）以什么方式进行显示，比如：div独占一行，sapn一行可以放多个。</p>
+    <p>HTML一般分为《块元素（div）》和《行内元素（span）》</p>
+<!-- 块元素 -->
+    <h4>《块元素》</h4>
+    <p>常见的块元素有：h1-h6、p、div、ul、ol、li等。div是最典型的</p>
+    <p>1..独占一行</p>
+    <div>高度，宽度，外边距和内边距等都可以控制。</div>
+<!-- 行内元素 -->
+    <h4>《行内元素》</h4>
+    <p>常见元素有，a、strong、b、em、i、del、ins、u、span等。</p>
+    <p>span是最典型的行内元素</p>
+    <span>1.一行可以放多个元素，</span><strong>2.高、宽直接设置是无效的，</strong>
+    <span>3.默认宽度是它本身的宽度，（有多少字符占多宽长度）</span><strong>4.行内元素只能容纳文本或者其他《行内元素》不允许之外的标签元素。</strong>
+    <p>链接里面可以转换块级模式然后放《行内元素》但不能再放其他链接</p>
+    <!-- 行内块元素 -->
+    <h4>《行内块元素》</h4>
+    <p>行内块元素中的特殊标签：img（图片）、input（表单）、td（表格）他们都具有《块元素》和《行内元素》的特点</p>
+    <p>和相邻行内元素（内元素）在一行上，但是之间有空白间隙，一行可以显示多个（行内元素特点）<br>
+        默认宽度是它本身的宽度（行内元素特点）<br>
+        高度、行高、外边距和内边距都可以控制（块元素特点）</p>
+        <!-- 元素总结 -->
+        <h3 align="center">元素总结</h3>
+        <table align="center" border="1" width="700" cellspacing="0">
+            <thead align="center" class="biaodan">
+                <tr><td>元素模式</td><td>元素排列</td><td>设置样式</td><td>默认宽度</td><td>包含</td></tr>
+            </thead>
+            <tbody align="center" class="shenti">
+                <tr><td class="y">块级元素</td><td>一行内只能放一个块级元素</td><td>可设置宽、高</td><td>容器的100%</td><td>容器级可包含任何标签</td></tr>
+                <tr><td class="y">行内元素</td><td>一行可放多个行内元素</td><td>不可直接设置宽、高</td><td>它本身内容的宽度</td><td>容纳文本或其他行内元素</td></tr>
+                <tr><td class="y">行内块元素</td><td>一行放多个行内块元素</td><td>可设置宽、高</td><td>它本身内容的宽度</td><td></td></tr>
+            </tbody>
+        </table>
+</body>
+</html>

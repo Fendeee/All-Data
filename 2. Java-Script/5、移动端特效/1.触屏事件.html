@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>触屏事件</title>
+    <style>
+        small {
+            font-weight: 200;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        th,td {
+            padding: 5px 10px;
+        }
+        th {
+            background-color: teal;
+            color: #FFF;
+        }
+        div {
+            width: 3.125rem; height: 3.125rem;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <h1>触屏事件 <small>touch</small></h1>
+    <p>touch 代表触摸点，一根手指、触摸笔对屏幕的操作</p>
+    <table border="1" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+            <th>触屏操作</th><th>说明</th>
+        </tr>
+        <tr>
+            <td>touchstart</td><td>手指触摸到一个DOM元素时触发</td>
+        </tr>
+        <tr>
+            <td>touchmove</td><td>手指在一个DOM元素上滑动时触发</td>
+        </tr>
+        <tr>
+            <td>touchend</td><td>手指从一个DOM元素上移开时触发</td>
+        </tr>
+        <tr>
+            <th>touchEvent</th><th>用于检测触点的移动，触点的增加减、少等</th>
+        </tr>
+        <tr>
+            <td>touches</td><td>正在触摸屏幕的所有手指的一个列表</td>
+        </tr>
+        <tr>
+            <td>targetTouches</td><td>正在触摸当前DOM元素上的手指的一个列表</td>
+        </tr>
+        <tr>
+            <td>changedTouches</td><td>手指状态发生了改变时的列表，从无到有，从有到无</td>
+        </tr>
+        <tr style="background-color: purple; color: #FFF;">
+            <td>transitionend</td><td>监听动画过渡事件</td>
+        </tr>
+    </table>
+    <div></div>
+
+    <script>
+        var div = document.querySelector('div');
+        div.addEventListener('touchstart', function(event) {
+            console.log(event);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盒子阴影</title>
+    <style>
+        /* 盒子阴影 */
+        .box-shadow {
+            width: 100px; height: 100px; background-color: tomato;
+            box-shadow: 10px 10px 10px 10px blue;
+        }
+            .box-shadow2 {
+                width: 100px;  height: 100px; background-color: tomato;
+                box-shadow: 10px 10px 10px 10px blue inset;
+            }
+            div.hover {
+                width: 100px; height: 100px;background-color: tomato;
+            }
+            div.hover:hover{
+                box-shadow: 10px 10px 10px 10px pink;
+            }
+            h2 {
+                text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+            }
+
+            /* 盒子属性 */
+            div:nth-of-type(n+4) {
+                text-align: center; line-height: 100px;
+                width: 200px; height: 100px; background-color: tomato;
+                margin: 10px auto;
+                border: 10px solid teal;
+            }
+            /* box-sizing: content-box;属性（默认） */
+            div:nth-of-type(4) {
+                box-sizing: content-box;
+            }
+            /* box-sizing: border-box;属性 */
+            div:last-of-type{
+                box-sizing: border-box;
+            }
+    </style>
+</head>
+<body>
+    <div class="box-shadow">外部阴影</div>
+    <div class="box-shadow2">内部阴影</div>
+    <div class="hover">鼠标经过过出现阴影</div>
+    <h1>filter: drop-shadow(0 0 10px #333); 此属性给父盒子，针对区域里的像素点来设置阴影</h1>
+    <h2>text-shadow属性添加文字阴影</h2>
+    <h3 align="center">盒子</h3>
+    <p align="center">CSS3中可以通过box-sizing来指定盒模型,有2个值:即可指定为content-box、border-box <br>
+        这样我们计算盒子大小的方式就发生了改变。</p>
+        <table align="center" border="1" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>box-sizing: content-box;</td><td>盒子大小为width + padding + border ( 以前默认的)</td>
+            </tr>
+            <tr>
+                <td>box-sizing: border-box</td><td>盒子大小为width</td>
+            </tr>
+        </table>
+
+
+        <!-- box-sizing: content-box;属性（默认） -->
+        <h4 align="center">box-sizing: content-box;属性（默认）</h4>
+        <div></div>
+        <!-- box-sizing: border-box;属性 -->
+        <h4 align="center">box-sizing: border-box;属性</h4>
+        <div></div>
+</body>
+</html>

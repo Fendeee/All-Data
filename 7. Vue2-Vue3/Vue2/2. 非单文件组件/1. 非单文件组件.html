@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件使用</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div class="root">
+        <h1>{{hello}}</h1>
+        <!-- FenDi: 3. 编写组件标签 -->
+        <my-school></my-school>
+        <br>
+        <my-student></my-student>
+        <my-student></my-student>
+    </div>
+
+    <script>
+        /**
+         *!* 每次调用 Vue.extend ，返回的都是一个全新的 VueComponent !!!!!
+         *!* Vu.extend里面的 this 指向的是 VueComponent
+         *!* （1） 组件配置中：
+         *          data函数、methods中的函数、watch中的函数、computed中的函数  它们的 this 均是 【VueComponent实例对象】
+         *!* （2） new Vue(options)配置中
+         *          data函数、methods中的函数、watch中的函数、computed中的函数  它们的 this 均是 【Vue实例对象】
+         *      vm可以通过 el 指定为某个容器服务，vc只能跟着 vm
+        **/
+
+        // FenDi: 1. Vue.extend({}) 创建组件
+        const school = Vue.extend({
+                                            // 结构标签
+            template: `
+                <div>
+                    <h2>学校名称：{{schoolName}}</h2>
+                    <h2>学校地址：{{schoolAddress}}</h2>
+                    <button @click='school'>点击弹出</button>
+                </div>
+            `,
+            data(){                         // $$$ 组件 data 必须是函数式  $$$
+                return {
+                    schoolName: '清华大学',
+                    schoolAddress: '北京',
+                }
+            },
+            methods: {
+                school(){
+                    alert('Hello 非单文件组件')
+                }
+            }
+        })
+        const student = Vue.extend({
+            template: `
+            <div>
+                <h2>学生姓名：{{studentName}}</h2>
+                <h2>学生年龄：{{age}}</h2>
+            </div>
+            `,
+            data(){
+                return {
+                    studentName: '芬迪',
+                    age: 18,
+                }
+            }
+        })
+
+        // FenDi: 2. 注册组件
+        new Vue({
+            el: '.root',
+            data: {
+                hello: 'Hello 非单文件  组件！'
+            },
+            // components 组件 标签
+            components: {
+                'my-school': school,
+                'my-student': student
+            }
+        })
+
+        // new Vue({
+        //     el: '.root',
+        //     data: {
+        //         schoolName: '清华大学',
+        //         schoolAddress: '北京',
+        //         studentName: '芬迪',
+        //         age: 18,
+        //     }
+        // })
+
+    </script>
+</body>
+</html>

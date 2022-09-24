@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>什么是浮动</title>
+    <style>
+        div.fd-one{width: 100px; height: 100px; background-color: aqua;float: left;}
+        div.fd-two{width: 100px; height: 100px; background-color: tomato;float: left;}
+        div.fd-thrre {width: 100px; height: 100px; background-color: brown;}
+        div.fd-for {width: 100px; height: 100px; background-color: aquamarine;float: left;}
+        div.fd-five {width: 200px; height: 200px; background-color: black;}
+    </style>
+</head>
+<body>
+    <h4>①父级没高度。
+        ②子盒子浮动了。
+        ③影响下面布局了,我们就应该清除浮动了。</h4>
+    <h3>float属性用于创建浮动框,将其移动到一边,直到左边缘或右边缘触及包含块或另一个浮动框的边缘。</h3>
+    <div class="fd-one"></div>
+    <div class="fd-two"></div>
+    <p>float: none;默认不浮动<br>
+    foat: left;元素向左浮动<br>
+    float:right;元素向右浮动
+</p>
+<div class="fd-thrre"></div>
+<div class="fd-for"></div>
+<div class="fd-five"></div>
+<p>浮动的盒子不再保留原先的位置</p>
+<h2>任何元素都可以浮动。不管原先是什么模式的元素,添加浮动之后具有行内块元素相似的特性。</h2>
+</body>
+</html>

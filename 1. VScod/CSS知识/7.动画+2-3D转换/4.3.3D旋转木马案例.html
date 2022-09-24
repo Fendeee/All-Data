@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0,minimum-scale=1.0">
+    <title>3D旋转木马案例</title>
+    <style>
+        body {
+            /* 透视 */
+            perspective: 1000px;
+        }
+        section {
+            position: relative;
+            width: 250px; height: 140px;
+            margin: 300px auto;
+            background: url(./芬迪.jpg) no-repeat;
+            background-size: 70% 100%;
+            /* 3D呈现 */
+            transform-style: preserve-3d;
+            /* 动画 */
+            animation: rotate 10s linear infinite;
+        }
+        @keyframes rotate {
+            from {
+                transform: rotateY(0);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+        section:hover {
+            /* 停止动画 */
+            animation-play-state: paused;
+        }
+        section div {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: url(./list.png) no-repeat;
+            background-size: 100%;
+        }
+        div:nth-child(1) {
+            transform: translateZ(300px);
+        }
+        div:nth-child(2) {
+            /* 先旋转，后移动 */
+            transform: rotateY(60deg) translateZ(300px);
+        }
+        div:nth-child(3) {
+            transform: rotateY(120deg) translateZ(300px);
+        }
+        div:nth-child(4) {
+            transform: rotateY(180deg) translateZ(300px);
+        }
+        div:nth-child(5) {
+            transform: rotateY(240deg) translateZ(300px);
+        }
+        div:nth-child(6) {
+            transform: rotateY(300deg) translateZ(300px);
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+</body>
+</html>

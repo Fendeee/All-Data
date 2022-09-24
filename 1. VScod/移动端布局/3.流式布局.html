@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>流式布局（百分比布局）</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        section {
+            width: 100%;
+            /* 最大值不能超过980px */
+            max-width: 980px;
+            /* 最小值不能超过320px */
+            min-width: 320px;
+        }
+        section div {
+            float: left;
+            width: 50%;
+            height: 250px;
+        }
+        section div:nth-child(1) { background-color: pink; }
+        section div:nth-child(2) { background-color: yellowgreen; }
+    </style>
+</head>
+<body>
+    <h1>流式布局(百分比布局)</h1>
+    <section>
+        <div></div>
+        <div></div>
+    </section>
+</body>
+</html>

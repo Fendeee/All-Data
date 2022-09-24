@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rem适配方案</title>
+</head>
+<body>
+    <p>
+        1.让一些不能等比自适应的元素，达到当设备尺寸发生变化时，等比例适配当前设备。<br>
+        2.使用媒体查询根据不同的设备按比例设置html的字体大小，然后页面元素使用rem做尺寸单位。<br>
+        当html字体大小变化元素尺寸也会发生变化，从而达到等比缩放的适配。
+    </p>
+    <h2>rem实际开发适配方案</h2>
+    <p>
+        1.按照设计稿与设备宽度比例，动态计算并设置html根标签的font-size大小（媒体查询）<br>
+        2.CSS中，设计稿元素的宽高相对位置取值，按照同等比例换算为热门单位的值。<br>
+        3.假设设计稿是1080px，我们可把他分为15等份（也可分为20、10等份都可）<br>
+        4.每份作为html字体大小，就是1080px除以15px=72px<br>
+    </p>
+    <h1>市场主流</h1>
+    <h4>技术方案1</h4>
+    <p>
+       一. less（设置公共的less文件，设置好常见的屏幕尺寸，利用媒体查询设置不同的html字体大小，默认html字体大小50px，以便PC端也可以打开）<br>320px、360px、375px、384px、400px、414px、424px、480px、540px、720px、750px<br>
+       <p>
+           在index.less中导入其他less公共样式文件：@import url("文件路径")，html中只需要导入一个link就好了，简单、多用
+       </p>
+       二. 媒体查询<br>
+       三. rem<br>
+       <p>页面元素rem计算：页面元素px / html的字体大小</p>
+    </p>
+    <h4>技术方案2（推荐）</h4>
+    <p>
+       一. flexible.js<br>
+       将当前设备分成10等分，当前设计稿是750px，那我们只需要把html文字设置为75px（750px / 10） ，就可以了<br>
+       页面元素rem值：页面元素的px值 / 75 。剩余的交给flexible.js来计算<br>
+       github地址：https://github.com/amfe/lib-flexible<br>
+       二. rem
+    </p>
+</body>
+</html>

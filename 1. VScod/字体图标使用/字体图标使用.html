@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字体图标使用</title>
+    <style>
+        /* 字体声明 */
+        @font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?3ys7uq');
+  src:  url('fonts/icomoon.eot?3ys7uq#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?3ys7uq') format('truetype'),
+    url('fonts/icomoon.woff?3ys7uq') format('woff'),
+    url('fonts/icomoon.svg?3ys7uq#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+span {
+    font-family: 'icomoon';
+
+}
+    </style>
+</head>
+<body>
+    <h3>1.在icoMoon下载完字体后，将fonts文件夹复制在网页的同级目录下，<br>
+    在用CSS全局声明字体把图标通过CSS引入页面当中。</h3>
+    <h3>2.打开iocmoon文件里的style文件，复制当中的@font-face属性，放到CSS页面当中</h3>
+    <h3>注意中间src：ulr和url的路径变化，如果图标未显示，可改变url的地址路径</h3>
+</body>
+</html>

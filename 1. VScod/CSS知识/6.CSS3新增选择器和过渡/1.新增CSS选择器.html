@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新增选择器</title>
+    <style>
+        tr td:nth-child(1) {color: red;}
+    </style>
+</head>
+<body>
+    <!-- 属性选择器 -->
+    <h3>属性选择器</h3>
+    <p>属性选择器可以根据元素特定属性的来选择元素。这样就可以不用借助于类或者id选择器</p>
+    <table border="1" cellspacing="0" cellspacing="0">
+        <tr>
+            <td>标签[属性]</td><td>选择具有att属性的E元素</td>
+        </tr>
+        <tr>
+            <td>标签[属性="值"]</td><td>选择具有att属性且属性值=val的元素</td>
+        </tr>
+        <tr>
+            <td>标签[属性^="值"]</td><td>选择具有att属性且值以val开头的E元素</td>
+        </tr>
+        <tr>
+            <td>标签[属性$="值"]</td><td>选择具有att属性且值以val结尾的E元素</td>
+        </tr>
+        <tr>
+            <td>标签[属性*="值"]</td><td>选择具有att属性且值中含有val的E元素</td>
+        </tr>
+    </table>
+    <!-- 结构伪类选择器 -->
+    <h3>结构为类选择器</h3>
+    <p>结构伪类选择器主要根据文档结构来选择器元素，常用于根据父级选择器里面的子元素</p>
+    <table border="1" cellspacing="0" cellspacing="0">
+        <tr>
+            <td>标签:first-child</td><td>选择父元素中的第一个子元素</td>
+        </tr>
+        <tr>
+            <td>标签:last-child</td><td>选择父元素中的最后一个子元素</td>
+        </tr>
+        <tr>
+            <td>标签:nth-child(n)</td><td>选择父元素中的第n个子元素</td>
+        </tr>
+        <tr>
+            <td>标签:first-of-type</td><td>指定类型标签的第一个</td>
+        </tr>
+        <tr>
+            <td>标签:last-of-type</td><td>指定类型标签的最后一个</td>
+        </tr>
+        <tr>
+            <td>标签:nth-of-type(n)</td><td>指定类型标签的第n个</td>
+        </tr>
+    </table>
+    <!-- 公式 -->
+    <h3>:nth-child(n)和:nth-of-type(n)中的n可以是数字/关键字/公式</h3>
+    <p>如果n是公式,则从0开始计算依次+1，单写n=全选</p>
+    <table border="1"cellspacing="0" cellpadding="0">
+        <tr>
+            <th>公式/关键字</th><th>取值(n=0)</th>
+        </tr>
+        <tr>
+            <td>even</td><td>偶数</td>
+        </tr>
+        <tr>
+            <td>odd</td><td>奇数</td>
+        </tr>
+        <tr>
+            <td>2n（2的倍数）</td><td>偶数（2*n）;2*0=0，2*1=2，2*2=4，2*3=6...</td>
+        </tr>
+        <tr>
+            <td>2n+1</td><td>奇数（2*n+1）;2*0+1=1,2*1+1=3,2*2+1=5...</td>
+        </tr>
+        <tr>
+            <td>5n（5的倍数）</td><td>5 10 15....</td>
+        </tr>
+        <tr>
+            <td>n+5（5可以是任意数值）</td><td>从第5个开始到最后一个，包括第5个</td>
+        </tr>
+        <tr>
+            <td>-n+5（5可以是任意数值）</td><td>前5个，包括第5个</td>
+        </tr>
+    </table>
+    <p>
+        结构伪类选择器一般用于 选择父级里面的第几个孩子<br>
+nth-child对父元素里面所有孩子排序选择(号是固定的)先找到第n个孩子 ,然后看看是否和标签匹配<br>
+nth-of-type对父元素里面指定子元素进行排序选择。先去匹配标签 , 然后再根据标签找第n个孩子<br>
+    </p>
+</body>
+</html>

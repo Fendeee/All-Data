@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标键盘事件</title>
+    <style>
+        th,td {
+            padding: 3px 5px;
+        }
+        .be {
+            background-color: rgb(230, 143, 158);
+        }
+        img {
+            position: absolute;
+            top: 0; left: 50%;
+            width: 50px; height: 50px;
+        }
+        input[type='search'] {
+            position: absolute;
+            top: 30px;
+            left: 40%;
+            height: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>鼠标事件&nbsp;&nbsp;<small><ins style="font-weight: 200;">MouseEvent</ins></small></h2>
+    <p>event&nbsp;&nbsp;代表事件的状态</p>
+    <table align="center" border="1" cellspacing="0" cellpadding="0" class="Mouse">
+        <tr class="be">
+            <th>鼠标事件</th><th>说明</th>
+        </tr>
+        <tr>
+            <td>e . clientX</td><td>返回鼠标相对于浏览窗口可视区的 X 坐标</td>
+        </tr>
+        <tr>
+            <td>e . clientY</td><td>返回鼠标相对于浏览窗口可视区的 Y 坐标</td>
+        </tr>
+        <tr>
+            <td>e . pageX</td><td>返回鼠标相对于文档页面的 X 坐标 <i>IE9+</i> 支持</td>
+        </tr>
+        <tr>
+            <td>e . pageY</td><td>返回鼠标相对于文档页面的 Y 坐标 <i>IE9+</i> 支持</td>
+        </tr>
+        <tr>
+            <td>e . screenX</td><td>返回鼠标相对于电脑屏幕的 X 坐标</td>
+        </tr>
+        <tr>
+            <td>e . screenY</td><td>返回鼠标相对于电脑屏幕的 Y 坐标</td>
+        </tr>
+    </table>
+    <img src="../芬迪.jpg" alt="">
+    <h2>键盘事件&nbsp;&nbsp;<small><ins style="font-weight: 200;">KeyboardEvent</ins></small></h2>
+    <p>按下键盘 a</p>
+    <table align="center" border="1" cellspacing="0" cellpadding="0" class="Mouse">
+        <tr class="be">
+            <th>键盘事件</th><th>触发条件</th>
+        </tr>
+        <tr>
+            <th colspan="2">高级事件不加 on</th>
+        </tr>
+        <tr>
+            <td>onkeyup / keyup</td><td>某个键盘键松开时触发（ASCII不分大小写）</td>
+        </tr>
+        <tr>
+            <td>onkeydown / keydown</td><td>某个键盘被按下时触发（ASCII不分大小写）</td>
+        </tr>
+        <tr>
+            <td>onkeypress / keypress</td><td>某个键盘被按下时触发（不能识别功能键，ctrl/shift/箭头等），（ASCII分大小写）</td>
+        </tr>
+        <tr>
+            <td>e.keyCode</td><td>判断触发了哪个键，返回该键的ASCII码值</td>
+        </tr>
+    </table>
+    <h1 style="font-weight: 200;">keyCode 判断触发了哪个键盘</h1>
+    <input type="search" placeholder="按下 a 键获得焦点 ...">
+    <script>
+        var img = document.querySelector('img');
+        document.addEventListener('mousemove', function(e) {
+            var x = e.pageX - img.offsetWidth / 2;
+            var y = e.pageY - img.offsetHeight / 2;
+            img.style.top = y + 'px';
+            img.style.left = x + 'px';
+        });
+        var search = document.querySelector('input[type="search"]');  /* 获取 search */
+        document.addEventListener('keypress', function(event) {       /* 键盘触发事件 */
+            if(event.keyCode == 97) {
+                search.focus();
+            } else {
+                alert('请您按下 “a” 键');
+            }
+        });
+    </script>
+</body>
+</html>

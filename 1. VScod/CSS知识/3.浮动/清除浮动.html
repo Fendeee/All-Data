@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>清除浮动</title>
+</head>
+<body>
+    <h3>清除浮动--1.额外标签法</h3>
+    <p>下浮动盒子后添加新的盒子隔开，.类名{clear: both;}清楚浮动，或者&ltdiv style="clear:both"&gt &lt div &gtbr<br>
+    但是必须是块元素，不能是行内元素</p>
+    <h3>父级添加 overflow</h3>
+    <p>给父级元素添加overflow属性，将其属性值设置为hidden/auto/scroll</p>
+    <h3>after伪元素</h3>
+    <p>语法：.类名::after {<br>
+        content:''（必须属性）;<br>
+        display:block;（转换成块元素）<br>
+        height: 0;<br>
+        clear:both;（清除）<br>
+        visibility:hidden;(隐藏，不看见此元素)<br>
+    }<br>
+        .类名 *zoom:1;（IE6，IE7可以来清楚浮动）<br>
+    </p>
+    <h3>双伪元素清除浮动</h3>
+    <p>.类名::before .类名::after {<br>
+    content: '';<br>
+    display: table;(转换为块级元素并且一行显示)<br>
+    }<br>
+    .类名 ::after {<br>
+    clear: both;(清楚浮动)<br>
+}
+    </p>
+</body>
+</html>

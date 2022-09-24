@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D转换</title>
+    <style>
+        body {
+            position: relative;
+        }
+        div.X-Y {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+            width: 100px; height: 100px;
+            background-color: pink;
+        }
+        div.rotate {
+            margin: 40px auto;
+            width: 100px; height: 100px;
+            background-color: yellowgreen;
+            transform: rotate(45deg);
+            transition: all 0.5s ease 0s;
+        }
+        div.rotate:hover {
+            transform: rotate(0deg);
+        }
+    </style>
+</head>
+<body>
+    <h3>
+        转换(transform)是CSS3中具有颠覆性的特征之一，可实现元素的位移，旋转，缩放等效果，<br>
+        转换(transform)可以理解为变形
+    </h3>
+    <table align="center" border="1" cellspacing="0" cellpadding="0">
+        <tr>
+            <th>transform(移动)</th>
+        </tr>
+        <tr>
+            <td>transform: translate(x,y); (可分开写)</td>
+        </tr>
+        <tr>
+            <td>transform: translateX(n);</td>
+        </tr>
+        <tr>
+            <td>transform: translateY(n)</td>
+        </tr>
+        <tr>
+            <td>transform: translate(50%,50%) 水平居中</td>
+        </tr>
+        <tr>
+            <td>transform: translate(-50%, -50%); 水平居中<br>
+            搭配position: relative;和absolute来用</td>
+        </tr>
+        <tr>
+            <td>定义2D转换中的移动，沿着x，y轴移动元素<br>
+            transform不会影响其他元素的位置，transform中的百分比单位<br>
+            是相对自身元素的transform:(50%,50%);<br>
+            对行内元素标签没有效果</td>
+        </tr>
+    </table>
+    <table align="center" border="1" cellspacing="0" cellpadding="0">
+        <tr>
+            <th>rotate(旋转)</th>
+        </tr>
+        <tr>
+            <td>transform: rotate(度数deg);</td>
+        </tr>
+        <tr>
+            <td>正角度则为顺时针，负时则为逆时针<br>
+            单位deg，默认旋转中心是元素的中心点</td>
+        </tr>
+        <tr>
+            <td>transform-origin: x y; (转换中心点)</td><td>可以加方位名词<br>top/lett/right/bottom</td>
+        </tr>
+    </table>
+    <table align="center" border="1" cellspacing="0" cellpadding="0">
+        <tr>
+            <th>scale</th><th>缩放(可设置转换中心，默认中心缩放，不影响其他的盒子)</th>
+        </tr>
+        <tr>
+            <td>transform: scale(x,y);</td>
+        </tr>
+        <tr>
+            <td>transform: scale(1,1);</td><td>宽，高放大一倍</td>
+        </tr>
+        <tr>
+            <td>transform: scale(2,2);</td><td>宽高放大两倍</td>
+        </tr>
+        <tr>
+            <td>transform: scale(0.5,0.5);</td><td>缩小</td>
+        </tr>
+    </table>
+
+
+    <div class="X-Y"></div>
+    <div class="rotate"></div>
+</body>
+</html>

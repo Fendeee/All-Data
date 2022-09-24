@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS新增属性-过渡</title>
+    <style>
+        p:nth-of-type(n+3) { color: red; }
+
+        div {
+            width: 100px; height: 50px;
+        }
+    /* transition: 过度的属性 花费时间 运动曲线 何时开始; */
+        div:nth-of-type(1) {
+            background-color: green;
+            transition: width .5s ease .3s, height .5s ease .3s;
+        }
+    /* 如果想要多个属性都变化，属性写aLL既可以了 */
+        div:nth-of-type(2) {
+            background-color: tomato;
+            transition: all .5s ease .3s;
+        }
+    /* 改变颜色 */
+        div:nth-of-type(3) {
+            background-color: pink;
+            transition: all .5s ease .3s;
+        }
+        /* 鼠标经过后变化 */
+        div:hover {
+            width: 200px; height: 80px;
+        }
+        div:nth-of-type(3):hover {
+            width: 200px; height: 80px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <h2>CSS新增属性-过渡(重点)</h2>
+    <p>过渡( transition)是CSS3中具有颠覆性的特征之一,<br>
+        我们可以在不使用Flash 动画或JavaScript的情况下,当元素从一种样式变换为另一种样式时为元素添加效果.
+        </p>
+        <h5>过渡动画:是从一个状态渐渐的过渡到另外一个状态</h5>
+        <p>
+            可以让我们页面更好看, 更动感十足,虽然低版本浏览器不支持( ie9以下版本)但是不会影响页面布局。<br>
+            我们现在经常和:hover -起搭配使用。
+        </p>
+        <h3>transition: 要过渡的属性 花费时间 运动曲线 何时开始;</h3>
+        <p>1.属性：想要变化的CSS属性，宽度高度、背景颜色、内外边距都可以。如果想要所有属性都变化过渡，写一个all就可以了</p>
+        <p>2.花费时间：单位是秒（必须写单位），例如0.5s/.5s</p>
+        <p>3.运动曲线:默认是ease(逐渐慢下来)/ease-in(加速)/ease-out(减速)/ease-in-out(先加速在减速)/liner(匀速)/</p>
+        <p>4.何时开始：单位是秒（必须写单位）可以设置延迟触发时间，默认是0s（可以省略）</p>
+        <div></div>
+        <div></div>
+        <div></div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>navigator对象</title>
+</head>
+<body>
+    <h1>
+        检测用户用的浏览器是手机端还是PC端<br>
+        <small>手机端则打开手机端的页面，PC端则打开PC端的页面</small>
+    </h1>
+    <p>
+        if ( (navigator.userAgent.match(/(phone | pad | pod | i Phone | i Pod | ios | i Pad | Android |<br>
+         Mobile | BlackBerry | IEMobile | MQQBrowser | JUC| Fennec | wOSBrowser | BrowserNG | WebOS | Symbian |<br> Windows Phone)/i)) ) {<br>
+            window.location.href = "";  /* 手机 */ <br>
+        } else { <br>
+            window.location.href = "";  /* PC */ <br>
+         }
+    </p>
+</body>
+</html>

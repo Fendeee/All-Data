@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三角的做法</title>
+    <style>
+        /* 三角形的做法 */
+        div.all {
+            width: 0px;
+            height: 0px;
+            border: 20px solid transparent;
+            border-top-color: tomato;
+        }
+        /* 直角三角形 */
+        div.right-angle {
+            width: 0px; height: 0px;
+            /* 上边框大一些-左右小一些  */
+            /* 把上边框边透明(上边框不能设置0px) */
+            border-top: 100px solid transparent;
+            /* 上下左右边框留一个即可 */
+            border-right: 50px solid skyblue;
+            /* 其余边框设置为0px */
+            border-bottom: 0px solid pink;
+            border-left: 0px solid teal;
+        }
+        /* 直角三角形简写 */
+        div.Simple {
+            width: 0px; height: 0px;
+            /* 设置边框颜色-上-右-下-左 */
+            border-color: transparent red transparent transparent;
+            /* 边框样式 */
+            border-style: solid;
+            /* 设置边框宽度 */
+            border-width: 100px 50px 0px 0px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 三角形 -->
+    <h1>三角的做法</h1>
+    <h3>设置盒子大小属性width和height为0，<br>
+    设置border边框属性，设置三条边为透明即可</h3>
+    <div class="all"></div>
+
+    <!-- 直角三角形 -->
+    <h2>三角的强化（直角三角）</h2>
+    <div class="right-angle"></div>
+
+        <!-- 直角三角形简写 -->
+        <h3>直角三角简写</h3>
+    <div class="Simple"></div>
+    <h3>左下角不是圆角，其余三个脚都是圆角写法</h3>
+    <p>border-radius: 7px(左上) 7px(右上) 7px(右下) 0px(左下);</p>
+</body>
+</html>

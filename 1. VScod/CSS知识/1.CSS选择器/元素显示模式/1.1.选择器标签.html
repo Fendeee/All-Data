@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS选择器标签</title>
+    <style>
+        /* 1.标签选择器  */
+        /* 段落标签名{属性名: 属性值;} */
+        p {
+            color: blue;
+        }
+        /* 2.类选择器 */
+        /* .名 {属性} 标签里（class）调用--<标签 class="名"> */
+        .F {color: blue;font-size: 50px;}
+        .red {width: 100px;height: 100px;/* 背景颜色 */background-color: red;}
+        .green {width: 100px;height: 100px;color: green;}
+        .blue {width: 100px;height: 100px;color: blue;}
+
+        .box {width: 100px;height: 100px;}
+        .yellow {background-color: yellow;}
+        .pink {color: pink;}
+        .purple {color: purple;}
+        /* 3.id选择器 */
+        /* #名 {属性} id名调用--<标签 id="名"> */
+        #cadetblue {width: 100px;height: 100px;background-color: cadetblue;}
+        /* 4.通配符选择器 */
+        /* 无需调用，*{}全选，包括整个html,body, */
+    </style>
+</head>
+<body>
+<!-- 标签选择器 -->
+<!-- 0.1 --><p class="F">
+<!-- 0.1 --></p>
+<!-- 类选择器 -->
+<!-- 0.2 --><span class="red">红色</span>
+<!-- 0.2 --><span class="green">绿色</span>
+<!-- 0.2 --><span class="blue">蓝色</span>
+<br>
+<!-- 0.2 --><span class="box yellow">黄色</span>
+<!-- 0.2 --><span class="box pink">粉色</span>
+<!-- 0.2 --><span class="box purple">紫色</span>
+<br>
+<!-- id选择器 -->
+<!-- 0.3 --><span id="cadetblue">天蓝色</span>
+</body>
+</html>

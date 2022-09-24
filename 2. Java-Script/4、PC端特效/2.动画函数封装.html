@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画函数封装</title>
+    <style>
+        * { margin: 0; padding: 0; }
+        .test {
+            position: absolute;
+            left: 0;
+            width: 100px; height: 100px;
+            background-color: tomato;
+            text-align: center;
+            line-height: 100px;
+            color: #FFF;
+        }
+        h1,p,ul {
+            padding: 0 25px 10px;
+        }
+        .animationText {
+            margin-top: 120px;
+        }
+        span {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100px; height: 100px;
+            background-color: teal;
+            text-align: center;
+            line-height: 100px;
+            color: #FFF;
+        }
+        button {
+            position: absolute;
+            top: 40%; left: 50%;
+            width: 80px; height: 50px;
+        }
+        .button800 {
+            left: 55%;
+        }
+    </style>
+</head>
+<body>
+    <h1>1.动画实现原理</h1>
+    <p><strong style="color: red;">核心原理：</strong>通过定时器 setInterval() 不断移动盒子位置</p>
+    <ul>
+        <li>1. 获得盒子位置</li>
+        <li>2. 让盒子在当前位置加上 1 个 或者 多个 移动距离</li>
+        <li>3. 利用定时器不断重复这个操作</li>
+        <li>4. 结束定时器的条件</li>
+        <li style="color: red;">注意此元素需要添加定位，才能使用 element . style . left</li>
+    </ul>
+    <div class="test">动画函数封装</div>
+    <span>动画函数封装</span>
+    
+    <h1 class='animationText'>2. 动画函数封装</h1>
+    <p>函数需要传递两个参数，<strong style="color: red;">动画对象</strong>和<strong style="color: red;">移动到的距离</strong></p>
+    <h1 style="margin-top: 100px;">3. 给不同元素记录不同定时器，减小封装函数开辟的空间</h1>
+    <button class="button500">前进500</button>
+    <button class="button800">前进800</button>
+    <h1>4. 缓动动画<small style="font-weight: 200;">让元素动画速度有所变化</small></h1>
+    <ul>
+        <li>1. 让盒子每次移动的距离慢慢变小，速度就会慢下来，反之越来越快</li>
+        <li style="color: red;">2. <strong style="color: red;">核心算法：</strong>（目标值 - 现在的位置）/ 10 &nbsp;&nbsp;&nbsp;作为每次移动的距离</li>
+        <li>3. 停止条件是：让当前盒子位置等于目标位置就停止定时器</li>
+    </ul>
+    <h1>5. 回调函数 <small style="font-weight: 200;">事件执行完之后执行回调函数</small><small>写到定时器结束</small></h1>
+
+    <script>
+// 简单 动画函数封装        对象    值    回调函数
+        function animation(obj, target, callback) {                  /* obj 目标对象，target 目标位置 */
+                                                    // 清除上一个执行的定时器，这样我们的元素就只有一个定时器，添加事件的时候就不会多次触发
+            clearInterval(obj.timer);
+                                                    // 不同的元素 指定不同的 定时器对象属性 obj.timer
+            obj.timer = setInterval(function() {                    /* obj.timer 给对象添加属性，不再开辟新空间 */ 
+                                                    // 计算步长值写在定时器里面  目标值target - 当前位置obj.offsetLeft / 10
+                var step = (target - obj.offsetLeft) / 60;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);      /* >0 向上取整，<0 向下取整 */
+                if (obj.offsetLeft == target) {                     /* offsetLeft 获取盒子当前位置 */
+                    clearInterval(obj.timer);                       /* 停止动画 停止定时器 */
+                    if (callback) {                                 /* 判断是否有回调函数传递进来 */
+                        callback();                                 /* 调用回调函数 */
+                    }
+                }
+                obj.style.left= obj.offsetLeft + step + 'px';       /* 把每次 +1 的步长值改为慢慢变小的值 — 让他速度变慢 */
+            },10);                                                  /* 每 10ms + step步长 */
+        }
+        var test = document.querySelector('.test');
+        var span = document.querySelector('span');
+    // 调用函数
+        animation(test, 800);                                       /* 传递 参数 */
+
+    // 点击按钮后才 调用函数
+        var button500 = document.querySelector('.button500');
+        var button800 = document.querySelector('.button800');
+        button500.addEventListener('click', function() {
+            animation(span, 500);
+            button500.innerHTML = '前进500';
+        });
+        button800.addEventListener('click', function() {
+            animation(span, 800, function() {                       /* 传递函数到 callback里面 */
+                alert('回调函数动画结束');
+                span.innerHTML = '回调函数结束';
+            });
+            button500.innerHTML = '后退500';
+        });
+
+    </script>
+</body>
+</html>

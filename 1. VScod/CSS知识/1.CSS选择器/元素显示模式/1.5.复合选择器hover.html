@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复合选择器</title>
+    <style>
+        /* 复合选择器 */
+        /* 1.后代选择器 */
+        ol li {
+            color: pink;
+            font-size: 16px;
+            text-align: left;
+            text-indent: 2em;
+        }
+
+        /* 2.子选择器 */
+        .nav a {
+            color: black;
+            font-size: 20px;
+            background-color: pink;
+        }
+        /* 3.并集选择器 */
+        div,ol,li {
+            background-color: rgb(123, 146, 160);
+            color: blue;
+        }
+        /* 4.伪类选择器 */
+    /* 4.1链接伪类选择器 */
+        a:link {
+            color: black;
+            text-decoration: none;
+        }
+        a:visited {
+            color: rgb(114, 21, 5);
+        }
+        a:hover {
+            color: rgb(212, 63, 17);
+        }
+        a:active {
+            color: green;
+        }
+    /* 4.2 focus伪类选择器 */
+    input[type="text"]:focus {
+        color: black;
+        background: green;
+    }
+    .focus {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        left: 50%; transform: translateX(-50%);
+        width: 350px; height: 200px;
+        background-color: pink;
+    }
+    .focus::before {
+        content: '目标或者其子盒子获得光标焦点时触发';
+    }
+    div.focus:focus-within {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    </style>
+</head>
+<body>
+    <!-- 1.后代选择器 -->
+<ol>
+    <li>后代选择器又称包选择器，可以选择父元素中的子元素</li>
+    <li>写法是 外层标签写在前面 内标签写在后面 中间用空格隔开</li>
+    <li>父标签 子标签 {属性："属性值"}或者 定义名 ＋ 子标签 ＋ {属性："属性值"}</li>
+</ol>
+<!-- 2.子选择器 -->
+<div class="nav">
+    <a>只能选择某元素最近一级的子元素，不包含所有元素</a>
+    <p>
+        元素1 ＋ 尖括号 ＋ 元素2 ＋ 花括号 ＋ 样式申明 ＋ 花括号
+    </p>
+</div>
+<!-- 3.并集选择器 -->
+<div>
+    <ol>
+        <p>元素1 ＋ 逗号 ＋ 元素2</p>
+        <li>可以选择多组不同的标签，</li>
+        <li>定义相同的样式，用于集体声明。</li>
+    </ol>
+</div>
+<!-- 伪类选择器 -->
+<p>伪类选择器，用于向某些选择器添加一些效果，用冒号表示，（ :hover / :fist-child等....）链接伪类、结构伪类</p>
+<p>链接伪类：</p>
+<p>a:link  /选择所有未被选择的链接/</p>
+<p><a href="#" target="_bank">未被选择的链接</a></p>
+<p>a:visited  /选择所有已被访问的链接/</p>
+<p><a href="#" target="_bank">已被访问的链接</a></p>
+<p>a:hover  /选择鼠标指针位于上方的链接/</p>
+<p><a href="#" target="_bank">鼠标指针位于上方的链接</a></p>
+<p>a:active  /选择活动链接/</p>
+<p><a href="#" target="_bank">选择活动链接（鼠标摁下还未弹起）</a></p>
+<p>注意事项：</p>
+<p>1.为了确保链接伪类选择器生效，建议按照LVHA的顺序写：link、visited、hover、active</p>
+<p>2.只能单独给链接指定样式，不能给所在的标签设置。</p>
+<p>:focus伪类选择器，选取位于焦点（光标）的表单</p>
+<p>一般input类表单元素才能获取，主要针对用于表单</p>
+<p>input:focus{属性}</p>
+<input type="text">
+<input type="text">
+<input type="text">
+<p>:focus-within伪类选择器，目标或者其子盒子获得光标焦点时触发</p>
+<div class="focus">
+    <input type="search" placeholder=":focus-within">
+</div>
+</body>
+</html>

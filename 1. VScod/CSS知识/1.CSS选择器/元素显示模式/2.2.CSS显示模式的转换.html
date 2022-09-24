@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>显示模式的转换</title>
+    <style>
+        /* 行内元素转换块级元素 */
+        a {
+            width: 150px; height: 50px;
+            color: black; background-color: pink;
+            display:block;
+            text-decoration: none;
+        }
+        .b {
+            width: 150px; height: 50px;
+            color: black; background-color: tomato;
+            text-decoration: none;
+            display:block;
+        }
+        /* 块级元素转换行内元素 */
+        .c {
+            color: black; background-color: rgb(166, 228, 21);
+            display:inline;
+        }
+        /* 转换行内块元素 */
+        span {
+            width: 200px; height: 50px;
+            color: black; background-color: burlywood;
+            display: inline-block;
+        }
+        div {
+            width: 200px; height: 50px;
+            color: black; background-color: rgb(166, 228, 21);
+            display: inline-block;
+        }
+        .A {
+            width: 200px; height: 50px;
+            color: black; background-color: aqua;
+            text-indent: 3.5em;
+            line-height: 50px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h3>显示模式的转换</h3>
+    <p>1.例如&nbsp&nbsp增加链接“a”（行内元素）的触发范围，将链接转换为块元素，
+        同时拥有块元素的特性，可设置、高。
+    </p>
+    <h4>一、行内元素转换为块级元素________dispaly:block;</h4>
+    <a href="#" target="bank">我喜欢你</a>
+    <a href="#" target="bank" class="b">我喜欢你</a>
+    <h4>二、块级元素转换为行内元素________dispaly:inline;</h4>
+    <div class="c">我是块级元素div1</div>
+    <div class="c">我是块级元素div2</div>
+    <h4>三、转换为行内块元素_________dispaly:inline-block;</h4>
+    <span>span转行内块元素</span>
+    <span>span转行内块元素</span>
+    <br>
+    <div>div转换行内块元素</div>
+    <div>div转换行内块元素</div>
+    <h3>文字垂直居中</h3>
+    解决方案:让文字的行高等于盒子的高度，可以让文字在盒子里面垂直居中。<br>
+    盒子高度：height<br>
+    文字高度：line-height<br>
+    语法：height等于line-height,左右居中用text-indent"2em"来控制。<br>
+    <div class="A">我是大学生</div>
+</body>
+</html>

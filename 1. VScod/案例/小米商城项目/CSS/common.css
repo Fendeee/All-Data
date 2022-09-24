@@ -1,0 +1,155 @@
+/* 公共样式 */
+/* 公共样式 */
+/* 公共样式 */
+
+
+/* 图标style */
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon.eot?6uv2ls');
+    src:  url('../fonts/icomoon.eot?6uv2ls#iefix') format('embedded-opentype'),
+      url('../fonts/icomoon.ttf?6uv2ls') format('truetype'),
+      url('../fonts/icomoon.woff?6uv2ls') format('woff'),
+      url('../fonts/icomoon.svg?6uv2ls#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  /* 1.头部导航栏 */
+    section.head {
+        position: relative;
+        width:100%; height:40px;
+        background-color:#333333;
+    }
+    section div.center_box {
+        margin: 0 auto;
+        width: 85%; height: 100%;
+        line-height: 40px;
+        font-size: 12px;
+    }
+    /* a链接 */
+    section div.center_box a { color: #b0b0b0;}
+    section div.center_box a[class="|"] {
+        border-right: 1px solid #424242;
+        padding: 0px 10px 0px 0px;
+    }
+    section div.center_box a:hover { color:#fff; }
+    /* 左侧文字 */
+    section ul li:nth-of-type(-n+12) {
+        float: left;
+        margin-right: 10px;
+    }
+    /* 右侧文字 */
+    section ul li:nth-of-type(n+13) {
+        float: right;
+        margin-left: 10px;
+    }
+    /* 购物车链接 */
+    section ul li a.shopcar {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+        line-height: 40px;
+        width: 100px; height: 100%;
+        background-color: #424242;
+        transition: all 1s linear 0s;
+    }
+    section ul li a.shopcar:hover {
+        color: #FF6700;
+        background-color: #ffffff;
+    }
+    section ul li a i { padding-right: 5px; }
+    /* 隐藏模块 */
+    section ul li a.shopcar::before {
+        content: " ";
+        position: absolute;
+        top: 40px; right: 0px;
+        width: 300px; height: 0px;
+        background-color: #fff;
+        box-shadow: 0px 1px 15px 1px rgba(0,0,0,0.4);
+        text-align: center;
+        font-weight: smaller;
+        line-height: 80px;
+        color: #333333;
+        font-weight: bold;
+        transition: all 0.3s linear 0s;
+        /* 最底层 */
+        z-index: -1;
+    }
+    section ul li a.shopcar:hover::before {
+        content: "购物车中还没有商品，赶紧选购吧！！";
+        height: 80px;
+        z-index: 1;
+    }
+/* position:fixed固定定位 */
+    ul.position_fixed {
+        position: fixed;
+        top: 250px;
+        right: 0px;
+        background-color: #FFFFFF;
+        border: 1px solid #f5f5f5;
+        border-radius: 5px;
+    }
+    ul.position_fixed li a {
+        float: left;
+        width: 85px; height: 80px;
+        color: #999999;
+        text-align: center;
+        border-bottom: 1px solid #f5f5f5;
+        transition: all .3s linear 0s;
+    }
+    ul.position_fixed li a.none {
+        border-bottom: 0px;
+    }
+    ul.position_fixed li a i {
+        font-size: 30px;
+        line-height: 55px;
+    }
+    ul.position_fixed li a span {
+        font-size: 15px;
+        line-height: 5px;
+    }
+    ul.position_fixed li a:hover { color: #FF6700; }
+            /* 隐藏模块 */
+    div.user {
+        position: fixed;
+        z-index: 999;
+        top: 231px;
+        right: 0;
+        width: 87px; height: 20px;
+        background-color: #EFEFEF;
+        border: 1px solid #f5f5f5;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 12px;
+        color: #424242;
+        cursor: pointer;
+    }
+    div.user div.none {
+        display: none;
+        position: relative;
+        top: -15px;
+        left: -150px;
+        width: 130px; height: 160px;
+        background-color: #58756B;
+    }
+    div.user .none .img {
+        margin: 0 auto;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        width: 100px; height: 115px;
+    }
+    div.user i {
+        color: #FFFFFF;
+        font-size: 14px;
+    }
+    div.user .none span {
+        position: absolute;
+        top: -0.35px;
+        right: -25px;
+        width: 0px;
+        height: 0px;
+        border: 13px solid transparent;
+        border-left-color: #58756B;
+    }
+    div.user:hover div.none { display: block; }

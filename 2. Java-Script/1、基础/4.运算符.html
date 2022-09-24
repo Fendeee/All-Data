@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>运算符</title>
+    <style>
+        td {
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+        }
+        td:first-child {
+            width: 150px;
+        }
+        td:nth-child(2) {
+            width: 250px;
+        }
+        td:last-child {
+            width: 350px;
+        }
+    </style>
+</head>
+<body>
+    <h2>运算符优先级</h2>
+    <table border="1" cellspacing="0" cellpadding="0">
+        <tr>
+            <th>优先级</th><th>运算符</th><th>顺序</th>
+        </tr>
+        <tr>
+            <td>1</td><td>小括号</td><td>( )</td>
+        </tr>
+        <tr>
+            <td>2</td><td>一元运算符</td><td>++ 、 -- 、 !</td>
+        </tr>
+        <tr>
+            <td>3</td><td>算数运算符</td><td>先 * 、 / 、 % 后 + 、 -</td>
+        </tr>
+        <tr>
+            <td>4</td><td>比较运算符</td><td>> 、 >= 、 < 、 <=</td>
+        </tr>
+        <tr>
+            <td>5</td><td>相等运算符</td><td>== 、 != 、 === 、 !==</td>
+        </tr>
+        <tr>
+            <td>6</td><td>逻辑运算符</td><td>先 && 、 后 ||</td>
+        </tr>
+        <tr>
+            <td>7</td><td>赋值运算符</td><td>=</td>
+        </tr>
+        <tr>
+            <td>8</td><td>逗号运算符</td><td>,</td>
+        </tr>
+    </table>
+    <h2>运算符</h2>
+    <table border="1" cellspacing="0" cellpadding="0">
+        <tr>
+            <th>运算符</th><th>描述</th><th>实例</th>
+        </tr>
+        <tr>
+            <th>1.算数运算符</th><td></td><td></td>
+        </tr>
+        <tr>
+            <td>+</td><td>加法</td><td></td>
+        </tr>
+        <tr>
+            <td>-</td><td>减法</td><td></td>
+        </tr>
+        <tr>
+            <td>*</td><td>乘法</td><td></td>
+        </tr>
+        <tr>
+            <td>/</td><td>除法</td><td></td>
+        </tr>
+        <tr>
+            <td>%</td><td>取余数（去模）</td><td>返回除法的余数，0代表能被整除 9 % 2 = 1</td>
+        </tr>
+        <tr>
+            <td>+=、-=</td><td>加、减一个数，在赋值</td><td>var num = 5; num += 3+2; //num = 10</td>
+        </tr>
+        <tr>
+            <td>*=、/=、%=</td><td>乘、除、取余，在赋值</td><td>var num = 2; num *= 5; //num=10</td>
+        </tr>
+        <tr>
+            <td>++</td><td>递增</td><td>++sum就是自加1<br>sum++(先返回原值再自加1)</td>
+        </tr>
+        <tr>
+            <td>--</td><td>递减</td><td>--sum就是自减1<br>sum--(先返回原值再自减1)</td>
+        </tr>
+        <tr>
+            <th>2.比较运算符</th><th>比较完后返回一个布尔值(true/false)</th><th></th>
+        </tr>
+        <tr>
+            <td>&lt;</td><td>小于</td><td></td>
+        </tr>
+        <tr>
+            <td>&gt;</td><td>大于</td><td></td>
+        </tr>
+        <tr>
+            <td>&lt;=</td><td>小于等于（小于或者等于）</td><td></td>
+        </tr>
+        <tr>
+            <td>&gt;=</td><td>大于等于（大于或者等于）</td><td></td>
+        </tr>
+        <tr>
+            <td>==</td><td>判等（会转型）</td><td>判断是否相等</td>
+        </tr>
+        <tr>
+            <td>！=</td><td>不等于</td><td></td>
+        </tr>
+        <tr>
+            <td>===</td><td>全等 要求值和数据类型全部一致</td><td></td>
+        </tr>
+        <tr>
+            <td>！==</td><td>全部否定</td><td></td>
+        </tr>
+        <tr>
+            <th>3.逻辑运算符</th><th></th><th></th>
+        </tr>
+        <tr>
+            <td>&&</td><td>逻辑与</td><td></td>
+        </tr>
+        <tr>
+            <td>||</td><td>逻辑或</td><td></td>
+        </tr>
+        <tr>
+            <td>！</td><td>逻辑非</td><td></td>
+        </tr>
+        <tr>
+            <th>逻辑与短路运算</th><th>如果表达式1为真，返回表达式2。则返回表达式1</th><th>0 '' null undefined NaN为真，其余为假</th>
+        </tr>
+        <tr>
+            <th>逻辑或短路运算</th><th>如果表达式1为真，返回表达式1，则返回表达式2</th>
+        </tr>
+    </table>
+</body>
+</html>

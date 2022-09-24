@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS背景图片</title>
+    <style>
+        div {
+            width: 500px;
+            height: 500px;
+            line-height: 500px;
+            font-size: 30px;
+            text-indent: 2em;
+            color: aqua;
+            background-image: url(../CSS专用图片/快递柜.png);
+            background-repeat: no-repeat;
+            background-size: cover;                                 /* 背景自适应 缩放 */
+        }
+    </style>
+</head>
+<body>
+<!-- 背景图片 -->
+    <h3>背景图片</h3>
+    <p>background-image&nbsp&nbsp属性描述了元素的背景图像。实际开发常见于logo或者一些装饰性的小图片或者超大背景图片。</p>
+    优点是非常便与控制位置<br>
+    语法：background-image:none（默认没有）/url（）（图片地址）<br>
+    <div>芬迪</div>
+<!-- 背景平铺 -->
+    <h3>背景平铺</h3>
+    <p>如果需要在HTML页面上对背景图片进行平铺，可以使用background-repeat属性。</p>
+    语法：<br>
+    1.background-repeat:"repeat"（平铺）<br>
+    2.background-repeat:"no-repeat"（不平铺）<br>
+    3.background-repeat:"repeat-x"（x轴平铺）<br>
+    4.background-repeat:"repeat-y"（y轴平铺）<br>
+</body>
+</html>

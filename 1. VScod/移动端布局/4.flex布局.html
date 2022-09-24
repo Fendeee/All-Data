@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0,minimum-scale=1.0">
+    <title>flex布局</title>
+</head>
+<body>
+    <h2>flex布局：display: flex;（通过给父盒子添加flex属性，来控制子盒子的位置和排列方式）</h2>
+    <p>父元素使用flex布局后，子元素的float、clear、vertical-align属性将消失</p>
+    <h3>主轴与侧轴</h3>
+    <p>
+        默认主轴方向是X轴，水平向右<br>
+        默认侧轴方向是Y轴，水平向下
+    </p>
+    <table border="1">
+        <tr>
+            <th>常见属性</th><th>值</th><th>作用</th>
+        </tr>
+        <tr>
+            <td>flex-direction:</td><td>row (默认值从左到右)<br>row-reverse (从右到左)<br>column (从上到下)<br>column-reverse (从上到下)</td><td>设置主轴方向（写在父盒子上）</td>
+        </tr>
+        <tr>
+            <td>justify-content:</td><td>flex-start (从头部开始排列，如主轴X默认从左到右)<br>flex-end (从尾部排列)<br>center (在主轴居中对齐，如主轴X则水平居中)<br>space-around (平分剩余空间)<br>space-between (先两遍贴边，在平分剩余空间)</td><td>设置主轴上的子元素排列方式</td>
+        </tr>
+        <tr>
+            <td>flex-wrap:</td><td>nowrap（不换行）<br>wrap（换行）</td><td>设置子元素是否换行（flex元素中默认不换行）</td>
+        </tr>
+        <tr>
+            <td>align-content:</td><td>flex-start（默认值在侧轴的头部开始排列）<br>flex-end（在侧轴的尾部开始排列）<br>center（在侧轴的中间显示）<br>space-around（子项在侧轴平分剩余空间）<br>space-between（子项在侧轴先分布两头，在平分剩余空间）<br>stretch（设置子项元素高度平分父元素高度）</td><td>设置侧轴上的子元素排列方式（多行）</td>
+        </tr>
+        <tr>
+            <td>align-items:</td><td>flex-start（从上到下）<br>flex-end（从下到上）<br>center（挤在一起居中，垂直居中）<br>stretch（拉伸，不能有高度）</td><td>设置侧轴上的子元素排列方式（单行）</td>
+        </tr>
+        <tr>
+            <td>flex-flow:</td><td></td><td>复合属性，相当于同时设置了flex-direction和flex-wrap</td>
+        </tr>
+        <tr>
+            <td>flex: 数字;</td><td>分配剩余空间，用flex来表示占多少份数</td>
+        </tr>
+        <tr>
+            <td>align-self:</td><td>上述所有属性都可使用（单独写在需要的子项上）</td><td>控制某一个子项自己在侧轴上的排列方式，但不影响其他子项</td>
+        </tr>
+        <tr>
+            <td>order:</td><td>定义项目的排列顺序（单独写在子项上）</td><td>与z-index不同的是，order值越小越靠前，默认值为0</td>
+        </tr>
+    </table>
+</body>
+</html>

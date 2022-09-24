@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>请求超时和异常</title>
+    <style>
+        .box {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px; height: 200px;
+        }
+        #result {
+            margin: 5px 0;
+            width: 100%;
+            height: 50%;
+            border: 1px purple solid;
+            color: #333;
+            font-size: 20px;
+            line-height: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <button>点击发送请求，服务器已关</button>
+        <button>取消请求</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const but = document.querySelectorAll('button');
+        let result = document.getElementById('result');
+        let xhr = null;      /* 设置全局变量 */
+                // 标识变量  防止用户重复请求
+                let isSending = false;                                          /* 是否正在发送AJAX请求 */
+
+    // Ajax 请求
+        but[0].addEventListener('click', function() {
+            // 判断标识变量
+            if(isSending) xhr.abort();
+            xhr = new XMLHttpRequest();
+            // 修改 标识变量
+            isSending = true;
+            // 超时设置 2s，2s内没有结果，则取消请求
+            xhr.timeout = 2000;
+            // 超时回调 
+            xhr.ontimeout = function(){
+                alert('网络异常，请稍后重试！！');
+            }
+            // 网络异常回调
+            xhr.onerror = function(){
+                alert('您的网络似乎出了一些问题');
+            }
+
+            xhr.open('GET', 'http://127.0.0.1:8000/index');
+            xhr.send();
+            xhr.onreadystatechange = function (){
+                if(xhr.readyState === 4){
+                    // 修改标识变量
+                    isSending = false;
+                    if(xhr.status >= 200 && xhr.status < 300){
+                        result.innerHTML = xhr.response;
+                    } else {
+                    }
+                }
+            }
+        });
+
+    // abort 取消请求
+        but[1].addEventListener('click', function(){
+            xhr.abort();
+        });
+
+    </script>
+
+</body>
+</html>

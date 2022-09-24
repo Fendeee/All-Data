@@ -1,0 +1,29 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typ i code"
+    },
+    {
+      "id": 2,
+      "title": "芬迪的axios上线啦！",
+      "author": "FenDi"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    },
+    {
+      "body": "其他方式添加 comments 数据",
+      "postId": 2,
+      "id": 2
+    }
+  ],
+  "profile": {
+    "name": "typ i code"
+  }
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画</title>
+    <style>
+        @keyframes move {
+            0% {
+                transform: translateX(0px);
+            }
+            100% {
+                transform: translateX(500px);
+            }
+        }
+        div.box {
+            width: 100px; height: 100px;
+            background-color: pink;
+            animation-name: move;
+            animation-duration: 5s;
+        }
+        @keyframes repeatedly {
+            0% {
+                transform: translate(0px,0px);
+            }
+            25% {
+                transform: translate(400px,0px);
+            }
+            50% {
+                transform: translate(400px,-300px);
+            }
+            75% {
+                transform: translate(0px,-300px);
+            }
+            100% {
+                transform: translate(0px,0px);
+            }
+        }
+        div.box_two {
+            width: 100px; height: 100px;
+            background-color: yellowgreen;
+            animation-name: repeatedly;
+            animation-duration: 5s;
+        }
+    </style>
+</head>
+<body>
+    <h3>动画(animation)</h3>
+    <p>动画( animation )是CSS3中具有颠覆性的特征之一<br>
+        可通过设置多个节点来精确控制一个或一组动画,常用来实现复杂的动画效果。<br>
+        相比较过渡,动画可以实现更多变化,更多控制,连续自动播放等效果。</p>
+        <h3>动画的基本调用 (两个步骤)</h3>
+        <p>1.先定义动画<br>
+           2.再使用(调用)动画</p>
+    <h3>一.用keyframes 动画名称，定义动画(类似定义类选择器)</h3>
+    <h4>1.动画序列</h4>
+    <p>0%是动画的开始，100%是动画的完成。这样的规则就是动画序列。<br>
+        在@keyframes中规定某项CSS样式,就能创建由当前样式逐渐改为新样式的动画效果。<br>
+        动画是使元素从一种祥式逐渐变化为另一 种样式的效果。 <strong>您可以改变任意多的样式任意多的次数。</strong><br>
+        请用百分比来规定变化发生的时间,<strong>或用关键词"from"和"to" ,等同于0%和100%</strong>。
+    </p>
+    <h4>2.元素使用动画</h4>
+    <p>
+        元素当中写animation-name: 动画名称;<br>
+        animation-duration: 持续时间;
+    </p>
+    <div class="box"></div>
+    <div class="box_two"></div>
+    <h3>动画简写</h3>
+    <p>animation :动画名称 持续时间 运动曲线 何时开始 播放次数 否反方向 动画起始 或者结束的状态;<br>
+        简写属性里面不包含animation-play-state</p>
+    <table align="center" border="1" cellpadding="0" cellspacing="0">
+        <tr>
+            <th>属性</th><th>描述</th>
+        </tr>
+        <tr>
+            <td>@keyframes</td><td>规定动画</td>
+        </tr>
+        <tr>
+            <td>animation</td><td>所有动画属性的简写属性,除了animation-play-state属性。</td>
+        </tr>
+        <tr>
+            <td>animation-name</td><td>规定@keyframes动画的名称。( 必须的)</td>
+        </tr>
+        <tr>
+            <td>animation-duration</td><td>规定动画完成一个周期所花费的秒或毫秒，默认是0。(必须的)</td>
+        </tr>
+        <tr>
+            <td>animation-timing-function</td><td>规定动画的速度曲线,默认是"ease”.</td>
+        </tr>
+        <tr>
+            <td>animation-delay</td><td>规定动画何时开始，默认是0</td>
+        </tr>
+        <tr>
+            <td>animation-iteration-count</td><td>规定动画被播放的次数，默认是1，infinite(无限循环)</td>
+        </tr>
+        <tr>
+            <td>animation-direction</td><td>规定动画是否在下一周期逆向播放,默认是"normal ",alternate逆播放</td>
+        </tr>
+        <tr>
+            <td>animation-play-state</td><td>规定动画是否正在运行或暂停。默认是"running",还有 ”pause".</td>
+        </tr>
+        <tr>
+            <td>animation-fill-mode</td><td>规定动画结束后状态,保持forwards回到起始backwards</td>
+        </tr>
+    </table>
+    <h3>速度曲线和steps步长</h3>
+    <table align="cenetr" border="1" cellspacing="0" cellpadding="0">
+        <tr>
+            <th>速度曲线</th><th>描述</th>
+        </tr>
+        <tr>
+            <td>linear</td><td>匀速，动画从头都尾速度都是相同的</td>
+        </tr>
+        <tr>
+            <td>ease</td><td>默认，动画以低速开始，然后加快，在结束前变慢</td>
+        </tr>
+        <tr>
+            <td>ease-in</td><td>动画以低速开始</td>
+        </tr>
+        <tr>
+            <td>ease-out</td><td>动画以低速结束</td>
+        </tr>
+        <tr>
+            <td>ease-in-out</td><td>动画以低速开始和结束</td>
+        </tr>
+        <tr>
+            <td>steps()</td><td>指定了时间函数中的间隔数量<br>（步长，分几步来完成我们的动画）</td>
+        </tr>
+    </table>
+</body>
+</html>

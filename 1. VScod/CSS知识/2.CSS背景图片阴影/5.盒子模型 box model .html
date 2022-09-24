@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盒子模型 box model</title>
+    <style>
+        /* border详情 */
+        .bk1 {
+            width: 450px; height: 170px;
+            background-image: url(../CSS专用图片/border边框呀样式.png);
+            background-repeat: no-repeat;
+        }
+        /* border样式 */
+        .bk2 {
+            width: 140px; height: 100px; line-height: 100px;
+            display: inline-block;
+            border-width: 4px;
+            border-style: solid;
+            border-color: tomato;
+        }
+        .bk3 {
+            width: 140px; height: 100px; line-height: 100px;
+            display: inline-block;
+            border-width: 4px;
+            border-style: dashed;
+            border-color: purple;
+        }
+        .bk4 {
+            width: 14   0px; height: 100px; line-height: 100px;
+            display: inline-block;
+            border-width: 4px;
+            border-style: dotted;
+            border-color: blue;
+        }
+        .bk5 {
+            width: 100px; height: 100px;
+            border-top: 2px solid black;
+            border-bottom: 2px dashed pink;
+            border-left: 2px dotted tomato;
+            border-right: 2px double purple;
+        }
+/* 表格table样式 */
+        table {
+            width: 500px; height: 250px;
+        }
+        table,td {
+            border: 1px solid tomato;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<!-- boder详情 -->
+    <h3 align="center">边框</h3>
+    <table align="center" border="1" width="300" cellspacing="0">
+        <tr><td>border-width</td><td>定义边框粗细</td></tr>
+        <tr><td>border-style</td><td>边框样式</td></tr>
+        <tr><td>border-color</td><td>边框颜色</td></tr>
+        <tr>
+            <td>边框分开写法</td>
+            <td>border-top/border-bottom/border-lift/border-right</td>
+        </tr>
+        <tr><td>复合写法</td><td>border:width/style/color;（没有具体写法）</td></tr>
+    </table>
+<!-- border样式 -->
+    <div class="bk1"></div>
+    <div class="bk2">solid（实线）</div>
+    <div class="bk3">dashed（虚线）</div>
+    <div class="bk4">dotted（点线）</div>
+    <div class="bk5"></div>
+<!-- 表格table样式改变 -->
+    <table align="center" width="500" cellspacing="0">
+        <thead>
+            <tr>
+                <th>属性</th>
+                <th>用途</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>border-collapse: ;</td>
+                <td>控制浏览器绘制表格的方式，控制相邻单元格边框</td>
+            </tr>
+            <tr>
+                <td>collapse（合并）</td>
+                <td>border-collapse:collapse;（相邻单元格合并在一起）/td>
+            </tr>
+        </tbody>
+    </table>
+    <p>内边距  padding-left/right/top/bottom</p>
+    <p>外边距  margin-left/right/top/bottom</p>
+    <p>盒子居中  marign-0 auto</p>
+    <h3>清除内外边距</h3>
+    <p>网页元素很多都带有默认的内外边距，而且不同浏览器的默认不一致，</p>
+    用css清楚内外边距<br>
+    语法： * [ padding:0;（清楚内边距） margin:0;（清楚外边距） ]
+</body>
+</html>

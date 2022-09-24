@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>location对象获取URL</title>
+    <style>
+        table.right {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            border-collapse:collapse;
+        }
+        table.left {
+            position: absolute;
+            top: 50%;
+            left: 20%;
+            border-collapse:collapse;
+        }
+        table.bottom {
+            position: absolute;
+            top: 80%;
+            border-collapse:collapse;
+        }
+        th,td {
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>location 对象</h2>
+    <p>
+        windows对象给我们提供了一个 <strong style="color: red;">location属性</strong> 用于
+        <strong style="color: red;">获取或设置窗体的URL地址</strong>，并且可用于<strong style="color: red;">解析URL</strong>
+        这个属性返回的是对象，也叫location对象
+    </p>
+    <h3 style="font-weight: 200;">语法格式：</h3>
+    <p style="color: blue;">protocol://host [:port]/path/[?query]#fragment</p>
+    <p style="color: red;">http://www.itcast.cn/index.html?name=andy&age=18#link</p>
+    <table border="1" cellspacing="0" cellpadding="0" class="right">
+        <tr style="background-color: teal; color: #fff;">
+            <th>组成</th><th>说明</th>
+        </tr>
+        <tr>
+            <td>protocol</td><td>通信协议常用的 http，ftp，maito等</td>
+        </tr>
+        <tr>
+            <td>host</td><td>主机（域名） www.baidu.com</td>
+        </tr>
+        <tr>
+            <td>port</td><td>端口号 可选，省略时使用方案的默认端口，如 http 默认端口 80</td>
+        </tr>
+        <tr>
+            <td>path</td><td>路径，由0或多个'/符号隔开的字符串，一般用来表示主机上的一个目录文件</td>
+        </tr>
+        <tr>
+            <td>query</td><td>参数，以键值对的形式，通过&符号隔开来</td>
+        </tr>
+        <tr>
+            <td>fragment</td><td>片段， #后面内容 常见玉链接 锚点</td>
+        </tr>
+    </table>
+    <table border="1" cellspacing="0" cellpadding="0" class="left">
+        <tr style="background-color: teal; color: #fff;">
+            <th>location对象属性</th><th>返回值</th>
+        </tr>
+        <tr>
+            <td>location . href</td><td>获取或设置 整个URL 地址 <i style="font-weight: 200;"> www.baidu.com</i></td>
+        </tr>
+        <tr>
+            <td>location . host</td><td>返回主机（域名）</td>
+        </tr>
+        <tr>
+            <td>location . port</td><td>返回端口号，如果未写 返回空字符串</td>
+        </tr>
+        <tr>
+            <td>location . pathname</td><td>返回路径</td>
+        </tr>
+        <tr>
+            <td>location . search</td><td>返回参数</td>
+        </tr>
+        <tr>
+            <td>location . hash</td><td>返回片段，#后面内容，常见于链接，锚点</td>
+        </tr>
+    </table>
+    <table border="1" cellspacing="0" cellpadding="0" class="bottom">
+        <tr style="background-color: teal; color: #fff;">
+            <th>location 对象的方法</th><th>返回值</th>
+        </tr>
+        <tr>
+            <td>location . assign( 'URL地址' )</td><td>和 href 一样，可以跳转页面（也称为重定向页面）</td>
+        </tr>
+        <tr>
+            <td>location . replace( 'URL地址' )</td><td>替换当前页面，因为不留下记录所以不能退后页面</td>
+        </tr>
+        <tr>
+            <td>location . reload()</td><td>重新加载页面，相当于刷新按钮或者 f5 如果参数为true 强制刷新 ctrl+f5</td>
+        </tr>
+    </table>
+    <div>
+        <h2>参数传递</h2>
+        <ul>
+            <li>传递中文会 乱码！！！！！</li>
+            <li>1. 先去掉 ？号， 利用 substr('起始位置',截取几个字符串)&nbsp;&nbsp;&nbsp; <small style="font-weight: 400;color: blue;">var params = location.search.substr(1);&nbsp;&nbsp;&nbsp;/* 从 1 开始截取 */</small></li>
+            <li>2. 利用 = 号把字符串分割为数组 split('=');&nbsp;&nbsp;&nbsp; <small style="font-weight: 400;color: blue;">var arr = params.split('=');</small></li>
+            <li>3. 把数据写入 div 当中&nbsp;&nbsp;&nbsp; <small style="font-weight: 400;color: blue;">div.innerHTML = arr[1] + '欢迎您';</small></li>
+        </ul>
+    </div>
+</body>
+</html>

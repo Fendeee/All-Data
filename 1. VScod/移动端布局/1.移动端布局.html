@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视口</title>
+</head>
+<body>
+    <h2>视口(viewport)就是浏览器显示页面内容的屏幕区域，视口可分为：布局视口、视觉视口、理想视口。</h2>
+    <h3>一、布局视口layout viewport</h3>
+    <p>一般移动端浏览器都默认设置了一个布局视口</p>
+    <h3>二、视觉视口visual viewport</h3>
+    <p>用户正在看的网站区域</p>
+    <h3>三、理想视口ideal viewport</h3>
+    <p>为了使网站在移动端有最理想的浏览器和阅读宽度而设定</p>
+    <h1>meta视口标签</h1>
+    <h3>&lt; meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimum-scale=1.0" &gt;</h3>
+    <p>viewport(视口)、width-device-width(布局的宽度等于设备的宽度)、<br>
+        user-scalable=(用户是否允许缩放)、initial-scale=1.0(初始缩放) <br>
+        maximum-scale=1.0(最大缩放)、minimum-scale=1.0(最小 缩放)
+    </p>
+    <h2>background-size: ; cover(完全覆盖盒子)、contain(宽高等比拉伸)</h2>
+    <h4>移动端CSS初始化官网：http://necolas.github.io/normalize.css/</h4>
+    <h2>移动端常见布局</h2>
+    <h3>一、单独制作移动端页面(主流)</h3>
+    <p>
+        1.流式布局(百分比布局)<br>
+        2.flex弹性布局(强烈推荐)<br>
+        3.less+rem+媒体查询布局<br>
+        4.混合布局
+    </p>
+    <h3>二、响应式页面兼容移动端(其次)</h3>
+    <p>
+        1.媒体查询布局<br>
+        2.bootstrap
+    </p>
+</body>
+</html>

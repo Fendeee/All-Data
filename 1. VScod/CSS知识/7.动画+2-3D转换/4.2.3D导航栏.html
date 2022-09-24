@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D导航栏</title>
+    <style>
+        * {
+            margin: 0; padding: 0;
+        }
+        ul {
+            margin-top: 300px;
+            margin-left: 300px;
+        }
+        ul li {
+            float: left;
+            margin: 0 5px;
+            width: 130px; height: 45px;
+            list-style: none;
+            /* box旋转也需要透视 */
+            perspective: 1000px;
+        }
+        .box {
+            position: relative;
+            width: 100%; height: 100%;
+            transform-style: preserve-3d;
+            transition: all 0.5s ease 0s;
+        }
+        .box:hover {
+            transform: rotateX(90deg);
+        }
+        .front,
+        .bottom {
+            width: 100%; height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-align: center;
+            color: #FFFFFF;
+            font-size: 20px;
+            line-height: 45px;
+        }
+        .front {
+            background-color: olive;
+            transform: translateZ(22.5px);
+        }
+        .bottom {
+            background-color: yellowgreen;
+            /* 先移动后旋转 */
+            transform: translateY(50%) rotateX(-90deg);
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <div class="box">
+                <div class="front">芬迪</div>
+                <div class="bottom">你好</div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="front">芬迪</div>
+                <div class="bottom">你好</div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="front">芬迪</div>
+                <div class="bottom">你好</div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="front">芬迪</div>
+                <div class="bottom">你好</div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="front">芬迪</div>
+                <div class="bottom">你好</div>
+            </div>
+        </li>
+    </ul>
+</body>
+</html>

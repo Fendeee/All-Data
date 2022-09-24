@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>列表筛选排序</title>
+    <script src="../js/vue.js"></script>
+
+    <style>
+        th,td { padding: 5px 10px; text-align: center; }
+    </style>
+
+</head>
+<body>
+        <!-- FenDi: 列表过滤 -->
+        <div class="filter">
+            <h2>列表过滤</h2>
+            <input type="text" v-model="keyWord" placeholder="请输入...">
+            <button @click="sortType = 2">年龄升序</button>
+            <button @click="sortType = 1">年龄降序</button>
+            <button @click="sortType = 0">原顺序</button>
+            <table border="1" cellspacing="0" cellpadding="0">
+                <tr>
+                    <th>姓名</th><th>性别</th><th>年龄</th>
+                </tr>
+                <tr v-for="p in filPersons" :key="p.id">
+                    <td>{{p.name}}</td><td>{{p.sex}}</td><td>{{p.age}}</td>
+                </tr>
+            </table>
+        </div>
+        
+    <script>
+
+        // FenDi: 列表过滤
+        const vm_filter = new Vue({
+            el: '.filter',
+            data: {
+                keyWord: '',        /*!* 关键词  v-model双向绑定 *!*/
+                sortType: 0,        /*!* 0原顺序 1降序 2升序 *!*/
+                persons: [          /*!* 原数据  *!*/
+                    {id: '001', name: '周杰伦', sex: '男', age: '35'},
+                    {id: '002', name: '马冬梅', sex: '女', age: '40'},
+                    {id: '003', name: '林俊杰', sex: '男', age: '36'},
+                    {id: '004', name: '周淑怡', sex: '女', age: '18'},
+                    {id: '005', name: '马斯克', sex: '男', age: '45'},
+                    {id: '006', name: '周俊', sex: '男', age: '23'},
+                ],
+                // filPersons: []      /*&&& watch监视筛选出来的数据 &&&*/
+            },
+            // &&&  计算属性 过滤
+            computed: {
+                filPersons(){
+                    const arr = this.persons.filter((p)=>{
+                       return p.name.indexOf(this.keyWord) !== -1
+                    })
+                    // $$$ 判断是否需要排序
+                    if(this.sortType !== 0){
+                        arr.sort((a,b)=>{
+                            // $$$ sort() 排序，
+                            return this.sortType === 1 ? b.age-a.age : a.age-b.age
+                        })
+                    }
+                    return arr
+                }
+            }
+/*             // &&&  监视方法 过滤
+            watch: {
+                keyWord: {
+                    immediate: true,
+                    handler(newValue){
+                        // @@@  filter()过滤筛选
+                        this.filPersons = this.persons.filter((p)=>{
+                            //@@@ indexOf() 判断数组值是否含有某元素，!== -1表示有
+                            return p.name.indexOf(newValue) !== -1
+                        })
+                    }
+                }
+            } */
+        })
+    </script>
+</body>
+</html>

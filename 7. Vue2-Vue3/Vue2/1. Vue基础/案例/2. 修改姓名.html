@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改姓名</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        #box {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="box">
+        <div id="xing">      <!--*!* v-model = value *!*-->
+            姓：<input type="text" v-model="firstName" placeholder="请输入...">
+        </div>
+        <div id="ming">
+            名：<input type="text" v-model="lastName" placeholder="请输入...">
+        </div>
+        姓名：<span id="all">{{fullName}}</span>
+    </div>
+
+    <script>
+        Vue.config.productionTip = false
+
+        const vm = new Vue({
+            el: '#box',
+            data: {
+                firstName: '',
+                lastName: '',
+                fullName: ''
+            },
+            watch: {
+                firstName: {
+                    handler(newValue){
+                        this.fullName = newValue + '-' + this.lastName
+                    }
+                },
+                lastName: {
+                    handler(newValue){
+                        this.fullName = this.firstName + '-' + newValue
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

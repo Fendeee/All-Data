@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例</title>
+    <style></style>
+    <script>
+/* 纯js */
+/* 36 - 取款机  */                                   /* 297 - 循环点击按钮改变样式（排他思想） */
+/* 59 - 简易计算器 */                                /* 308 - innerHTML 高效创建多个标签 */
+/* 84 - 函数数组元素反转 */
+/* 95 - 函数数字数组排序 */
+/* 112 - 封装数学函数 */
+/* 137 - getRandom随机函数1-10 */
+/* 148 - 随机点名函数 */
+/* 155 - 猜数字游戏 */
+/* 176 - 获取日期 */
+/* 195 - 函数返回时间 */
+/* 208 - 倒计时 */
+/* 227 - 筛选数组 */
+/* 240 - 数组去重复案例 */
+/* 254 - 字符出现的位置和次数 */
+/* 265 - 对象统计每个字符出现次数-遍历对象 */
+/* 288 - 把字符串某个值替换成其他符号 */
+
+
+
+
+
+
+
+
+
+// ATM 取款机
+        // for (var i=1; i<5 ; i--) {
+        //     var atm = prompt('请输入您需要的操作'+'\n'+'1.存钱'+'\n'+'2.取钱'+'\n'+'3.存入金额'+'\n'+'4.剩余金额：'+'\n'+'5.退出');
+        //     if (atm == 1) {
+        //         var save = prompt('请输入存入的金额：');
+        //         alert('当前账户剩余金额为：' + save);
+        //     }
+        //     else if (atm == 2) {
+        //         var take  = prompt('请输入取出的金额：');
+        //         alert('当前账户剩余金额为' + (save-take));
+        //     }
+        //     else if (atm == 3) {
+        //         var see = alert('当前账户存入金额为：'+ save);
+        //     }
+        //     else if (atm ==4) {
+        //         var rem = alert('剩余金额为：'+(save-take))
+        //     }
+        //     else if(atm == 5) {
+        //         alert('立即为您退出系统！');
+        //         break;
+        //     }
+        // }
+        
+// 简易计算器
+        // var um = 0;
+        // for (var i=0; i<5; i--) {
+        //     var num = prompt('欢迎使用简易计算器'+'\n'+'1.加法运算'+'\n'+'2.减法运算'+'\n'+'3.乘法运算'+'\n'+'4.除法计算'+'\n'+'5.退出'+'\n'+'请输入您的选项');
+        //     if (num == 1) {
+        //         var num1 = prompt('请输入第一个数：');
+        //         var num2 = prompt('请输入第二个数：');
+        //         alert(um = parseFloat(num1) + parseFloat(num2));
+        //     } else if (num == 2) {
+        //         var num1 = prompt('请输入第一个数：');
+        //         var num2 = prompt('请输入第二个数：');
+        //         alert(um = parseFloat(num1) - parseFloat(num2));
+        //     } else if (num == 3) {
+        //         var num1 = prompt('请输入第一个数：');
+        //         var num2 = prompt('请输入第二个数：');
+        //         alert(um = parseFloat(num1) * parseFloat(num2));
+        //     } else if (num == 4) {
+        //         var num1 = prompt('请输入第一个数：');
+        //         var num2 = prompt('请输入第二个数：');
+        //         alert(um = parseFloat(num1) / parseFloat(num2));
+        //     } else if (num == 5) {
+        //         break;
+        //     }
+        // }
+
+// 函数 数组元素反转
+        // function Reversal(str) {
+        //     var newStr = [];
+        //     for (var i=str.length-1; i>=0; i--) {
+        //         newStr[newStr.length] = str[i];
+        //     }
+        //     return newStr;
+        // }
+        // var arr = ['rest','hotel','pion','bgc','break'];
+        // console.log(Reversal(arr));
+
+// 函数 数字数组排序
+        // function Sort(arr) {
+        //     for (var i=0; i<arr.length; i++) {
+        //         for (var j=i+1; j<arr.length; j++) {
+        //             if (arr[i]<arr[j]) {
+        //                 var t=arr[i];
+        //                 arr[i]=arr[j];
+        //                 arr[j]=t;
+        //             }
+        //         }
+        //     }
+        //     return arr;
+        // }
+        // var num = [5,3,0,-5,32,20,34,17,-29];
+        // Sort(num);
+        // console.log(Sort(num));
+
+// 封装数学函数
+        // var obj = {
+        //     PI: 3.1415026,
+        //     max: function () {
+        //         var max = arguments[0];
+        //         for (var i=1; i<arguments.length; i++) {
+        //             if (arguments[i]>max) {
+        //                 max = arguments[i];
+        //             }
+        //         }
+        //         return max;
+        //     },
+        //     min: function () {
+        //         var min = arguments[0];
+        //         for (var i=1; i<arguments.length; i++) {
+        //             if (arguments[i]<min) {
+        //                 min = arguments[i];
+        //             }
+        //         }
+        //         return min;
+        //     }
+        // }
+        // console.log(obj.PI);
+        // console.log(obj.max(3,245,0));
+
+// getRandom 随机函数 1~10
+        // function getRandom(max,min) {
+        //     if (max < min) {
+        //         var t = max;
+        //         max = min;
+        //         min = t;
+        //     }
+        //     return Math.floor(Math.random() * (max - min + 1) + min);
+        // }
+        // console.log(getRandom(1,10));
+
+// 随机点名函数
+        // function getRandom(min,max) {
+        //     return Math.floor(Math.random() * (max - min + 1)) + min;
+        // }
+        // var arr = ['利物浦','多特蒙德','阿森纳','巴萨罗纳','拜仁','皇马','巴黎'];
+        // console.log(arr[getRandom(0,arr.length-1)]);
+
+// 猜数字游戏
+        // function getRandom(min,max) {
+        //     min = Math.ceil(min);
+        //     max = Math.floor(max);
+        //     return Math.floor(Math.random() * (max - min + 1) + min);
+        // }
+        // var i=1;
+        // var random = getRandom(1,10);
+        // while (i<=5) {
+        //     var num = prompt();
+        //     if (num > random) {
+        //         alert('抱歉！猜大了'+'\n'+'random = '+ random);
+        //     } else if (num < random) {
+        //         alert('抱歉！猜小了'+'\n'+'random = '+ random);
+        //     } else {
+        //         alert('恭喜猜对了'+'\n'+'random = '+ random);
+        //         break;
+        //     }
+        //     i++;
+        // }
+
+// 获取日期
+        // var  date = new Date();
+        // var year = date.getFullYear();
+        // var month = date.getMonth() + 1;
+        // var day = date.getDate();
+        // var hours = date.getHours();
+        // hours = hours < 10 ? '0' + hours : hours;
+        // var minutes = date.getMinutes();
+        // minutes = minutes < 10 ? '0' + minutes : minutes;
+        // var seconds = date.getSeconds();
+        // seconds = seconds < 10 ? '0' + seconds : seconds;
+        // if(hours > 12) {
+        //     var ccc = '下午 '
+        // } else if(hours < 12) {
+        //     var ccc = '上午 ';
+        // }
+
+        // console.log('今天是：'+'\n'+year+'年'+' '+month+'月'+' '+day+'日'+'\n'+ccc+hours+'点'+' '+minutes+'分'+' '+seconds+'秒');
+
+// 函数返回时间
+        // function getTime() {
+        //     var date = new Date();
+        //     var h = date.getHours();
+        //     h = h < 10 ? '0' + h : h;
+        //     var m = date.getMinutes();
+        //     m = m < 10 ? '0' + m : m;
+        //     var s = date.getSeconds();
+        //     s = s < 10 ? '0' + s : s;
+        //     return h + ':' + m + ':' + s;
+        // }
+        // console.log(getTime());
+
+// 倒计时
+        // function countDown(time) {
+        //     var nowTime = +new Date();              /* 返回当前时间的总毫秒数 */
+        //     var inputTime = +new Date(time);        /* 返回用户输入时间的总毫秒数 */
+        //     var times = (inputTime - nowTime) / 1000;        /* 剩余时间的总秒数 / 1000 */
+        //     var d = parseInt(times / 60 / 60 /24);           /* 计算天数 */
+        //     d = d < 10 ? '0' + d : d;
+        //     var h = parseInt(times / 60 / 60 % 24);          /* 计算小时 */
+        //     h = h < 10 ? '0' + h : h;
+        //     var m = parseInt(times / 60 % 60);               /* 返回分钟 */
+        //     m = m < 10 ? '0' + m : m;
+        //     var s = parseInt(times % 60);                    /* 返回秒数 */
+        //     s = s < 10 ? '0' + s : s;
+        //     return d + '天' + h + '时' + m + '分' + s + '秒';
+        // }
+        // console.log(countDown('2022-5-31 18:00:00'));
+        // var date = new Date();
+        // console.log(date);
+
+// 筛选数组
+        // function getArr(str) {
+        //     var newStr = [];
+        //     for (var i=0; i<str.length; i++) {
+        //         if(str[i] < 2000) {
+        //             newStr.push(str[i]);    /* 小于2000的赋值到 newStr 里面 */
+        //         }
+        //     }
+        //     return newStr;
+        // }
+        // var arr = [1500,1200,2000,2100,1800];
+        // console.log(getArr(arr));
+
+// 数组去重复案例
+        // function unique(arr) {
+        //     var newArr = [];
+        //     for (var i = 0; i<arr.length; i++) {
+        //         if (newArr.indexOf(arr[i]) === -1) {
+        //             newArr.push(arr[i]);
+        //         }
+        //     }
+        //     return newArr;
+        // }
+        // var demo = ['c','a','z','a','x','a','x','c','d'];
+        // unique(demo);
+        // console.log(unique(demo));
+
+// 字符出现的位置和次数
+        // var arr = ['red','blue','red','green','pink','red'];
+        // var newArr = arr.indexOf('red');
+        // var num = 0;
+        // while (newArr !== -1) {
+        //     console.log(newArr);
+        //     num++;
+        //     newArr = arr.indexOf('red',newArr + 1);
+        // }
+        // console.log('red出现了'+num+'次');
+
+/* 对象统计每个字符出现次数   遍历对象 */
+        // var str = 'abcoefoxyozzopp';
+        // var obj = {};
+        // for (var i=0; i<str.length; i++) {
+        //     var chars = str.charAt(i);   /* chars 是字符串的每一个字符 */
+        //     if (obj[chars]) {
+        //         obj[chars]++;      /* 往后又遇到 o[chars]有这个元素，++赋值； */
+        //     } else {
+        //         obj[chars] = 1;    /* 第一次 o[chars]没有这个元素，就给他赋值为1 */
+        //     }
+        // }
+        // console.log(obj);
+        // var max = 0;
+        // var ch = '';    /* 空值 */
+        // /* 遍历对象 */
+        // for (var key in obj) {    /* key得到的是 属性名；obj[key]得到的是 属性值 */
+        //     if (obj[key] > max) {
+        //         max = obj[key];
+        //         ch = key;        /* 赋值输出ch ； key/k 只能在for循环里面  */
+        //     }
+        // }
+        // console.log('出现最多的字符是 '+ch);
+
+// 把字符串某个值替换成其他符号
+        // var str = 'abcoefoxyozzopp';
+        // var newStr = str;
+        // while (newStr.indexOf('o') !== -1) {
+        //     newStr = newStr.replace('o', '*');
+        // }
+        // console.log(str);
+        // console.log(newStr);
+
+        // 循环点击按钮改变样式  （排他思想）
+        // var btnS = document.getElementsByTagName('button');   /* 选取页面所有button按钮 */
+        // for (var i=0; i<btnS.length; i++) {               /* 循环给点击的元素背景颜色 */
+        //     btnS[i].onclick = function () {
+        //         for (var i=0; i<btnS.length; i++) {       /* 循环删除未被点击的背景颜色 */
+        //             btnS[i].style.backgroundColor = '';
+        //         }
+        //         this.style.backgroundColor = 'teal';
+        //     }
+        // }
+
+// createElement 高效率创建标签
+        // function fn() {
+        //         var arr=[];
+        //         for (var i=0; i<50; i++) {
+        //                 /* 数组末尾添加 */
+        //                 arr.push('<div style="width: 50px; height: 50px; border: 1px #333 solid;">百度</div>');
+        //         }
+        //         document.body.innerHTML = arr.join('');  /* join转换成字符串 */
+        // }
+    </script>
+</head>
+<body>
+    
+
+</body>
+</html>

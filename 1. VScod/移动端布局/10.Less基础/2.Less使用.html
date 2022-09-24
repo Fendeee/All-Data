@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Less使用</title>
+    <link rel="stylesheet" href="./3.my.css">
+    <style>
+    </style>
+</head>
+<body>
+    <h1>Less是一门CSS的扩展语言，也成为CSS的预处理器</h1>
+    <h2>Less中文网：http://lesscss.cn/</h2>
+    <h4>常见的CSS预处理器：Sass、Less、Stylus</h4>
+    <h3>
+        作为 CSS的一种形式的扩展，它并没有减少CSS的功能，而是在现有的CSS语法上，为CSS加入程序式语言的特性<br>
+        他在CSS语法基础上，引入了变量、Mixin（混入）、运算、函数，等功能，大大简化了CSS的编写，并且降低了CSS的维护成本<br>
+        就像它的名称所说那样的，Less可以让我们用更少的代码做更多的事情
+    </h3>
+    <h2>使用</h2>
+    <p>首先新建一个后缀为的less文件，在这个文件里写less语句</p>
+    <h1>less变量</h1>
+    <p>less变量没有固定的值，可以改变，应为我们CSS中的一些常用的一些颜色和数值等经常使用<br>
+    <br> 语法： @变量名: 值;</p>
+    <p>（变量名不含特殊字符或数字开头）</p>
+    <h1>less编译</h1>
+    <p>1.把less编译成css文件，我们的html才能使用</p>
+    <p>2.vscode安装easy-less插件后，编写完的less文件点击保存，会自动生成一个css文件</p>
+    <div class="bianyi">less</div>
+    <h1>less运算</h1>
+    <p>
+        任何数字、颜色、变量都可以参与运算，less提供了+、-、*、/算术符。除法要把公式写（）里面<br>
+        两个数参与运算，只有1个单位则最后的结果以这个为单位<br>
+        两个数参与运算，2个都有单位而且不一样，则最后的结果以第一个数的单位为准<br>
+    </p>
+    <div class="yunsuan"></div>
+    <h1>less嵌套</h1>
+    <p>
+        子元素的样式直接写到父元素里面<br>
+        父元素 {<br>
+            子元素 { }<br>
+        }
+        <p>伪类选择器在::before/after前面加&符号</p>
+    </p>
+</body>
+</html>

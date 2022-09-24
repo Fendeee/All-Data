@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+    <style>
+        table {
+            border-collapse:collapse;
+        }
+        th,td {
+            padding: 5px 10px;
+        }
+        .be {
+            background-color: rgba(0, 128, 128, 0.114);
+            color: #333;
+        }
+        .two {
+            background-color: rgba(128, 19, 0, 0.754);
+            color: #FFF;
+        }
+    </style>
+</head>
+<body>
+    <h2>Promise</h2>
+    <table align="center" border="1" cellspacing="0" cellpadding="0">
+        <tr>
+            <td>12.</td><td class="two">Promise</td><td>构造函数</td><td>es6 解决异步编程的新方法，返回 成功（value） / 失败（reason）</td>
+        </tr>
+        <tr>
+            <td></td><td class="be" colspan="4" style="font-size: 12px;">
+                const p = new <strong style="color: red;">Promise(</strong>( resolve, reject )=>{ }<strong style="color: red;">)</strong>;
+            </td>
+        </tr>
+        <tr>
+            <td class="be" colspan="4" style="font-size: 12px;">
+                Promise 有两个属性，一个属性表示状态（成功 / 失败），一个属性表示状态对于的值（成功 / 失败）
+            </td>
+        </tr>
+    </table>
+
+    <ul>
+        <li>1. Promise 异步编程</li>
+        <li>2. Promise 封装 读取文件</li>
+        <li>3. Promise 封装 读取多个文件</li>
+        <li>4. Promise 封装 Ajax 请求</li>
+        <li>5. Promise 对象 catch 方法</li>
+    </ul>
+    <ul>
+        <li>1. async与await读取文件</li>
+        <li>2. async与await发送Ajax请求</li>
+    </ul>
+
+    <script>
+        // 12. Promise 异步编程
+//         const p1 = new Promise(function(resolve, reject) {   /* Promise 对象 */
+//             setTimeout(() => {
+//                 // let datePro = 'Promise 返回成功';
+//                 // resolve(datePro);
+//                 let errPro = 'Promise 返回失败';
+//                 reject(errPro);
+//             }, 2000);
+//         });
+//         // 调用 Promise  -----   p.then()  方法
+//         p1.then(function(value) {                /* value 返回 - 成功 */
+//             console.log(value);
+//         }, function(reason) {                   /* reason 返回 - 失败 */
+//             console.error(reason);
+//         });
+
+
+// /* 2. Promise 封装 读取文件
+// ===================================== */
+//         /* 1.     引入 fs 模块     */
+     /*    const fs = require('fs');
+        // 2. Promise 封装上面方法 
+        const p = new Promise(function(resolve, reject){
+            fs.readFile('文件路径', (err, data)=>{
+                // 判断如果失败
+                if(err) reject(err);
+                // 如果成功
+                resolve(data);
+            });
+        });
+        p.then(function(value){
+            console.log(value.toString());
+        }, function() {
+            console.log('读取失败！！');
+        }); */
+// -------------------------------------------------------
+
+/* 3. Promise 封装 读取多个文件
+====================================================  */
+    // 引入 fs文件
+        // const fs = require('fs');
+        // const p = new Promise((resolve, reject)=>{          /* 文件 1 */
+        //     fs.readFile('文件路径1', (err, data)=>{
+        //         resolve(data);
+        //     })
+        // });
+        // p.then(value=>{                                     /* 文件 2 */
+        //     console.log(value.toString());                  /* toSting 转换字符串 方便看内容 */
+        //     return new Promise((resolve, reject)=>{
+        //         fs.readFile('文件2路径', (err, data)=>{
+        //             resolve[(value, data)];
+        //         });
+        //     });
+        // }).then(value=>{                                    /* 文件 3 */
+        //     console.log(value.toString());                  /* toSting 转换字符串 方便看内容 */
+        //     return new Promise((resolve, reject)=>{
+        //         fs.readFile('文件3路径', (err, data)=>{
+        //             // 压入
+        //             value.push(data);
+        //             resolve(value);
+        //         });
+        //     });
+        // }).then(value=>{
+        //     console.log(value.join('\r\n'));                /* 数组拼接 */
+        // })
+// --------------------------------------------------
+
+/* 4. Promise 封装 Ajax 请求
+======================================== */
+        // 接口地址：https://api.apiopen.top/getJoke
+        // Promise 包装
+   /*      const p = new Promise((resolve, reject)=>{
+
+    // 1. 创建对象
+        const xhr = new XMLHttpRequest();
+    // 2. 初始化        发送 GET类型的请求，给 https://api.apiopen.top/getJoke
+        xhr.open('GET', 'https://api.apiopen.top/getJ');
+    // 3. 发送
+        xhr.send();
+    // 4. 绑定事件，处理响音结果 
+        xhr.onreadystatechange = function() {
+            // 状态判断   if == 4,说明进入最后阶段，所有的响应体都已经回来
+            if(xhr.readyState === 4) {
+                // 判断相应状态码  200~299 为正确
+                if(xhr.status >= 200 && xhr.status < 300) {
+                    // 如果成功   打印接口
+                    resolve(xhr.response);
+                } else {
+                    // 如果失败   打印 404
+                    reject(xhr.status);
+                }
+            }
+        }
+    });
+    // 指定 回调
+    p.then(function(value) {
+        console.log(value);
+    }, function(reason) {
+        console.error(reason);
+    }); */
+   
+    
+//  5. Promise 对象 catch 方法 （用于 返回 Promise对象失败的 回调）
+     /*    const p = new Promise((resolve, reject)=>{
+            setTimeout(()=>{
+                // 设置 p 对象的状态为失败，并且设置失败的值
+                reject('出错啦！');
+            }, 2000)
+        });
+        p.catch(function(reason){
+            console.error('出错啦！！');
+        }); */
+
+
+// 1. async与await 读取文件
+            // 引入 fs 模块
+/*             const fs = require('fs');
+            // 读取 文件 1 2 3
+            function readWJ1() {
+                return new Promise((resolve, reject) => {
+                    fs.readFile('文件1路径', (err, data)=>{
+                        if(err) reject(err);
+                        resolve(data);
+                    });
+                });
+            }
+            function readWJ2() {
+                return new Promise((resolve, reject) => {
+                    fs.readFile('文件2路径', (err, data)=>{
+                        if(err) reject(err);
+                        resolve(data);
+                    });
+                });
+            }
+            function readWJ3() {
+                return new Promise((resolve, reject) => {
+                    fs.readFile('文件3路径', (err, data)=>{
+                        if(err) reject(err);
+                        resolve(data);
+                    });
+                });
+            }
+            // 以上三个函数返回结果都是一个 Promise对象
+            // 声明一个 async 函数
+            async function main(){
+                // 获取 文件 1 2 3 
+                let WJ1 = await readWJ1();
+                let WJ2 = await readWJ2();
+                let WJ3 = await readWJ3();
+
+                console.log(WJ1);
+                console.log(WJ2);
+                console.log(WJ3);
+            }
+            // 调用
+            main(); */
+
+
+// 2. async与await 发送 Ajax 请求
+                // 封装 发送 Ajax 请求，返回的结果是一个 Promise对象
+               /*  function sendAjax(url) {
+                    return new Promise((resolve, reject)=>{
+                        // 1. 创建对象
+                        const x = new XMLHttpRequest();
+                        // 2. 初始化
+                        x.open('GET', url);
+                        // 3. 发送
+                        x.send();
+                        // 4. 事件绑定
+                        x.onreadystatechange = function(){
+                            if(x.readyState == 4){
+                                if(x.status >= 200 && x.status < 300){
+                                    // 成功了   把响应体设置为成功的值
+                                    resolve(x.response);
+                                } else{
+                                    // 失败了   把 响应状态码 作为失败的结果
+                                    reject(x.response);
+                                }
+                            }
+                        }
+                    })
+                };
+                // async 与 await 测试
+                async function main() {
+                    // 发送 Ajax 请求
+                    let result = await sendAjax('https://api.apiopen.top/getJoke');
+                    console.log(result);
+                };
+                main(); */
+
+    </script>
+</body>
+</html>

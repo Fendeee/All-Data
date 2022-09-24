@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>特殊样式</title>
+    <style>
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+        input {
+            -webkit-appearance: none;
+        }
+    </style>
+</head>
+<body>
+    <h4>
+        一、<br>
+        box-sizing: border-box;<br>
+        -webkit-box-sizing: border-box;<br>
+        CSS3盒子模型
+    </h4>
+    <h4>
+        二、-webkit-tap-highlight-color: transparent;<br>
+        点击高亮我们需要清除，设置为transparent透明
+    </h4>
+    <a href="#">芬迪</a>
+    <h4>
+        三、-webkit-appearance: none;<br>
+        移动端的浏览器默认的外观，在ios上加上这个属性，才能给按钮和输入框自定义样式
+    </h4>
+    <input type="button" value="按钮">
+    <h4>
+        四、img,a { -webkit-touch-callout: none; }<br>
+        禁用长按页面时的弹出菜单
+    </h4>
+</body>
+</html>

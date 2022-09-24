@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算属性</title>
+    <script src="./js/vue.js"></script>
+    <style>
+        #box {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="box">
+        <div id="xing">      <!--*!* v-model = value *!*-->
+            姓：<input type="text" v-model="firstName" placeholder="请输入...">
+        </div>
+        <div id="ming">
+            名：<input type="text" v-model="lastName" placeholder="请输入...">
+        </div>
+        姓名：<span id="all">{{fullName}}</span>
+    </div>
+
+    <script>
+        Vue.config.productionTip = false
+
+        let xing = document.querySelector('#xing')
+        let ming = document.querySelector('#ming')
+        const vm = new Vue({
+            el: '#box',
+            data: {
+                firstName: xing.value,
+                lastName: ming.value
+            },
+            computed: {                 /*!* 计算 属性*!*/
+
+                fullName: function(){   /$ 值读取不修改的简写 $/
+                    if(!this.firstName || !this.lastName) return '···············'
+                    return this.firstName + '_' + this.lastName
+                }
+
+                // fullName: {             /*!* 对象 *!*/
+                //     // @@@ 1. 当有人读取fullName时，get就会被调用，且返回值就作为fullName的值
+                //     // @@@ 2. 初次读取fullName时会调用，所依赖的数据发生变化时
+                //     get(){
+                //         if(!this.firstName || !this.lastName) return '···············'
+                //         return this.firstName + '_' + this.lastName
+                //     },
+                //     // @@@ (可以不要) 当 fullName 被修改的适合调用Set
+                //     set(value){
+                //         console.log('set', value)
+                //         const arr = value.split('_')        /* 用 _ 隔开 */
+                //         this.firstName = arr[0]
+                //         this.lastName = arr[1]
+                //     }
+                // }
+            }
+        })
+    </script>
+</body>
+</html>

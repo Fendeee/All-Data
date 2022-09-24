@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>小米商城首页</title>
+    <!-- 引入初始化文件 -->
+    <link rel="stylesheet" href="./CSS/base.css">
+    <!-- 引入公共样式 -->
+    <link rel="stylesheet" href="./CSS/common.css">
+    <!-- 引入index.css文件 -->
+    <link rel="stylesheet" href="./CSS/index.css">
+    <!-- 网站favicon图标 -->
+    <link rel="shortcut icon" href="./Fendi_favicon.ico" type="image/x-icon"/>
+    <style>
+        /* 图标声明 */
+        @font-face {
+          font-family: 'icomoon';
+          src:  url('fonts/icomoon.eot?eih8vw');
+          src:  url('fonts/icomoon.eot?eih8vw#iefix') format('embedded-opentype'),
+            url('fonts/icomoon.ttf?eih8vw') format('truetype'),
+            url('fonts/icomoon.woff?eih8vw') format('woff'),
+            url('fonts/icomoon.svg?eih8vw#icomoon') format('svg');
+          font-weight: normal;
+          font-style: normal;
+          font-display: block;
+        }
+    body { font-family: 'icomoon'; }  
+    </style>
+</head>
+<body>
+    <!-- position:fixed固定定位 -->
+    <div class="user">
+        点击此处查看
+        <div class="none">
+            <span></span>
+            <div class="img">
+                <img src="./images/芬迪.jpg" alt="">
+            </div>
+            <i>扫码加微信<br>
+                了解更多作者信息</i>
+        </div>
+    </div>
+    <ul class="position_fixed">
+        <li> <a href="#" target="_blank" class="fixed">
+            <i></i><br>
+            <span>作者信息</span>
+        </a> </li>
+        <li> <a href="#" target="_blank">
+            <i></i><br>
+            <span>手机APP</span>
+        </a> </li>
+        <li> <a href="#" target="_blank">
+            <i></i><br>
+            <span>售后服务</span>
+        </a> </li>
+        <li> <a href="#" target="_blank">
+            <i></i><br>
+            <span>人工客服</span>
+        </a> </li>
+        <li> <a href="#" target="_blank">
+            <i></i><br>
+            <span>购物车</span>
+        </a> </li>
+        <li> <a href="#back" class="none">
+            <i></i><br>
+            <span>返回顶部</span>
+        </a> </li>
+    </ul>
+            <!-- position:fixed固定定位 -->
+<!-- 1.头部导航栏 -->
+    <section class="head" id="back">
+        <div class="center_box">
+            <!-- 左侧文字 -->
+            <ul>
+                <li> <a href="#" target="_blank" class="|"> 小米商城 </a> </li>
+                <li> <a href="#" target="_blank" class="|"> MIUI </a> </li>
+                <li> <a href="#" target="_blank" class="|"> loT </a> </li>
+                <li> <a href="#" target="_blank" class="|"> 云服务 </a> </li>
+                <li> <a href="#" target="_blank" class="|"> 天星数科 </a> </li>
+                <li> <a href="#" target="_blank" class="|"> 有品 </a> </li>
+                <li> <a href="#" target="_blank" class="|"> 小爱开放平台 </a> </li>
+                <li> <a href="#" target="_blank" class="|"> 企业团购 </a> </li>
+                <li> <a href="#" target="_blank" class="|"> 资质证照 </a> </li>
+                <li> <a href="#" target="_blank" class="|"> 协议规则 </a> </li>
+                <li> <a href="#" target="_blank" class="|"> 下载app </a> </li>
+                <li> <a href="#" target="_blank"> select Location </a> </li>
+                      <!-- 购物车 -->
+                <li> <a href="#" target="_blank" class="shopcar"><i></i>购物车(0)</a> </li>
+                <li> <a href="#" target="_blank">消息通知</a> </li>
+                <li> <a href="#" target="_blank" class="|">注册</a> </li>
+                <li> <a href="#" target="_blank" class="|">登录</a> </li>
+            </ul>
+        </div>
+    </section>
+    <!-- \\\\\\\\\\\\\\ -->
+<!-- 2.快捷导航栏_外盒装隐藏模块 -->
+    <div class="shortcut">
+            <!-- logo -->
+            <div class="logo">
+                <img src="./images/FENDI.jpg" alt="FenDi" title="FenDi">
+            </div>
+            <!-- 中心导航 -->
+            <ul>
+                <li><i class="hide_1">
+                    Xiaomi手机
+                        <!-- 隐藏模块——Xiaomi手机 -->
+                        <div class="hide_box Xiaomi_phone">
+                            <ul class="hide_ul">
+                            </ul>
+                        </div>
+                </i></li>
+                <li><i class="hide_2">
+                    Redmi红米
+                        <!-- 隐藏模块——Redmi红米 -->
+                        <div class="hide_box Redmi_rice">
+                            <ul class="hide_ul">
+                            </ul>
+                        </div>
+                </i></li>
+                <li><i class="hide_3">
+                    电视
+                        <!-- 隐藏模块——电视 -->
+                        <div class="hide_box TV">
+                            <ul class="hide_ul">
+                            </ul>
+                        </div>
+                </i></li>
+                <li><i class="hide_4">
+                    笔记本
+                        <!-- 隐藏模块——笔记本 -->
+                        <div class="hide_box notebook">
+                            <ul class="hide_ul">
+                            </ul>
+                        </div>
+                </i></li>
+                <li><i class="hide_5">
+                    平板
+                        <!-- 隐藏模块——平板 -->
+                        <div class="hide_box flat">
+                            <ul class="hide_ul">
+                            </ul>
+                        </div>
+                </i></li>
+                <li><i class="hide_6">
+                    家电
+                        <!-- 隐藏模块——家电 -->
+                        <div class="hide_box home_appliances">
+                            <ul class="hide_ul">
+                            </ul>
+                        </div>
+                </i></li>
+                <li><i class="hide_7">
+                    路由器
+                        <!-- 隐藏模块——路由器 -->
+                        <div class="hide_box router">
+                            <ul class="hide_ul">
+                            </ul>
+                        </div>
+                </i></li>
+                <li><i class="hide_8">
+                    服务
+                        <!-- 隐藏模块——服务 -->
+                        <div class="hide_box Serve">
+                            <ul class="hide_ul">
+                            </ul>
+                        </div>
+                </i></li>
+                <li><i class="hide_9">
+                    社区
+                        <!-- 隐藏模块——社区 -->
+                        <div class="hide_box Community">
+                            <ul class="hide_ul">
+                            </ul>
+                        </div>
+                </i></li>
+            </ul>
+                <!-- \\\\中心导航\\\\ -->
+            <!-- 搜索框 -->
+            <div class="search">
+                <form action="">
+                    <!-- search -->
+                    <span class="left">
+                        <input type="search" placeholder="请输入" autocomplete="on" name="search">
+                    </span>
+                    <!-- submit -->
+                    <span class="right">
+                        <input type="submit" value="搜索">
+                    </span>
+                </form>
+            </div>
+                <!-- \\\搜索框\\\ -->
+    </div>
+<!-- 版心1 -->
+    <div class="banner_one">
+        <!-- 大背景块goods -->
+        <div class="goods">
+            <!-- 左侧导航栏 -->
+            <ul class="dropdown">
+                <li> <a href="#" target="_blank" class="text 1">手机</a> </li>
+                <li> <a href="#" target="_blank" class="text 2">电视</a> </li>
+                <li> <a href="#" target="_blank" class="text 3">笔记本 平板</a> </li>
+                <li> <a href="#" target="_blank" class="text 4">家电</a> </li>
+                <li> <a href="#" target="_blank" class="text 5">出行 穿戴</a> </li>
+                <li> <a href="#" target="_blank" class="text 6">智能 路由器</a> </li>
+                <li> <a href="#" target="_blank" class="text 7">电源 配件</a> </li>
+                <li> <a href="#" target="_blank" class="text 8">健康 儿童</a> </li>
+                <li> <a href="#" target="_blank" class="text 9">耳机 音箱</a> </li>
+                <li> <a href="#" target="_blank" class="text 10">生活 箱包</a> </li>
+            </ul>
+                <!-- \\\\左侧导航栏\\\\ -->
+        <img src="./images/LaiKaCamera.webp" alt="">
+            <!-- img小箭头box -->
+            <div class="boult_box">
+                    <!-- 左箭头 -->
+                <a href="#" target="_blank">
+                    <div class="boult_left"></div>
+                </a>
+                    <!-- 右箭头 -->
+                <a href="#" target="_bank">
+                    <div class="boult_right"></div>
+                </a>
+            </div>
+                <!-- \\\img小箭头box\\\ -->
+        </div>
+                <!-- \\\\\大背景块\\\\\ -->
+        <!-- 底部导航栏——footer_nav -->
+            <div class="banner_one_footer_nav">
+                <ul class="box">
+                </ul>
+                <a> <img src="./images/XiaoMi12SPro.jpg" alt="XiaoMi 12S Pro" title="XiaoMi 12S Pro"> </a>
+                <a> <img src="./images/XiaoMi12SUltra.jpg" alt="XiaoMi 12S Ultra" title="XiaoMi 12S Ultra"> </a>
+                <a> <img src="./images/XiaoMiWatchS1.jpg" alt="XiaoMi Watch S1" title="XiaoMi Watch S1"> </a>
+            </div>
+                <!-- \\底部导航栏——footer_nav\\ -->
+    </div>
+    <!-- \\版心1\\ -->
+<!-- 版心2 -->
+        <div class="banner_two">
+                <!-- K50图片 -->
+            <div class="header_img">
+                <img src="./images/XiaoMi12SUltraLong.webp" alt="XiaoMi 12S Ultra" title="XiaoMi 12S Ultra">
+            </div>
+            <div class="text">
+                <i>手机</i>
+                <a href="#" target="_blank">查看更多</a>
+            </div>
+    <!-- 楼层区 -->
+            <div class="floor_1">
+                <a href="#" target="_blank" class="floor_left">
+                    <img src="./images/XiaoMi12SUltraHeight.webp" alt="XiaoMi 12S Ultra" title="XiaoMi 12S Ultra">
+                </a>
+                <ul class="floor_right">
+                    <li><a href="#" target="_blank" class="void">
+                        <div class="img_box">
+                            <img src="./images/XiaoMi12SUltraSmall.webp" alt="XiaoMi 12S Ultra" title="XiaoMi 12S Ultra">
+                        </div>
+                        <h3>
+                            XiaoMi 12S Ultra
+                            <p>这真徕卡 | 专业徕卡摄像</p>
+                        </h3>
+                        <p>5999元起</p>
+                    </a></li>
+                    <li><a href="#" target="_blank" class="void">
+                        <div class="img_box">
+                            <img src="./images/XiaoMi 12S Pro Small.webp" alt="XiaoMi 12S Pro" title="XiaoMi 12S Pro">
+                        </div>
+                        <h3>
+                            XiaoMi 12S Pro
+                            <p>骁龙8+ 旗舰处理器 | 徕卡摄像</p>
+                        </h3>
+                        <p>4699元起</p>
+                    </a></li>
+                    <li><a href="#" target="_blank" class="void">
+                        <div class="img_box">
+                            <img src="./images/XiaoMi 12S Pro Small.webp" alt="XiaoMi 12S" title="XiaoMi 12S">
+                        </div>
+                        <h3>
+                            XiaoMi 12S
+                            <p>小尺寸性能旗舰 | 徕卡摄像</p>
+                        </h3>
+                        <p>3999元起</p>
+                    </a></li>
+                    <li><a href="#" target="_blank" class="void_none">
+                        <div class="img_box">
+                            <img src="./images/XiaoMi12SPro9000.webp" alt="XiaoMi 12S 天玑版" title="XiaoMi 12S 天玑版">
+                        </div>
+                        <h3>
+                            XiaoMi 12S 天玑版
+                            <p>全国首发天玑9000+ | 叶脉冷泵散热系 | 2k AMOLED超视感 | 5千万疾速摄像</p>
+                        </h3>
+                        <p>1799元起</p>
+                    </a></li>
+                    <li><a href="#" target="_blank" class="void bottom">
+                        <div class="img_box">
+                            <img src="./images/RedmiNote11TPro.webp" alt="Redmi Note 11T Pro+" title="Redmi Note 11T Pro+">
+                        </div>
+                        <h3>
+                            Redmi Note 11T Pro+
+                            <p>天玑8100 | 真旗舰芯</p>
+                        </h3>
+                        <p>1999元起 <del>2099元</del></p>
+                    </a></li>
+                    <li><a href="#" target="_blank" class="void bottom">
+                        <div class="img_box">
+                            <img src="./images/RedmiNote11TPro.webp" alt="Redmi Note 11T Pro" title="Redmi Note 11T Pro">
+                        </div>
+                        <h3>
+                            Xiaomi 12 Pro
+                            <p>天玑8100 | 真旗舰芯</p>
+                        </h3>
+                        <p>1699元起 <del>1799元</del></p>
+                    </a></li>
+                    <li><a href="#" target="_blank" class="void bottom">
+                        <div class="img_box">
+                            <img src="./images/RedmiNote11SE.webp" alt="Redmi Note 11SE" title="Redmi Note 11SE">
+                        </div>
+                        <h3>
+                            Redmi Note 11SE
+                            <p>双卡双5G | 疾速登录</p>
+                        </h3>
+                        <p>999元起 <del>1099元</del></p>
+                    </a></li>
+                    <li><a href="#" target="_blank" class="void_none bottom">
+                        <div class="img_box">
+                            <img src="./images/XiaoMiCiVi1S.webp" alt="XiaoMi CiVi 1S" title="XiaoMi CiVi 1S">
+                        </div>
+                        <h3>
+                            XiaoMi CiVi 1S
+                            <p>原生美肌人像 | 奇迹阳光动人新色 | 骁龙778G Plus</p>
+                        </h3>
+                        <p>2999元起</p>
+                    </a></li>
+                </ul>
+            </div>
+            <!-- \\楼层区\\ -->
+        </div>
+    <!-- \\版心2\\ -->
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生命周期</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div class="root">
+        <h1 :style="{opacity}">{{name}}</h1>
+        <h2>n的值：{{n}}</h2>
+        <button @click="up">点击++</button>
+        <button @click="del">销毁生命周期</button>
+    </div>
+
+    <script>
+        new Vue({
+            el: '.root',
+            data: {
+                name: '生命周期',
+                opacity: 1,
+                n: 1,
+            },
+            methods: {
+                up(){
+                    this.n++
+                },
+        // FenDi: vm.$destroy()    销毁 生命周期，销毁 vue 实例，断除与其他vm的链接  !!!!!!!!!!!!!
+                del(){
+                    this.$destroy()
+                }
+            },
+            // 挂载 ，完成模板的解析 并把真实的DOM元素放入页面后（挂载完毕）调用 mounted
+            // 函数只调用一次
+            mounted() {
+                this.timer = setInterval(()=>{
+                    this.opacity -= 0.01                            /*!* 每次 - 0.01 *!*/
+                    if(this.opacity <= 0) this.opacity = 1
+                }, 30)
+            },
+            // 将要销毁
+            beforeDestroy(){
+                clearInterval(this.timer)
+            }
+        })
+
+        /** vm的生命周期：
+         *  FenDi:
+             * 将要创建  ====>  调用 beforeCreate   函数
+             * 创建完毕  ====>  调用 created        函数
+             * 将要挂载  ====>  调用 beforeMount    函数
+             * 挂载完毕  ====>  调用 mounted        函数    ===========> 【重要钩子】
+             * 将要更新  ====>  调用 beforeUpdate   函数
+             * 更新完毕  ====>  调用 updated        函数
+             * 将要销毁  ====>  调用 beforeDestroy  函数    ===========> 【重要钩子】
+             * 销毁完毕  ====>  调用 destroyed      函数
+        **/
+        
+    </script>
+</body>
+</html>

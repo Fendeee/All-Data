@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sessionStorage</title>
+    <style>
+        .user {
+            margin-top: 10px;
+            width: 100px; height: 100px;
+            background-color: tomato;
+            color: #FFF;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>本地储存</h1>
+    <ul style="font-size: 20px;">
+        <li>1.  把用户数据储存到浏览器当中</li>
+        <li>2.  设置、读取方便，页面刷新不丢失数据</li>
+        <li>3.  容量较大，sessionStorage约5MB，localStorage约20MB</li>
+        <li>4.  只能储存字符串，可以将对象JSON.stringify()编码后储存</li>
+    </ul>
+    <h2 style="color: red;">1.&nbsp;&nbsp;&nbsp;window.sessionStorage</h2>
+    <ul style="font-size: 20px;">
+        <li>1.  生命周期为关闭浏览器</li>
+        <li>2.  在同一窗口（页面）下数据可以共享</li>
+        <li>3.  以键值对的方式储存使用</li>
+        <li>4.  后台操作台，应用 > 会话储存 > 查看储存的数据</li>
+    </ul>
+    <form action="">
+        <input type="text" placeholder="Enter" class="input">
+        <button class="set">存储数据</button>
+        <button class="get">获取数据</button>
+        <button class="remove">删除数据</button>
+        <button class="del">清空所有数据</button>
+    </form>
+    <h2 style="color: red;">2.&nbsp;&nbsp;&nbsp;window.localStorage</h2>
+    <ul style="font-size: 20px;">
+        <li>1.  生命周期永久生效，除非手动删除否则关闭浏览器页面也会存在</li>
+        <li>2.  可以多个窗口（页面）共享（同一浏览器可以共享）</li>
+        <li>3.  以键值对的形式存储使用</li>
+        <li>4.  后台操作台，应用 > 本地储存 > 查看储存的数据</li>
+    </ul>
+    <form action="">
+        <input type="text" placeholder="输入用户名" class="inputLoc">
+        <button class="setLoc">存储数据</button>
+        <button class="getLoc">获取数据</button>
+        <button class="removeLoc">删除数据</button>
+        <button class="delLoc">清空所有数据</button>
+    </form>
+
+    <div class="user"></div>
+
+    <script>
+// window.sessionStorage
+        var ipt = document.querySelector('.input');
+        var set = document.querySelector('.set');
+        var get = document.querySelector('.get');
+        var remove = document.querySelector('.remove');
+        var del = document.querySelector('.del');
+    // 点击 set 存储数据
+        set.addEventListener('click', function() {
+            var val = ipt.value;                                /* 传递值给 val */
+            var pwd = ipt.value;                                /* 传递值给 pwd */
+            sessionStorage.setItem('uname', val);               /*  sessionStorage.setItem('名字', 值) */
+            sessionStorage.setItem('password', pwd);
+        });
+    // 点击 get 获取数据
+        get.addEventListener('click', function() {
+            sessionStorage.getItem('uname');                    /* sessionStorage.getItem('名字'); */
+        });
+    // 点击 remove 删除一条数据
+        remove.addEventListener('click', function() {
+            sessionStorage.removeItem('uname');                 /* sessionStorage.removeItem('名字') */
+        });
+    // 点击 del 清空所有数据
+        del.addEventListener('click', function() {
+            sessionStorage.clear();                             /* sessionStorage.clear('名字') */
+        });
+
+// window.localStorage
+        var inputLoc = document.querySelector('.inputLoc');
+        var setLoc = document.querySelector('.setLoc');
+        var getLoc = document.querySelector('.getLoc');
+        var removeLoc = document.querySelector('.removeLoc');
+        var delLoc = document.querySelector('.delLoc');
+    // 点击 setLoc 储存数据
+        setLoc.addEventListener('click', function() {
+            var valLoc = inputLoc.value;                        /* 传递值给 val */
+            var pwdLoc = inputLoc.value;
+            localStorage.setItem('unameLoc',valLoc);            /*  localStorage.setItem('名字', 值) */
+            localStorage.setItem('password', pwdLoc);
+        });
+    // 点击 getLoc 获取数据
+        getLoc.addEventListener('click', function() {
+            localStorage.setItem('unameLoc');                   /* localStorage.getItem('名字'); */
+        });
+    // 点击 removeLoc 删除数据
+        removeLoc.addEventListener('click', function() {
+            localStorage.removeItem('unameLoc');                /* localStorage.removeItem('名字') */
+        });
+    // 点击 delLoc 清空所有数据
+        delLoc.addEventListener('click', function() {
+            localStorage.clear();
+        });
+
+        var user = document.querySelector('.user');
+        if(localStorage.getItem('unameLoc')) {
+            user.innerHTML = localStorage.getItem('unameLoc');
+        }
+    </script>
+</body>
+</html>

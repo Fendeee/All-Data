@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML基本知识</title>
+    <style>
+        h2 {
+            color: tomato;
+        }
+        body {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+<!-- 网页标签 -->
+<h2>网页标签</h2>
+    <h1>h1一级标题</h1>
+    <h2>h2二级标题</h2>
+    <h3>h3三级标题</h3>
+    <h4>h4四级标题</h4>
+    <h5>h5五级标题</h5>
+    <h6>h6六级标题</h6>
+    <p>p段落</p>
+    br换行<br>
+    <strong>strong加粗</strong>
+    <em>em倾斜</em>
+    <del>del删除线</del>
+    <ins>ins下划线</ins>
+    <div>div独占一行</div>
+    <span>span一行可放多个</span>
+<!-- 图像标签 -->
+<h2>图像标签</h2>
+    <p>&ltimg src ="图像路径"&gt</p>
+    <p>&ltimg src ="图像路径" alt:"替换文本（图像不显示时用文本代替 ）&gt"</p>
+    <p>&ltimg src ="图像路径" title:"提示文本（鼠标放在图像时显示文字）"&gt</p>
+    <p>width :"图像宽度"</p>
+    <p>height :"图像高度"</p>
+    <p>border :"图像的边框"</p>
+<!-- 超链接标签 -->
+    <h2>超链接标签</h2><br>
+    <p>&lta href="链接地址" target:"链接打开方式self/bank"&gt文本&lt/a&gt</p>
+    <p>下载链接地址是文件.exe或者.zip的形式</p>
+    <p>网页元素链接，&lta href="地址"&gt &ltimg src="图片路径"&gt &lt/a&gt</p>
+    <p>锚点链接，点击链接快速定位到页面中的某个位置<br>
+        1.href中设置&lta href="#名字"&gt文本&lt/a&gt<br>
+        2.目标位置标签内添加 id="名字"
+    </p>
+    <p>注释特殊字符：&lt用（& l t）、&gt用（& g t）、空格用（& n b s p）代替</p>
+<!-- dl,dt,dd标签 -->
+    <h2>dl,dt,dd标签</h2>
+    <p>dl,dt,dd,标签是与table类似的表格标签</p>
+    <p>dl表格，di标题，dd内容</p>
+<!-- 表格标签 -->
+    <h2>表格标签</h2>
+    <p>1.&lttable&gt&lt/table&gt表格</p>
+    <p>2.&lttr&gt&lt/tr&gt表格中的行</p>
+    <p>3.&lttd&gt&lt/td&gt表格中的单元格</p>
+    <p>4.&ltth&gt&lt/th&gt表头单元格（加粗居中）</p>
+    <h3>嵌套table当中</h3>
+    <p>1.align="left/right/center"位置左、右、居中</p>
+    <p>2.border=" "是否有边框，填1有边框</p>
+    <p>3.cellpadding=" "文字与边框的距离</p>
+    <p>4.cellspacing=" "单元格与单元格之间的间隙</p>
+    <p>5.width/height表格的宽、高</p>
+    <!-- 表格结构 -->
+    <p>1.&ltthead&gt&lt/thead&gt表格头部区域表头内必须有&lttr&gt&lt/tr&gt</p>
+    <p>2.&lttbody&gt&lt/tbody&gt表格主体区域</p>
+    <p>3.rowspan="个数"跨行合并单元格<br>
+    colspan="个数"跨列合并单元格</p>
+    <p>&ltul&gt&lt/ul&gt无序列表（整洁、有序、方便、自由）</p>
+    <p>&ltol&gt&lt/&gt有序列表</p>
+    <p>&ltdl&gt&lt/dl&gt自定义列表</p>
+    <p>ul/ol只能放入li标签，dl只能放dt/dd标签</p>
+<!-- 表单标签 -->
+    <h2>表单标签</h2>
+    <p>一、表单域 &nbsp&nbsp&ltform&gt&lt/form&gt<br>
+        定义表单域，实现用户数据信息的收集，提交给服务器。</p>
+    <p>
+        1."action" &nbsp&nbsp url地址，指定接收并处理表单数据的服务器程序的url地址。
+    </p>
+    <p>2."method" &nbsp&nbsp 表单数据的提交方式。"get"/"pots"</p>
+    <p>3."name" &nbsp&nbsp 表单的名称，以区分同一页面中的表单域。</p>
+    <p>例如：&ltform action="url地址" method="提交方式get/post" name="名称"&gt.....&ltform&gt</p>type
+<!-- 表单控件 -->
+    <h2>表单控件（元素）</h2>
+    <p>&ltinpiut type="属性值"/&gt</p>
+    <form name="shuxing">
+        1.botton &nbsp&nbsp 定义可点击按钮（多数用于通过JS启动脚本）<input type="button"><br>
+        2.checkbox &nbsp&nbsp 定义方形复选框，可多选。我喜欢：<br>
+        <input type="checkbox" checked="checked">checked="checked"默认选中
+        <input type="checkbox">香蕉
+        <input type="checkbox">汽水<br>
+        3.file &nbsp&nbsp 定义输入字段和"浏览"按钮，供文件上传。<input type="file"><br>
+        4.hidden &nbsp&nbsp 隐藏，用户是不可见的<ins hidden>我爱你</ins><br>
+        5.image &nbsp&nbsp 定义图像形式的提交按钮。<input type="image"><br>
+        6.text &nbsp&nbsp 定义单行输入框，默认20个字符。<input type="text"><br>
+        7.value &nbsp&nbsp 定义表单或输入框中的默认值。<input type="text" value="请输入"><br>
+        8.maxlength &nbsp&nbsp 定义文本框字符最大长度。<input type="text" value="请输入不超过11个字符" maxlength="11"><br>
+        9.password &nbsp&nbsp 定义密码字段，字符被掩码。<input type="password"><br>
+        10.radio &nbsp&nbsp 定义圆形多选按钮。<br>
+        <input type="radio">男
+        <input type="radio">女
+        <input type="radio">变态
+        <br>
+        11.radio &nbsp&nbsp 定义单选按钮，name定义同样的名称可实现多选一<br>
+        <input type="radio" name="nv">女
+        <input type="radio" name="nv">男
+        <input type="radio" name="nv">变态
+        <br>
+        12.reset &nbsp&nbsp 定义重置按钮，清除表单中的所有数据。<input type="reset"><br>
+        13.submit &nbsp&nbsp 定义提交按钮，把表单数据发送到服务器。<input type="submit"><br>
+        14.&ltlabel&gt &nbsp&nbsp 用于绑定一个表单元素，当点击 &ltlabel&gt 内的标签时，自动将焦点（光标）转到或者选择对应的表单元素上，增加用户体验。<br>
+        语法：&ltlabel for="名称" &gt文本/图片&lt/label&gt<br>
+        &ltinput type="属性值" id="名称"/&gt<br>
+        <input type="radio" id="nan"><label for="nan">男</label>
+        <input type="radio" id="nv"><label for="nv">女</label>
+        <label for="wen">用户名:</label><input type="text" id="wen"><br>
+<!-- 下拉表单 -->
+        <h2>下拉表单</h2>
+        &ltselect&gt&nbsp&nbsp下拉列表标签，其中至少包含一对&ltoption&gt标签。<br>
+        语法：&ltform&gt&nbsp&nbsp&ltselect&gt&nbsp&nbsp&ltoption&gt文本&lt/option&gt.....&lt/select&gt&nbsp&nbsp&lt/form&gt<br>
+        &ltoption&gt&nbsp&nbsp中放入selected="selected"（默认下拉表单内容）&ltoption&nbsp&nbspselected="selected"&gt<br>
+        月份：<select><option>请选择</option><option>一月</option><option>二月</option><option>三月</option><option>....</option></select>
+        日期：<select><option>1</option><option>2</option><option>3</option><option selected="selected">默认</option></select>
+        <h3>文本域标签</h3>
+        &lttextarea&gt&nbsp&nbsp定义多行文本输入，留言板、评论。<br>
+        1.cols="每行字符数"<br>
+        2.rows="显示的行数"语法：&lttaxtarea&nbsp&nbspcols="数值"&nbsp&nbsprows="数值"&gt<br>
+        留言板：<br>
+        <textarea cols="20" rows="5"></textarea>
+    </form>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抽奖</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box;}
+        body { background-color: #000000; }
+        div.box{
+            position: relative;
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(calc(-50% + 3px), -50%);
+            width: 580px; height: 420px;
+            cursor: pointer;
+        }
+        ul {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%; height: 90%;
+        }
+        li {
+            float: left;
+            margin: 3px;
+            width: calc((100% / 3) - 6px); height: calc((100% / 3) - 6px);
+            background-color: rgba(255, 192, 192, 0.751);
+            border-radius: 10px;
+            text-align: center;
+            line-height: calc((400px / 3) - 9px);
+            font-weight: bold;
+            list-style: none;
+            letter-spacing: 2px;
+            transition: all .1s ease 0s;
+        }
+        
+        li:nth-child(4) {
+            margin-right: calc((100% / 3) + 3px);
+        }
+        div.btn {
+            position: absolute;
+            top: calc(50% - (114.99px / 2)); left: calc(50% - (168.33px / 2));
+            width: calc((100% / 3) - 25px); height: calc((100% / 3) - 25px);
+            background-color: rgb(228, 92, 115);
+            border-radius: 10px;
+            color: #FFF;
+            text-align: center;
+            line-height: 114.99px;
+            letter-spacing: 2px;
+        }
+        div.btn:active {
+            transform: scale(0.9);
+        }
+        div.none {
+            display: none;
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px; height: 300px;
+            background-color: purple;
+            border-radius: 15px;
+            color: #FFF;
+            text-align: center;
+            cursor: pointer;
+            animation: block 1s ease 0s 1;
+        }
+        div.none h3 {
+            margin-top: 50px;
+            color: rgba(255, 255, 255, 0.682);
+        }
+        div.none em {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            letter-spacing: 5px;
+            font-weight: bolder;
+            font-size: 30px;
+        }
+        div.none span {
+            position: absolute;
+            z-index: 22;
+            top: -10px;right: -10px;
+            width: 25px; height: 25px;
+            background-color: rgb(231, 43, 231);
+            border-radius: 50%;
+            line-height: 25px;
+            font-weight: bolder;
+        }
+        div.none span:active {
+            transform: scale(0.9);
+        }
+
+        @keyframes block {
+            0%{ opacity: 0; }
+            100%{ opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>奏音花音</li>
+            <li>石原希望</li>
+            <li>桥本有菜</li>
+            <li>水樱卜</li>
+            <li>百濑飞鸟</li>
+            <li>朝比濑七奈</li>
+            <li>神宫寺奈绪</li>
+            <li>枫花恋</li>
+        </ul>
+        <div class="btn">点击抽奖</div>
+    </div>
+    <div class="none">
+        <h3>恭喜您！抽到了</h3>
+        <em>神宫寺奈绪</em>
+        <span>X</span>
+    </div>
+
+    <script>
+        let box = document.querySelector('.box');
+        let btn = document.querySelector('.btn');
+        let none = document.querySelector('.none');
+        let span = document.querySelector('span');
+        let em = document.querySelector('em');
+        let lis = document.querySelectorAll('li');
+
+        let timer = null;
+
+        btn.addEventListener('click', function(){
+            this.innerHTML = '正在抽奖中...'
+            let num = 0;
+            if(timer ==  null){
+                timer = setInterval(()=>{
+                    num++;
+                    let getLi = Math.floor(Math.random() * (lis.length - 0)) + 0;
+                    for(let i=0; i<lis.length; i++){
+                        lis[i].style.backgroundColor = 'rgba(255, 192, 192, 0.485)';
+                        lis[i].style.color = '#333';
+                    }
+                    lis[getLi].style.backgroundColor = 'tomato';
+                    lis[getLi].style.color = '#FFF';
+                    if(num >= 70){
+                        clearInterval(timer);
+                        timer = null;
+                        btn.innerHTML = '点击抽奖';
+                        none.style.display = 'block';
+                        em.innerHTML = lis[getLi].innerHTML;
+                    }
+                },100);
+            }
+        });
+
+        span.addEventListener('click', function(){
+            this.parentNode.style.display = 'none';
+            for(let i=0; i<lis.length; i++){
+                lis[i].style.backgroundColor = 'rgba(255, 192, 192, 0.682)';
+                lis[i].style.color = '#333';
+            }
+        });
+
+    </script>
+</body>
+</html>

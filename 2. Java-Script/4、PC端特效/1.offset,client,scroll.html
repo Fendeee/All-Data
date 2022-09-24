@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元素偏移量offset</title>
+    <style>
+        tr,td {
+            padding: 5px 10px 
+        }
+        .banner {
+            padding: 10px 10px;
+            position: absolute;
+            top: 40%;
+            width: 200px; height: 100px;
+            background-color: tomato;
+            border-radius: 15px;
+            text-align: center;
+            line-height: 100px;
+            color: #fff;
+        }
+        .test {
+            position: absolute;
+            top: 40px; left: 50%;
+            background-color: tomato;
+            color: #fff;
+            border-radius: 15px;
+        }
+        li {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>offset <small style="font-weight: 200;">偏移量</small></h1>
+    <p>使用 offset 系列相关属性可以动态的得到该元素的位置、大小等</p>
+    <ul>
+        <li>获得元素距离带有定位父元素的位置</li>
+        <li>获得元素自身的大小 </li>
+        <li>注意：返回的数值不带单位</li>
+        <li style="font-weight: 600;">获取元素大小、位置用 offset</li>
+        <li style="font-weight: 600;">修改元素大小、位置用 style</li>
+    </ul>
+    <table align="center" border="1" cellspacing="0" cellpadding="0">
+        <tr style="background-color: teal; color: white;">
+            <th>offset系列</th><th>作用</th>
+        </tr>
+        <tr>
+            <td>元素 . offsetParent</td><td>返回该元素带有定位的父级元素，如果该元素没有父级则返回body</td>
+        </tr>
+        <tr>
+            <td>元素 . offsetTop</td><td>返回该元素相对带有定位父元素上方的偏移</td>
+        </tr>
+        <tr>
+            <td>元素 . offsetLeft</td><td>返回该元素相对带有定位父元素左边框的偏移</td>
+        </tr>
+        <tr>
+            <td>元素 . offsetWidth</td><td>包括自身padding、边框、内容区的宽度，返回值不带单位</td>
+        </tr>
+        <tr>
+            <td>元素 . offsetHeight</td><td>包括自身padding、边框、内容区的高度，返回值不带单位</td>
+        </tr>
+    </table>
+
+    <div class="banner">offset 偏移量</div>
+
+    <h1 style="margin-top: 70px;">client <small style="font-weight: 200;">可视区</small></h1>
+    <h2>通过 client 系列的相关属性可以动态的获取元素的边框、大小等</h2>
+    <table border="1" cellspacing="0" cellpadding="0" align="center">
+        <tr style="background-color: teal;color: white;">
+            <th>client 系列属性</th><th>作用</th>
+        </tr>
+        <tr>
+            <td>元素 . clientTop</td><td>返回元素上边框大小</td>
+        </tr>
+        <tr>
+            <td>元素 . clientLeft</td><td>返回元素左边框大小</td>
+        </tr>
+        <tr>
+            <td>元素 . clientWidth</td><td>返回包括自身padding、内容区的宽度，不含边框，不带单位</td>
+        </tr>
+        <tr>
+            <td>元素 . clientHeight</td><td>返回包括自身padding、内容区的高度，不含边框，不带单位</td>
+        </tr>
+    </table>
+    <h1>scroll</h1>
+    <table border="1" cellspacing="0" cellpadding="0" align="center">
+        <tr style="background-color: teal; color: #FFF;">
+            <th>scroll 系列属性</th><th>作用 ---- 返回值不带单位</th>
+        </tr>
+        <tr>
+            <td>元素 . scrollTop</td><td>返回被卷去的上侧距离</td>
+        </tr>
+        <tr>
+            <td>元素 . scrollLeft</td><td>返回被卷去的左侧距离</td>
+        </tr>
+        <tr>
+            <td>元素 . scrollWidth</td><td>返回自身实际宽度，不含边框</td>
+        </tr>
+        <tr>
+            <td>元素 . scrollHeight</td><td>返回自身实际高度，不含边框</td>
+        </tr>
+        <tr>
+            <td>window.scroll(x, y)</td><td>返回到指定页面位置</td>
+        </tr>
+    </table>
+
+    <div class="test">
+        <ul>
+            <li>1. offset 系列，经常用于获取元素位置&nbsp;&nbsp;&nbsp; <small>offsetTop offsetLeft</small></li>
+            <li>2. client 系列，经常用于获取元素大小&nbsp;&nbsp;&nbsp; <small>clientWidth clientHeight</small></li>
+            <li>3. scroll 系列，经常用于获取元素滚动距离&nbsp;&nbsp;&nbsp; <small>scrollTop scrollLeft</small></li>
+        </ul>
+    </div>
+
+    <script>
+        var banner = document.querySelector('.banner');
+        console.log(banner.offsetTop + '上方偏移量');
+        console.log(banner.offsetLeft + '左边框偏移');
+        console.log(banner.offsetWidth + '宽度');
+        console.log(banner.offsetHeight + '高度');
+        console.log(banner.offsetParent + '父级元素');
+    </script>
+</body>
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>单词语法</title>
+    <style>
+        body {background-color: rgb(232, 232, 232);}
+        * { margin: 0; padding: 0; }
+        th {
+            background-color: rgb(144, 144, 144);
+        }
+        th:first-child {
+            background-color: #333;
+            color: rgb(243, 243, 243)
+        }
+        td {
+            height: 35px;
+            line-height: 35px;
+        }
+        td.go {
+            background-color: teal;
+        }
+        tr td:nth-child(1){
+            width: 200px;
+            text-align: center;
+        }
+        div.Flex {
+            position: fixed;
+            top: 5%;
+            right: 10px;
+            width: 200px; height: 700px;
+            background-color: rgb(0, 183, 183);
+        }
+        ul {
+            display: flex;
+            flex-direction: column;
+            width: 100%; height: 100%;
+        }
+        li {
+            flex: 20;
+            align-items: flex-start;
+            border: 1px solid #333;
+            list-style-type: none;
+            text-align: center;
+            line-height: 35px;
+        }
+        a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="Flex">
+        <ul>
+            <li><a href="#function">函数</a></li>
+            <li><a href="#object">对象</a></li>
+            <li><a href="#function">立即执行函数</a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+        </ul>
+    </div>
+    <h1>常用单词语法</h1>
+    <p>声明中文变量、值或者输出中文都要放在''里面<br>js的变量数据类型是只有程序在运行过程中，根据等号右边的值来确定的</p>
+    <table border="1" cellspacing="0" cellpadding="0">
+        <tr>
+<!-- 函数 --><th>函数</th><th>语法用途</th>
+        </tr>
+        <tr>
+            <td>alert()</td><td>浏览器弹出警示框</td>
+        </tr>
+        <tr>
+            <td>console.log()</td><td>浏览器控制台打印输出信息(控制台可看)</td>
+        </tr>
+        <tr>
+            <td>console.error()</td><td>打印红色警示</td>
+        </tr>
+        <tr>
+            <td>console.warn()</td><td>打印黄色警示</td>
+        </tr>
+        <tr>
+            <td>console.dir()</td><td>打印我们返回的元素对象 更好的查看里面的属性和方法</td>
+        </tr>
+        <tr>
+            <td>prompt()</td><td>浏览器弹出输入框，用户可输入</td>
+        </tr>
+        <tr>
+            <td>onclick()</td><td>点击触发</td>
+        </tr>
+        <tr>
+            <td>var 变量名 = 赋值;</td><td>JS关键字，用来声明变量和赋值，声明多个变量用逗号隔开</td>
+        </tr>
+        <tr>
+            <td>undefined</td><td>只声明不赋值，程序的输出结果会是undefined</td>
+        </tr>
+        <tr>
+            <td>变量规范</td><td>( A~Z \ a~z \ 0~9 \ _ \ $ )不能数字开头<br>驼峰写法：变量名首字母小写，后面单词首字母大写，如：myFirstName</td>
+        </tr>
+        <tr>
+            <td>if、else if</td><td>条件语句</td><td></td>
+        </tr>
+        <tr>
+            <td>三元表达式</td><td>条件语句（var num=2; var su = num >1 ? '对':'不对'）</td>
+        </tr>
+        <tr>
+            <td>switch(表达式)</td><td>switch(表达式){ case 值: 执行语句1; break; default: 执行最后的语句;}</td>
+        </tr>
+        <tr>
+            <td></td><th>switch语句中的值和数据类型必须一致</th>
+        </tr>
+        <tr>
+<!-- 循环 --><th>for循环</th>
+        </tr>
+        <tr>
+            <td>continue</td><td>退出第n个循环</td>
+        </tr>
+        <tr>
+            <td>break</td><td>推出第n个循环后的整个循环</td>
+        </tr>
+        <tr>
+<!-- 数组 --><th>数组</th><th>创建方式</th>
+        </tr>
+        <tr>
+            <td>new Array（数组长度）;</td><td>var arr = new Array( );</td>
+        </tr>
+        <tr>
+            <td>[ ]</td><td>var arr = [ ];</td>
+        </tr>
+        <tr>
+            <td class="go">添加数组</td><td></td>
+        </tr>
+        <tr>
+            <td>1.数组名 . push(参数);</td><td>在数组末尾添加一个或者多个元素，返回值是数组长度</td>
+        </tr>
+        <tr>
+            <td>2.数组名 . unshift(参数)</td><td>在数组的开头添加一个或者多个元素，返回值是数组长度</td>
+        </tr>
+        <tr>
+            <td class="go">删除数组</td><td></td>
+        </tr>
+        <tr>
+            <td>数组名 . pop(参数)</td><td>删除最后一个数组元素，返回值是数组最后一个元素</td>
+        </tr>
+        <tr>
+            <td> 数组名 . shift(参数)</td><td>删除数组中的第一个元素，返回值是数组第一个元素</td>
+        </tr>
+        <tr>
+            <td class="go">数组排序</td><td></td>
+        </tr>
+        <tr>
+            <td>数组名 . reverse( )</td><td>颠倒数组中元素的顺序，会改变运来的数组返回新数组</td>
+        </tr>
+        <tr>
+            <td>数组名 . sort(function (a,b) { return a - b; })</td><td>对数组元素进行排序（从小到大），会改变原来的数组，返回新的数组</td>
+        </tr>
+        <tr>
+            <td>数组名 . sort(function (a,b) { return b - a; })</td><td>对数组元素进行排序（从大到小），会改变原来的数组，返回新的数组</td>
+        </tr>
+        <tr>
+            <td class="go">数组索引方法</td><td></td>
+        </tr>
+        <tr>
+            <td>indexOf(元素值),[起始位置（可不写）]</td><td>数组中查找给定元素的索引(数组地址)顺序，如果存在，返回索引号；不存在，返回-1</td>
+        </tr>
+        <tr>
+            <td>lastIndexOf(元素值)</td><td>数组中查找给定元素的索引(数组地址)倒序，如果存在，返回索引号；不存在，返回-1</td>
+        </tr>
+        <tr>
+            <td class="go">数组转换字符串</td><td></td>
+        </tr>
+        <tr>
+            <td>toString( )</td><td>把数组转换成字符串，逗号分隔每一项</td>
+        </tr>
+        <tr>
+            <td>数组 . join('分隔符')</td><td>用于把数组中的所有元素转换成一个字符串</td>
+        </tr>
+        <tr>
+            <td class="go">根据位置返回字符</td><td></td>
+        </tr>
+        <tr>
+            <td>charAt(索引号)</td><td>返回指定位置的字符</td>
+        </tr>
+        <tr>
+            <td>charCodeAt(索引号)</td><td>获取指定位置字符ASCll码，用法：判断用户按下了哪个键</td>
+        </tr>
+        <tr>
+            <td>str[索引号]</td><td>获取指定位置处字符</td>
+        </tr>
+        <tr>
+            <td class="go">拼接以及截取字符串</td><td></td>
+        </tr>
+        <tr>
+            <td>concat( )</td><td>链接字符串('字符串1','字符串2')</td>
+        </tr>
+        <tr>
+            <td>substring(start, length)</td><td>('截取的起止位置'，'截取几个字符')只会替换第一个字符</td>
+        </tr>
+        <tr>
+            <td class="go">替换字符，转换为数组</td><td></td>
+        </tr>
+        <tr>
+            <td>replace( , )</td><td>('被替换的字符','被替换的字符')</td>
+        </tr>
+        <tr>
+            <td>toUpperCase( )</td><td>转换大写</td>
+        </tr>
+        <tr>
+            <td>toLowerCase( )</td><td>转换小写</td>
+        </tr>
+        <tr>
+            <td>字符串 . split('分隔符')</td><td>字符串转换成数组</td>
+        </tr>
+        <tr>
+            <td>检测是否为数组</td><td>数组名 instanceof Array    （可作为运算符）</td>
+        </tr>
+        <tr>
+            <td>检测是否为数组</td><td>Array isArray(数组)  （H5新增方法，ie9版本以上才行）</td>
+        </tr>
+        <tr>
+<!-- 函数 --><th id="function">函数</th><td></td>
+        </tr>
+        <tr>
+            <td>function --声明函数</td><td>function 函数名 (  ) { 函数体 }</td>
+        </tr>
+        <tr>
+            <td>var 变量名 = function ( ) { }</td><td>变量声明函数</td>
+        </tr>
+        <tr>
+            <td>函数名 + (  ); --调用函数</td><td></td>
+        </tr>
+        <tr>
+            <th>arguments</th><th>储存了传递过来的所有实参</th>
+        </tr>
+        <tr>
+            <th style="background-color: tomato; color: #FFF;">立即执行函数</th>
+            <th style="background-color: tomato; color: #FFF;">不需要调用，立马就能执行</th>
+        </tr>
+        <tr>
+            <th style="background-color: rgb(184, 46, 22); color: #FFF;">写法</th>
+            <th style="background-color: rgb(184, 46, 22); color: #FFF;">(function() {})()&nbsp;&nbsp;&nbsp;或者<br>(function() {} ());<br>第二个括号看作调用函数，可以传递参数</th>
+        </tr>
+        <tr>
+<!-- 作用域 --><th>作用域</th><th>变量名在某个范围内起作用和效果</th>
+        </tr>
+        <tr>
+            <td>全局作用域</td><td>整个script标签 或是一个单独的js文件</td>
+        </tr>
+        <tr>
+            <td>局部作用域（函数作用域）</td><td>在函数内部就是局部作用域，这个代码名字只在函数内部起效果和作用</td>
+        </tr>
+        <tr>
+            <td>全局变量作用域</td><td>全局作用域下的变量</td>
+        </tr>
+        <tr>
+            <td>局部变量作用域</td><td>在局部变量下的变量</td>
+        </tr>
+        <tr>
+<!-- 对象 --><th id="object">对象</th><th>具体的事物（函数、数组、变量等）</th>
+        </tr>
+        <tr>
+            <td>建立对象</td><td>var 对象名 = { 属性名: 值, 属性名: 方法函数{} }</td>
+        </tr>
+        <tr>
+            <td>1.使用对象</td><td>对象名 . 属性名</td>
+        </tr>
+        <tr>
+            <td>2.使用对象</td><td>对象名['属性名']</td>
+        </tr>
+        <tr>
+            <td>调用对象方法</td><td>对象名 . 方法名 ()</td>
+        </tr>
+        <tr>
+            <td>newObject创建对象</td><td>var 对象名 = newObject(); 对象名 . 属性名: 值;</td>
+        </tr>
+        <tr>
+            <th>构造函数创建对象</th><th>function 构造函数名() { this.属性 = 值; this.方法 = function(){} }</th>
+        </tr>
+        <tr>
+<!-- 构造对象 --><td>使用构造函数</td><td>new 构造函数名();</td>
+        </tr>
+        <tr>
+            <td></td><th>构造函数名首字母要大写，不用return;</th>
+        </tr>
+        <tr>
+            <th>for in  遍历</th><th>（对数组或者对象属性进行循环）</th>
+        </tr>
+        <tr>
+            <td>for ... in 使用</td><td>for(var 变量名(k/key) in 对象名) {  }（key/k 只能在for循环里面）</td>
+        </tr>
+        <tr>
+            <th>内置数学对象 Math</th><td></td>
+        </tr>
+        <tr>
+            <td>Math.max( )</td><td>输出最大值</td>
+        </tr>
+        <tr>
+            <td>Math.min( )</td><td>输出最小值</td>
+        </tr>
+        <tr>
+            <td>Math.PI</td><td>圆周率</td>
+        </tr>
+        <tr>
+            <td>Math.floor( )</td><td>向下取整 1.342 = 1</td>
+        </tr>
+        <tr>
+            <td>Math.ceil( )</td><td>向上取整 1.342 = 2</td>
+        </tr>
+        <tr>
+            <td>Math.round( )</td><td>四舍五入 就近取整 1.5 = 2，2.5 = 3</td>
+        </tr>
+        <tr>
+            <td>Math.abs( )</td><td>绝对值（隐式转换，会把字符型数字转换成数值型）</td>
+        </tr>
+        <tr>
+            <th>Math.random</th><th>随机数 返回一个 0 ~ 1 之间的17位小数 （0 > x &lt; 1）</th>
+        </tr>
+        <tr>
+<!-- 日期对象 --><th>日期对象 Date</th><th>只能通过构造函数来实例化日期对象</th>
+        </tr>
+        <tr>
+            <td>var date = new Date();</td><td>创建日期对象</td>
+        </tr>
+        <tr>
+            <td>参数写法</td><td>数字型：2022, 05, 31 或是 字符串型：'2022-05-31'</td>
+        </tr>
+        <tr>
+            <td>变量 . getFullYear( )</td><td>获取年</td>
+        </tr>
+        <tr>
+            <td>变量 . getMonths( )</td><td>获取月（0 ~ 11）</td>
+        </tr>
+        <tr>
+            <td>变量 . getDate( )</td><td>获取日期</td>
+        </tr>
+        <tr>
+            <td>变量 . getDay( )</td><td>获取星期几（周0 ~ 周6）</td>
+        </tr>
+        <tr>
+            <td>变量 . getHours( )</td><td>获取小时</td>
+        </tr>
+        <tr>
+            <td>变量 . getMinutes( )</td><td>获分钟</td>
+        </tr>
+        <tr>
+            <td>变量 . getSeconds( )</td><td>获取秒钟</td>
+        </tr>
+        <tr>
+            <td>获取毫秒</td><td>变量 . valueOf( ) 或者 变量 . getTime( )<br> 或者 var date = +new Date( ); 或者 Date . now()</td>
+        </tr>
+    </table>
+</body>
+</html>
