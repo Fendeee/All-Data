@@ -32,7 +32,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped l>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     .demo {
         position: absolute;
