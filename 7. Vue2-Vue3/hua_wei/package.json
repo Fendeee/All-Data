@@ -33,10 +33,9 @@
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
-  "eslintConfig": {
-    "parserOptions": {
-      "parser": "@babel/eslint-parser",
-      "requireConfigFile": false
-    }
+  "parserOptions": {
+    "parser": "@babel/eslint-parser",
+    "requireConfigFile": false
   }
+
 }
