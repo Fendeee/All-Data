@@ -9,6 +9,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box;}
         body { background-color: brown; }
         .banner {
+            position: relative;
             position: absolute;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
@@ -23,13 +24,20 @@
             color: #faebd7;
             cursor: pointer;
         }
-        h3 {
-            margin-bottom: 10px;
+        h3 { margin-bottom: 10px; }
+        p { margin: 5px 0; letter-spacing: 2px; }
+        button {
+            position: absolute;
+            bottom: -70px;
+            padding: 5px 10px;
+            background-color: #faebd7;
+            border: 0px;
+            box-shadow: 3px 3px 10px 1px #FAEBD7;
+            border-radius: 7px;
+            font-weight: bolder;
+            color: #A52A2A;
         }
-        p {
-            margin: 5px 0;
-            letter-spacing: 2px;
-        }
+        button:active { transform: scale(0.95); }
     </style>
 </head>
 <body>
@@ -37,11 +45,14 @@
             TODO: 网络 2 班 -- 刘俊
          -->
     <div class="banner">
-        <h2>《春晓》</h2>
+        <h2>《瑶池》</h2>
         <p>唐</p>
-        <h3>孟浩然</h3>
-        <p>春眠不觉晓，处处闻啼鸟。</p>
-        <p>夜来风雨声，花落知多少。</p>
+        <h3>李商隐</h3>
+        <p>瑶池阿母绮窗开</p>
+        <p>黄竹歌声动地哀</p>
+        <p>八骏日行三万里</p>
+        <p>穆王何事不重来</p>   
+        <button>点击切换古诗</button>
     </div>
 </body>
 </html>
