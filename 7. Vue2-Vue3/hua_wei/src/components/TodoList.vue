@@ -4,22 +4,27 @@
             <input @keyup.enter="add" type="text" placeholder="请输入您的任务名称，按回车键确认...">
             <div class="checkbox">
                 <ul ref="Ul">
-                    <li v-for="TodoObj in TodoTings" :key="TodoObj.id"><span>
-                        <input type="checkbox"><i>{{TodoObj.title}}</i>
-                        <p>{{TodoObj.Del}}</p>
+                    <li v-for="Todo in TodoTings" :key="Todo.id"><span>
+                            <!-- $$$ 拿到数据 id，响应选框勾选、取消 勾选 -->
+                        <input type="checkbox" :checked='Todo.done'  @change="handleCheck(Todo.id)"><i>{{Todo.title}}</i>
+                            <!-- $$$ 拿到数据 id，删除对应数据 -->
+                        <button @click="btn(Todo.id)">{{Todo.Del}}</button>
                     </span></li>
                 </ul>
             </div>
             <div class="footer">
                 <div>
-                    <input type="checkbox">
-                    <i>{{SelectAll}}</i>
+                    <input type="checkbox" v-model="isAll">
+                    <i>全选</i>
                     <span>
-                        {{Finish}}
-                        <strong ref="Finish">0</strong>
+                        已完成
+                        <strong>{{doneTotal}}</strong>
+                         / 
+                        全部
+                        <strong>{{TTL}}</strong>
                     </span>
                 </div>
-                <span class="Clean">{{CleanupCompleted}}</span>
+                <span class="Clean" @click="clearAll">清除已完成任务</span>
             </div>
         </div>
     </div>
@@ -33,25 +38,78 @@ export default {
     name: 'TodoList',
     data(){
         return {
-            CleanupCompleted: '清除已完成任务',
-            SelectAll: '全选',
-            Finish: '已完成',
             TodoTings: [
                                         // done 标识是否完成  默认false
-                // {id: '001', title: '吃饭', Del: '删除', done: true},
+                {id: '001', title: '吃饭', Del: '删除', done: false},
             ]
         }
     },
     methods: {
+        // 加入数据到 TodoTings
         add(e){
             // 将用户输入包装成一个 Todo 对象
             // $$$  nanoid()  函数调用，生成一个全球唯一的 id字符串
             const TodoObj = {id: nanoid(), title: e.target.value, Del: '删除', done: false}
             this.TodoTings.push(TodoObj)
             e.target.value = ''
+        },
+        // checkbox 勾选 或 取消勾选
+        handleCheck(id){
+            this.checkTodo(id)
+        },
+        checkTodo(id){
+            // forEach() 遍历寻找 id
+            this.TodoTings.forEach((todo)=>{
+                // 判断 todo.id = 传进来的 id 
+                if(todo.id === id) todo.done = !todo.done       /* 取反，再赋值回去 */
+            })
+        },
+        // 删除 数据
+        btn(id){
+            // confirm('') 弹窗 确定 / 取消
+            if(confirm('确定删除吗?')){
+                // filter() 过滤不要的数据
+                this.TodoTings = this.TodoTings.filter((todo)=>{
+                    return todo.id !== id
+                })
+            }
+        },
+        // 全选所有
+        checkAll(e){
+            console.log(e.target.checked);
+            this.checkAllTodo(e.target.checked)
+        },
+        checkAllTodo(done){
+            this.TodoTings.forEach((todo)=>{
+                todo.done = done
+            })
+        },
+        // 删除所有
+        clearAll(){ 
+            this.TodoTings = this.TodoTings.filter((todo)=>{
+                return !todo.done
+            })
         }
     },
     computed: {
+        TTL(){
+            return this.TodoTings.length
+        },
+        // 计算 已完成 （done为真）
+        doneTotal(){
+            // @@@ reduce(函数，初始值) 条件统计，数组长度是几，函数就调用多少次
+            // pre 上一次的值， todo 当前的值
+            return this.TodoTings.reduce((pre, todo)=>pre + (todo.done ? 1 : 0), 0)
+        },
+        // 计算 全选
+        isAll: {
+            get(){
+                return this.doneTotal === this.TTL && this.TTL > 0
+            },
+            set(value){
+                this.checkAllTodo(value)
+            }
+        }
     },
     props: {
         msg: String
@@ -100,10 +158,12 @@ export default {
                     width: 100%; height: 100%;
                     cursor: pointer;
                     overflow: auto;
+                    list-style: none;
                     li {
                         width: 100%;
                         height: 35px;
                         border-bottom: 1px solid #999;
+                        transition: all .3s ease 0s;
                         span {
                             padding: 0 15px;
                             display: flex;
@@ -116,22 +176,23 @@ export default {
                                 white-space: nowrap;
                                 text-overflow: ellipsis;
                             }
-                            p {
+                            button {
                                 display: none;
                                 padding: 3px 10px;
                                 position: absolute;
                                 right: 20px;
                                 background-color: #CC1111;
                                 border-radius: 5px;
+                                border: 0px;
                                 color: #fff;
                                 font-size: 14px;
-                                transition: all .5s ease 0s;
+                                transition: all .3s ease 0s;
                             }
                         }
                     }
-                    li:hover p {
-                        display: inline-block;
-                    }
+                    li:hover button { display: inline-block; }
+                    button:active { transform: scale(0.9); }
+                    li:hover { background-color: #f7debe; }
                 }
             }
             .footer {
@@ -147,7 +208,7 @@ export default {
                     left: 23px;
                     display: flex;
                     align-content: center;
-                    width: 150px; height: 70%;
+                    height: 70%;
                     text-align: center;
                     font-size: 12px;
                     i {
@@ -157,7 +218,7 @@ export default {
                         line-height: calc(40px * 0.6777);
                     }
                     span {
-                        font-size: 14px;
+                        font-size: 12px;
                         text-align: center;
                         line-height: calc(40px * 0.6777);
                         strong {
