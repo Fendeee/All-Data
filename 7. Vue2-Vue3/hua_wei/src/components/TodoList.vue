@@ -26,6 +26,7 @@
 </template>
 
 <script>
+// $$$ npm i nanoid 安装
 // $$$ nanoid 生成一个全球唯一的 id字符串   *!* nanoid()函数调用
 import {nanoid} from 'nanoid'
 export default {
@@ -49,6 +50,8 @@ export default {
             this.TodoTings.push(TodoObj)
             e.target.value = ''
         }
+    },
+    computed: {
     },
     props: {
         msg: String
