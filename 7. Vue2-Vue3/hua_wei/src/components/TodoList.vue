@@ -86,9 +86,11 @@ export default {
         },
         // 删除所有
         clearAll(){ 
-            this.TodoTings = this.TodoTings.filter((todo)=>{
-                return !todo.done
-            })
+            if(confirm('确定全部删除吗?')){
+                this.TodoTings = this.TodoTings.filter((todo)=>{
+                    return !todo.done
+                })
+            }
         }
     },
     computed: {
