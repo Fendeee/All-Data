@@ -17,4 +17,7 @@ export default {
 <style lang="less">
     * {margin: 0; padding: 0; box-sizing: border-box; }
     body { background-color: #333; }
+    i, em {
+        font-style: normal;
+    }
 </style>
