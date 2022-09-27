@@ -5,9 +5,9 @@
             <div class="checkbox">
                 <ul ref="Ul">
                     <li v-for="Todo in TodoTings" :key="Todo.id"><span>
-                            <!-- $$$ 拿到数据 id，响应选框勾选、取消 勾选 -->
+                            <!-- &&& 拿到数据 id，响应选框勾选、取消 勾选 -->
                         <input type="checkbox" :checked='Todo.done'  @change="handleCheck(Todo.id)"><i>{{Todo.title}}</i>
-                            <!-- $$$ 拿到数据 id，删除对应数据 -->
+                            <!-- &&& 拿到数据 id，删除对应数据 -->
                         <button @click="btn(Todo.id)">{{Todo.Del}}</button>
                     </span></li>
                 </ul>

@@ -21,7 +21,7 @@
         docEl.style.fontSize = rem + 'px';
     }
     setRemUnit();
-
+ 
     // reset rem unit on page resize 设置页面尺寸变化时，重新设置 html 元素的文字大小
     window.addEventListener('resize', setRemUnit);
             // pageshow 是我们重新加载页面是触发的事件
@@ -43,11 +43,5 @@
         }
         docEl.removeChild(fakeBody);
     }
-// ! 红      颜色偏暗
-// ? 蓝     颜色偏暗色
-// * 暗绿   颜色偏暗
-// FenDi 亮绿 颜色高亮
-// TODO: 暗橙色
-// *!*     深绿
-// 
+
 }(window, document));
