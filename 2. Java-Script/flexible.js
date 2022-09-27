@@ -43,5 +43,11 @@
         }
         docEl.removeChild(fakeBody);
     }
-
+// ! 红      颜色偏暗
+// ? 蓝     颜色偏暗色
+// * 暗绿   颜色偏暗
+// FenDi 亮绿 颜色高亮
+// TODO: 暗橙色
+// *!*     深绿
+// 
 }(window, document));
